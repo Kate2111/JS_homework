@@ -1,0 +1,22 @@
+body {
+    background-color: rgba(252, 250, 125, 0.5);
+}
+
+.mainname {
+    color: red;
+    text-align: center;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+h1{
+    color: red;
+    text-align: center;
+}
+
+.italic {
+    font-style: italic;
+}
+
