@@ -1,33 +1,5 @@
 "use strict";
 
-//alert - показывает сообщение.
-//prompt - показывает сообщение и запрашивает ввод текста от пользователя. Возвращает напечатанный в поле ввода текст или null, если была нажата кнопка «Отмена» или Esc с клавиатуры.
-//confirm - показывает сообщение и ждёт, пока пользователь нажмёт OK или Отмена. Возвращает true, если нажата OK, и false, если нажата кнопка «Отмена» или Esc с клавиатуры.
-//Мои тестовые задачки
-/* const city = prompt ('В каком городе ты живешь?', '');
-alert (`Я хотел бы побывать в ${city}`);
-console.log(city);
-console.log(typeof(city));
-
-const country = prompt ('В какой стране ты живешь?', 'Россия');
-const answer = confirm (`Тебе нравится жить в ${country}?`);
-console.log(country);
-console.log(answer);
-if (answer == true) {
-    alert ('Мне тоже, очень красивая страна');
-} else {
-    const town = prompt ('А где бы хотел жить?', '');
-    console.log(town);
-}
-
-const color = [];
-color[0] = prompt('Какого цвета ты хочешь машину?', '');
-color[1] = prompt('Какого цвета у тебя волосы?', '');
-console.log(color);
- */
-
-
-
 // Разбор задач с Telegram
 
 /* const number1 = 7;
@@ -188,4 +160,23 @@ const food = [
     {name: 'Пицца с семгой', weight: 230, price: 77, quantity: 4},
     {name: 'Салат цезарь', weight: 230, price: 69, quantity: 5},
 ];
+
+// 15 Что выведет консоль? / 0 - ПОЧЕМУ?
+console.log(chackValue(a));
+var a =1;
+function chackValue(param) {
+    if (param) {
+        return +!!a;
+    } else {
+        return +!!a;
+    }
+}
+
+// 16 Какой будет результат? ПОЧЕМУ? / 10 раз выведется число 10
+for (let i = 0; i < 10; i++) {
+    setTimeout(function () {
+        console.log(i);
+    }, 0);
+}
+// 10 раз запустится отложенный console.log(i), который лежит внутри анонимной функции, которая создается каждый раз.
 
