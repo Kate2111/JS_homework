@@ -1,8 +1,5 @@
-
-let num = 3;
-
-if (num > 0 && num < 5 || num > 10 && num < 20) {
-	console.log('+++');
-} else {
-	console.log('---');
+let fr = 90;
+let gh = fr * 3;
+while(gh < 1000) {
+    console.log(gh);
 }
