@@ -20,3 +20,15 @@ h1{
     font-style: italic;
 }
 
+.wrapper {
+    width: 1000px;
+    height: 1000px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid brown;
+}
