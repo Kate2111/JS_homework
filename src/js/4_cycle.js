@@ -101,7 +101,7 @@ let s = [2, 5, 9, 15, 0, 4];
 
 for(let i = 0; i <= 5; i++) {
     if(s[i] > 3 && s[i] < 10) {
-        document.write(s[i] + '<br>');
+        //document.write(s[i] + '<br>');
     }
 }
     
@@ -191,10 +191,10 @@ for(let elem of arr3) {
 }
 
 //23.   Выведите в консоль те элементы объекта, значения которых - нечетные числа.
-let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
-for(let key in obj) {
-    if(obj[key] % 2 > 0) {
-        console.log(obj[key]);
+let objj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+for(let key in objj) {
+    if(objj[key] % 2 > 0) {
+        console.log(objj[key]);
     }
 }
 
@@ -555,41 +555,151 @@ for(elem of mrr) {
 }
 console.log(sum5);
 
-
-
-
+//61.    Возьмите из этого объекта те значения, у которых первая цифра 1 или 2, и найдите их сумму.
 let obj = {a: 10, b: 20, c: 30, d: 40, e: 50};
-let sum = 0;
-
+let summ = 0;
 for (let elem in obj) {
     let num1 = String(obj[elem])[0];
 	if (num1 === "1" || num1 === "2") {
 		console.log(obj[elem]);
-        sum += obj[elem];
+        summ += obj[elem];
 	}
 }
-console.log(sum);
+console.log(summ);
 
+//62.   Дан массив с числами. С помощью цикла найдите сумму квадратов элементов этого массива.
+let m = [2, 3, 4];
+let sum6 = 0;
+for(let elem of m) {
+    sum6 += elem ** 2;
+}
+console.log(sum6);
 
+//63.   Дан массив с числами. Найдите среднее арифметическое его элементов.
+let mm = [25, 42, 99, 10];
+let sum7 = 0;
+let ar = 0;
+for(let elem of mm) {
+    sum7 += elem;
+    ar = sum7 / mm.length;
+}
+console.log(ar);
 
+//64.   Напишите скрипт, который будет находить факториал числа. Факториал - это произведение всех целых чисел от единицы до заданного числа.
+let n = [2, 2.5, 3, 4.5];
+let sum8 = 1;
+for(let elem of n) {
+    let v = Number.isInteger(+elem); 
+    if(v) {
+        sum8 *= elem;
+    }
+}
+console.log(sum8);
 
-//8
-let arr = ['1', '2', '3', '4', '5'];
-let sum = '';
-
-for (let elem of arr) {
-	sum = sum +  +elem;
+//65.   Выведите на экран только те числа из массива, которые начинаются на цифру 1, 2 или 5.
+let ar1 = [10, 20, 30, 50, 235, 3000];
+for(let elem of ar1) {
+    if(String(elem)[0] == 1 || String(elem)[0] == 2 || String(elem)[0] == 5) {
+        console.log(elem);
+    }
 }
 
-console.log(sum);
-
-
-let arr = ['1', '2', '3', '4', '5'];
-let sum = 0;
-
-for (let i = 0; i <= arr.length; i++) {
-    console.log(+arr[i]);
-	sum += +arr[i];
+//66.   Дан массив с числами. Выведите элементы этого массива в обратном порядке.
+let ar2 = [1, 2, 3, 4, 5];
+for (i = ar2.length - 1; i >= 0; i--) {
+    console.log(ar2[i]);
 }
 
-console.log(sum);
+//67.   Дан массив с числами. С помощью цикла выведите на экран все элементы, значение которых совпадает с их порядковым номером в массиве.
+let ar3 = [2, 1, 3];
+for(let elem of ar3) {
+    if(ar3.indexOf(elem) == elem) {
+        console.log(elem);
+    }
+}
+
+//68.   Дан следующий объект с работниками и их зарплатами. Увеличьте зарплату каждого работника на 10%.
+let ob = {
+	employee1: 100,
+	employee2: 200,
+	employee3: 300,
+	employee4: 400,
+	employee5: 500,
+	employee6: 600,
+	employee7: 700,
+};
+
+for(let key in ob) {
+    if(ob[key] <= 400) {
+        console.log(ob[key] + (ob[key] / 100 * 10));
+    }
+}
+
+//69. С помощью этих массивов создайте новый объект, сделав его ключами элементы первого массива, а значениями - элементы второго.
+let rr1 = [1, 2, 3, 4, 5];
+let rr2 = [6, 7, 8, 9, 10];
+let ob1 = {};
+for(i = 0; i < 4; i++) {
+    ob1[rr1[i]] = rr2[i];
+}
+console.log(ob1);
+
+//70.   Найдите сумму ключей этого объекта и поделите ее на сумму значений.
+let ob2 = {1: 6, 2: 7, 3: 8, 4: 9, 5: 10};
+let su1 = 0;
+let su2 = 0;
+
+for(let key in ob2) {
+    su1 += +key;
+    su2 += +ob2[key];
+}
+console.log(su1 / su2);
+
+//71.   Запишите ключи этого объекта в один массив, а значения - в другой.
+let ob3 = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}; 
+//let keys = Object.keys(ob3);
+//let values = Object.values(ob3);
+let keys = [];
+let values = [];
+for(key in ob3) {
+    keys.push(key);
+    values.push(ob3[key]);
+}
+console.log(keys, values);
+
+//72.   Запишите в новый массив элементы, значение которых начинается с цифры 1 или цифры 2. 
+let ob4 = {
+	1: 125,
+	2: 225,
+	3: 128,
+	4: 356,
+	5: 145,
+	6: 281,
+	7: 452,
+};
+let rr3 = [];
+
+for(let elem in ob4) {
+    if(String(ob4[elem])[0] === '1' || String(ob4[elem])[0] === '2') {
+        rr3.push(ob4[elem]);
+    }
+}
+console.log(rr3);
+
+//73.   Создайте из массива объектd в формате '1': 'a'
+let rr4 = ['a', 'b', 'c', 'd', 'e'];
+let ob5 = {};
+
+for(i = 0; i < rr4.length; i++) {
+    ob5[i + 1] = rr4[i];
+}
+console.log(ob5);
+
+//74.    Создайте из массива объектd в формате 'a': 1
+let rr5 = ['a', 'b', 'c', 'd', 'e'];
+let ob6 = {};
+
+for(i = 0; i < rr5.length; i++) {
+    ob6[rr5[i]] = i + 1;
+}
+console.log(ob6);
