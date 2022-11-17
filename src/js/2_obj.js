@@ -258,22 +258,318 @@ for(i = 0; i < 2; i++) {
 }
 console.log(arr11);
 
-//28.   Найдите сумму элементов приведенного объекта.
-let oob = {
-	key1: {
-		key1: 1,
-		key2: 2,
-		key3: 3,
+//28.   Найдите сумму элементов приведенного объекта. НЕ РЕШИЛА
+let obb = {
+	1: {
+		1: 11,
+		2: 12,
+		3: 13,
 	},
-	key2: {
-		key1: 4,
-		key2: 5,
-		key3: 6,
+	2: {
+		1: 21,
+		2: 22,
+		3: 23,
 	},
-	key3: {
-		key1: 7,
-		key2: 8,
-		key3: 9,
+	3: {
+		1: 24,
+		2: 25,
+		3: 26,
 	},
 }
 let suu = 0;
+for(let key in obb) {
+    let subObb = obb[key];
+    for(let subKey in subObb) {
+        suu += subObb[subKey];
+    }
+}
+console.log(suu);
+
+//29.   Выведите на экран элемент 'b2' и элемент 'c1'.
+let obj11 = {
+	1: {
+		1: 'a1',
+		2: 'a2',
+		3: 'a3',
+	},
+	2: {
+		1: 'b1',
+		2: 'b2',
+		3: 'b3',
+	},
+	3: {
+		1: 'c1',
+		2: 'c2',
+		3: 'c3',
+	},
+}
+console.log(obj11[2][2], obj11[3][1]);
+
+//30.   Вручную, без цикла, найдите сумму всех элементов-чисел.
+let obj12 = {
+	key1: {
+            a: 1, 
+            b: 2, 
+            c: {
+                d: 3,
+                e: 4,
+            }, 
+            f: 5,
+	    },
+	key2: {
+		g: 6, 
+        h: 7,
+	},
+}
+console.log(obj12.key1.a + obj12.key1.b + obj12.key1.c.d + obj12.key1.c.e + obj12.key1.f + obj12.key2.g + obj12.key2.h);
+
+//31.   Выведите на экран первого студента из третьей группы.
+let students = {
+	'group1': ['name11', 'name12', 'name13'],
+	'group2': ['name21', 'name22', 'name23'],
+	'group3': ['name31', 'name32', 'name33'],
+};
+console.log(students['group3'][0]);
+
+//32.   С помощью вложенных циклов выведите на экран все строки с данными.
+let data = {
+	1: [
+		'data11',
+		'data12',
+		'data13',
+	],
+	2: [
+		'data21',
+		'data22',
+		'data23',
+	],
+	3: [
+		'data31',
+		'data32',
+		'data33',
+	],
+	4: [
+		'data41',
+		'data42',
+		'data43',
+	],
+};
+for(let key in data) {
+    for(let d of data[key]) {
+        console.log(d);
+    }
+}
+
+//33.   С помощью вложенных циклов выведите на экран все строки с данными.
+let data1 = [
+	{
+		1: 'data11',
+		2: 'data12',
+		3: 'data13',
+	},
+	{
+		1: 'data21',
+		2: 'data22',
+		3: 'data33',
+	},
+	{
+		1: 'data31',
+		2: 'data32',
+		3: 'data33',
+	},
+];
+for(elem of data1) {
+    for(key in elem) {
+        console.log(elem[key]);
+    } 
+}
+
+//34.   С помощью вложенных циклов выведите на экран все строки с данными.
+let data3 = [
+	{
+		1: [
+			'data111',
+			'data112',
+			'data113',
+		],
+		2: [
+			'data121',
+			'data122',
+			'data123',
+		],
+	},
+	{
+		1: [
+			'data211',
+			'data212',
+			'data213',
+		],
+		2: [
+			'data221',
+			'data222',
+			'data223',
+		],
+	},
+	{
+		1: [
+			'data411',
+			'data412',
+			'data413',
+		],
+		2: [
+			'data421',
+			'data422',
+			'data423',
+		],
+	},
+];
+for(let elem of data3) {
+    for(let key in elem) {
+        for(elem2 of elem[key]) {
+            console.log(elem2);
+        }
+    }
+}
+
+//34.   Выведите на экран данные каждого работника в формате имя - зарплата.
+let employees = [
+	{
+		name: 'name1',
+		salary: 300,
+	},
+	{
+		name: 'name2',
+		salary: 400,
+	},
+	{
+		name: 'name3',
+		salary: 500,
+	},
+];
+for(let elem of employees) {
+    console.log(elem.name + '-' + elem.salary);
+}
+
+//35.   Выведите на экран сумму зарплат всех работников.
+let employees1 = [
+	{
+		name: 'name1',
+		salary: 300,
+	},
+	{
+		name: 'name2',
+		salary: 400,
+	},
+	{
+		name: 'name3',
+		salary: 500,
+	},
+];
+let su5 = 0;
+for(let elem of employees1) {
+    su5 += elem.salary;
+}
+console.log(su5);
+
+//36.   Выведите на экран сумму зарплат тех работников, возраст которых равен или более 30 лет.
+let employees2 = [
+	{
+		name: 'name1',
+		salary: 300,
+		age: 28,
+	},
+	{
+		name: 'name2',
+		salary: 400,
+		age: 29,
+	},
+	{
+		name: 'name3',
+		salary: 500,
+		age: 30,
+	},
+	{
+		name: 'name4',
+		salary: 600,
+		age: 31,
+	},
+	{
+		name: 'name5',
+		salary: 700,
+		age: 32,
+	},
+];
+let su6 = 0;
+for(let elem of employees2) {
+    if(elem.age >= 30) {
+        su6 += elem.salary;
+    }
+}
+console.log(su6);
+
+//37.   Добавьте в следующий массив еще одного работника
+let employees4 = [
+	{
+		name: 'name1',
+		salary: 300,
+		age: 28,
+	},
+	{
+		name: 'name2',
+		salary: 400,
+		age: 29,
+	},
+	{
+		name: 'name3',
+		salary: 500,
+		age: 30,
+	},
+];
+employees4.push({
+    name: 'name4',
+    salary: 250,
+    age: 22,
+});
+console.log(employees4);
+
+//38.   Скопируйте себе следующую структуру для хранения списка дел за определенные даты:  
+let affairs = {
+	'2019-12-28': ['data11', 'data12', 'data13'],
+	'2019-12-29': ['data21', 'data22', 'data23'],
+	'2019-12-30': ['data31', 'data32', 'data33'],
+}
+//Добавьте еще одно дело в дату '2019-12-29'.
+affairs["2019-12-29"].push('data24');
+console.log(affairs["2019-12-29"]);
+//Добавьте еще два дела в дату '2019-12-31'.
+affairs["2019-12-31"] = [];
+affairs["2019-12-31"].push('data41', 'data42');
+console.log(affairs["2019-12-31"]);
+
+//39.   Скопируйте себе следующую структуру для хранения списка студентов:
+let students1 = {
+	'group1': {
+		'subgroup11': ['student111', 'student112', 'student113'],
+		'subgroup12': ['student121', 'student122', 'student123'],
+	},
+	'group2': {
+		'subgroup21': ['student211', 'student212', 'student213'],
+		'subgroup22': ['student221', 'student222', 'student223'],
+	},
+	'group3': {
+		'subgroup31': ['student311', 'student312', 'student313'],
+		'subgroup32': ['student321', 'student322', 'student323'],
+	},
+};
+//Добавьте нового студента в подгруппу 'subgroup11'.
+students1.group1.subgroup11.push('student114');
+console.log(students1.group1.subgroup11);
+//Добавьте в первую группу еще одну подгруппу.
+students1.group1.subgroup13 = [];
+students1.group1.subgroup13.push('student131');
+console.log(students1.group1.subgroup13);
+//Сделайте четвертую группу, в ней сделайте подгруппу и добавьте в нее двух новых студентов.
+students1.group4 = {};
+students1.group4.subgroup41 = [];
+students1.group4.subgroup41.push('student411', 'student412');
+console.log(students1.group4.subgroup41);
