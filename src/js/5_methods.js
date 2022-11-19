@@ -175,3 +175,40 @@ console.log(ddd.indexOf(3));
 //24.   Проверьте, есть ли в этом массиве число 3.
 let ddd1 = [1, 2, 3, 4, 5];
 console.log(ddd1.includes(3));
+
+//25.   Преобразуйте последнюю букву строки в верхний регистр.
+let str3 = 'london';
+let result3 = str3.slice(0, 5) + str3.slice(-1).toUpperCase();
+console.log(result3);
+//Преобразуйте первые 2 буквы строки в верхний регистр.
+let result4 = str3.slice(0, 2).toUpperCase() + str3.slice(2);
+console.log(result4);
+
+//26.   Пусть дана строка, у которой первая буква в верхнем регистре, например вот такая:
+let str4 = 'London';
+console.log(str4.toLowerCase());
+
+//27.   Напишите код, который преобразует первую букву каждого слова в верхний регистрlet
+let str5 = 'word1 word2 word3';
+let words = str5.split(' '); // [ 'word1', 'word2', 'word3' ]
+for(let i = 0; i < words.length; i++) {
+    words[i] = words[i].slice(0, 1).toUpperCase() + words[i].slice(1); // [ 'Word1', 'Word2', 'Word3' ]
+}
+let result5 = words.join(' '); //'Word1 Word2 Word3'
+console.log(result5);
+
+//28.   Преобразуйте строку 'var_test_text' в 'VarTestText'. Написанный код должен работать для любых строк такого типа (то есть для строк, в которых слова разделены символов подчеркивания).
+let str6 = 'var_test_text';
+let ff = str6.split('_');
+for(let i = 0; i < ff.length; i++) {
+    ff[i] = ff[i].slice(0, 1).toUpperCase() + ff[i].slice(1);
+}
+let result6 = ff.join(''); // VarTestText
+let result7 = result6.slice(0, 1).toLowerCase() + result6.slice(1);
+console.log(result6);
+console.log(result7);
+
+//29.   Дана строка со словами. Напишите скрипт, который переставит слова в строке в обратном порядке.
+let str7 = 'var test text';
+let result8 = str7.split(' ').reverse().join(' ');
+console.log(result8); //text test var
