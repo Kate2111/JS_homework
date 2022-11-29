@@ -212,3 +212,184 @@ console.log(result7);
 let str7 = 'var test text';
 let result8 = str7.split(' ').reverse().join(' ');
 console.log(result8); //text test var
+
+//30.   Дан массив с числами. Используя метод map извлеките из каждого элемента массива квадратный корень и запишите результат в новый массив.
+let arr12 = [4, 9, 16, 25];
+let result9 = arr12.map(function(item) {
+    return Math.sqrt(item);
+});
+console.log(result9);
+
+//31.   Дан массив со строками. Используя метод map в конец значению каждого элемента массива добавьте символ '!'.
+let arr13 = ['hi', 'bye'];
+let result10 = arr13.map(function(item) {
+    return item + '!';
+});
+console.log(result10);
+
+//32.   Дан массив со строками. Используя метод map переверните символы каждой строки в обратном порядке.
+let arr14 = ['ih', 'eyb'];
+let result11 = arr14.map(function(item) {
+    return item.split('').reverse().join('');
+});
+console.log(result11);
+
+//33.   Дан следующий массив, Используя метод map преобразуйте этот массив в следующий:
+let arr15 = ['123', '456', '789'];
+let result12 = arr15.map(function(item) {
+    return item.split('');
+});
+console.log(result12);
+
+//34.   Дан массив с числами. Используя метод map запишите в каждый элемент массива значение этого элемента, умноженное на его порядковый номер в массиве.
+let arr16 = [2, 3, 4];
+let result13 = arr16.map(function(elem, i) {
+    return elem * i;
+});
+console.log(result13);
+
+//35.   Дан массив с числами. Используя метод map запишите в каждый элемент массива значение этого элемента в квадрате
+let arr17 = [[2, 3], [4, 5],];
+let result14 = arr17.map(function(item) {
+    return item.map(function(elem) {
+        return elem * elem;
+    });
+});
+console.log(result14);
+
+//36.   Дан массив с числами. Используя метод forEach найдите сумму квадратов элементов этого массива.
+let arr18 = [2, 3, 4];
+let sum5 = 0;
+arr18.forEach(elem => sum5 += Math.pow(elem, 2));
+console.log(sum5);
+
+//37.   Дан массив с числами. Оставьте в нем только положительные числа.
+let arr19 = [-2, 3, -4, 7];
+let result15 = arr19.filter(elem => elem >=0);
+console.log(result15);
+
+//38.   Дан массив с числами. Оставьте в нем только отрицательные числа.
+let arr20 = [-2, 3, -4, 7];
+let result16 = arr20.filter(elem =>elem < 0);
+console.log(result16);
+
+//39.   Дан массив с числами. Оставьте в нем только числа, которые больше нуля, но меньше 10.
+let arr21 = [-2, 3, 20, -4, 7, 12];
+let result17 = arr21.filter(elem => elem >= 0 && elem < 10);
+console.log(result17);
+
+//40.   Дан массив со строками. Оставьте в нем только те строки, длина которых больше 5-ти символов.
+let arr22 = ['привет', 'пока', 'здравствуйте', 'до свидания'];
+let result18 = arr22.filter(elem => elem.length > 5);
+console.log(result18);
+
+//41.   Дан массив с числами. Оставьте в нем только те числа, произведение которых на их порядковый номер меньше 30.
+let arr23 = [-2, 3, 20, -4, 7, 12];
+let result19 = arr23.filter((elem, i) => elem * i < 30 && elem > 0);
+console.log(result19);
+
+//42.   Дан массив, в нем могут быть обычные элементы и подмассивы, например [1, 2, [3, 4], 5, [6, 7]]. Оставьте в нем только обычные элементы.
+let arr24 = [1, 2, [3, 4], 5, [6, 7]];
+let result20 = arr24.filter(elem => typeof elem != 'object');
+console.log(result20);
+
+//43.   Дан массив с числами. Посчитайте количество отрицательных чисел в этом массиве.
+let arr25 = [-2, 3, 20, -4, 7, -12];
+let result21 = arr25.filter(elem => elem < 0).length;
+console.log(result21);
+
+//44.   Дан массив с числами. Проверьте то, что все элементы в массиве больше нуля.
+let arr26 = [-2, 3, 20, -4, 7, -12];
+let result22 = arr26.every(elem => elem > 0);
+console.log(result22); //false
+
+//45.   Дан массив с числами. Проверьте то, что для всех элементов произведение их значений на их порядковый номер меньше 30.
+let arr27 = [2, 3, 4, 7];
+let result23 = arr27.every((elem, i) => elem * i < 30);
+console.log(result23); //true
+
+//46.   Дан массив с числами. Проверьте то, что в массиве есть хотя бы одно число больше нуля.
+let arr28 = [-2, 3, 20, -4, 7, -12];
+let result24 = arr28.some(elem => elem > 0);
+console.log(result24); //true
+
+//47.   Дан массив с числами. Проверьте то, что хотя бы для одного элемента произведение его значения на порядковый номер больше 30.
+let arr29 = [2, 3, 4, 7];
+let result25 = arr29.some((elem, i) => elem * i > 30);
+console.log(result25); //false
+
+//48.   Найдите с помощью функции сумму элементов массива.
+let arr30 = [1, 2, 3, 4, 5];
+
+function func(num1, num2, num3, num4, num5) {
+	return num1 + num2 + num3 + num4 + num5;
+}
+console.log(func(...arr30));
+
+//49.   Дан массив с числами. Используя Math.min и spread выведите на экран минимальное значение массива.
+let arr31 = [20, 500, 6, 45];
+let result26 = Math.min(...arr31);
+console.log(result26);
+
+//50.   Напишите функцию, которая будет принимать параметрами произвольное количество чисел и возвращать их среднее арифметическое.
+function average(...nums) {
+    let sum = 0;
+    nums.forEach(elem => sum += elem);
+    let average = sum / nums.length;
+    return average;
+}
+
+function average(...nums) {
+    return nums.reduce((acc, elem) => acc + elem) / nums.length;
+}
+console.log(average(2, 5, 9, 15, 24, 65));
+
+//51.   Давайте сделаем функцию unite, которая параметрами будет принимать произвольное количество массивов и сливать их в один двухмерный
+function unite(...arrs) {
+	return arrs;
+}
+let result27 = unite([1, 2, 3], [4, 5, 6], [7, 8, 9]); 
+console.log(result27);
+
+//52.   Давайте теперь реализуем функцию merge, параметрами принимающую произвольное количество массивов и сливающую их элементы в один массив.
+function merge(...arrs) {
+    return [].concat(...arrs);
+}
+console.log(merge([1, 2, 3], [4, 5, 6], [7, 8, 9]));
+
+//53.    Дан массив с числами. Используя метод reduce найдите сумму элементов этого массива начиная с 13.
+let arr32 = [2, 6, 8, 17];
+let result28 = arr32.reduce((acc, elem) => acc + elem, 13);
+console.log(result28);
+
+//54.   Дан массив с числами. Используя метод reduce найдите количество повторяющихся элементов и выведите эти элементы с массив
+let arr33 = [2, 17, 6, 2, 3, 8, 17, 10, 17];
+let result29 = arr33.reduce(function(acc, elem) {
+    if(acc[elem]) {
+        acc[elem] += 1;
+    } else {
+        acc[elem] = 1;
+    }
+    return acc; //{ '2': 2, '3': 1, '6': 1, '8': 1, '10': 1, '17': 3 }
+}, {});
+
+function res (obj) {
+    for(let key in obj) {
+        if(obj[key] <= 1) {
+            delete obj[key]; //{ '2': 2, '17': 3 }
+        }
+    }
+    let arr34 = Object.keys(obj); //[ '2', '17' ]
+    
+    return arr34.map(elem => +elem);
+}
+
+console.log(res(result29)); // [ 2, 17 ]
+
+
+
+
+
+
+
+

@@ -1,14 +1,22 @@
-let arr19 = [1, [2, 7, 8], [3, 4], [5, [6, 7]]];
-let arr20 = [];
-function func22 (arr) {
-    let arr21 = [];
-    for(let elem of arr) {
-        if(typeof elem == 'object') {
-            arr21.push(func22(elem));
-        } else {
-            arr20.push(Math.pow(elem, 2));
+let arr33 = [2, 17, 6, 2, 3, 8, 17, 10, 17];
+let result29 = arr33.reduce(function(acc, elem) {
+    if(acc[elem]) {
+        acc[elem] += 1;
+    } else {
+        acc[elem] = 1;
+    }
+    return acc; //{ '2': 2, '3': 1, '6': 1, '8': 1, '10': 1, '17': 3 }
+}, {});
+
+function res (obj) {
+    for(let key in obj) {
+        if(obj[key] <= 1) {
+            delete obj[key]; //{ '2': 2, '17': 3 }
         }
     }
-    return arr20;
+    let arr34 = Object.keys(obj); //[ '2', '17' ]
+    
+    return arr34.map(elem => +elem);
 }
-console.log(func22(arr19));
+
+console.log(res(result29)); // [ 2, 17 ]
