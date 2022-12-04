@@ -877,3 +877,125 @@ function func22 (arr) {
     return arr20;
 }
 console.log(func22(arr19));
+
+//65.   Переделайте этот код через деструктуризацию согласно изученной теории.
+let arr22 = ['John', 'Smit', 'development', 'programmer', 2000];
+let [name, surname, department, position, salary] = arr22;
+console.log(name);
+
+//66.   Переделайте этот код через деструктуризацию согласно изученной теории.
+function func() {
+	return ['John', 'Smit', 'development', 
+		'programmer', 
+		2000]; 
+}
+let [name, surname, department, position, salary] = func();
+console.log(department);
+
+//Пропуск элементов массива при деструктуризации
+let arr23 = ['John', 'Smit', 'development', 'programmer', 2000];
+let [,, department, position, ] = arr23;
+console.log(department);
+
+//Остаток массива с помощью оператора rest
+let arr24 = ['John', 'Smit', 'development', 'programmer', 2000]; 
+let [name, surname, ...info] = arr24;
+console.log(name);
+console.log(surname);
+console.log(info);
+
+//Значения по умолчанию при деструктуризации 
+let arr25 = ['John', 'Smit', 'development'];
+let [name, surname, department, position = 'trainee'] = arr25;
+console.log(name);
+console.log(surname);
+console.log(position);
+
+let arr26 = [];
+function func() {
+	return (new Date).getDate();
+}
+let [year = 2022, month = 11, day = func()] = arr26;
+console.log(year);
+console.log(month);
+console.log(day);
+
+// Деструктуризация объектов
+let options = {
+	color: 'red',
+	width:  400,
+	height: 500,
+};
+let {color, width, height} = options;
+console.log(color, width, height);
+
+//Имена переменных при деструктуризации объектов 
+let options1 = {
+	color: 'red',
+	width:  400,
+	height: 500,
+};
+let {color: c, width: w, height: h} = options1;
+console.log(c, w, h);
+
+//Значения по умолчанию при деструктуризации объектов 
+let options2 = {
+	width1:  400,
+	height1: 500,
+};
+let {color1 = 'black', width1, height1} = options2;
+console.log(color1, width1, height1);
+
+//Переменные и значения по умолчанию 
+let options3 = {
+	width2:  400,
+	height2: 500,
+};
+let {color2: c2 = 'black', width2, height2} = options3;
+console.log(c2, width2, height2);
+
+//67.   Переделайте следующий код через деструктуризацию согласно изученной теории:
+
+function func([name, surname, department, position, salary]) {
+	console.log(name, surname, department, position, salary);
+}
+func( ['John', 'Smit', 'development', 'programmer', 2000] ); 
+
+//
+function func([name, surname, ...info]) {
+	console.log(name, surname, info);
+}
+func( ['John', 'Smit', 'development', 'programmer', 2000] ); 
+
+//
+function func([name, surname, department]) {
+	console.log(name, surname, department, position = 'джуниор');
+}
+func( ['John', 'Smit', 'development'] );
+
+//
+function func(department, employee, hired) {
+	console.log(department, employee, hired);
+}
+func( 'development', ['John', 'Smit'], [2018, 12, 31] ); 
+
+//
+function func({color, width, height}) {
+	console.log(color, width, height);
+}
+
+func( {color: 'red', width: 400, height: 500} );
+
+//
+function func({color, width, height}) {
+	console.log(color, width, height);
+}
+
+func( {color: 'red', width: 400, height: 500} );
+
+
+
+
+
+
+
