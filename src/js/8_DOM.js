@@ -310,3 +310,93 @@ elem12.addEventListener('blur', function() {
 elem12.addEventListener('focus', function() {
     elem12.value = null;
 }); */
+
+//38.   Дана также кнопка. По нажатию на кнопку прочитайте и выведите на экран значение атрибута class нашего дива.
+/* const button9 = document.querySelector('#but3');
+const content = document.querySelector('#elem');
+button9.addEventListener('click', function() {
+    console.log(content.className);
+}); */
+
+//39.   Дана также кнопка. По нажатию на кнопку запишите в атрибут class нашего дива какой-нибудь класс.
+/* const button9 = document.querySelector('#but3');
+const div = document.querySelector('#elem13');
+button9.addEventListener('click', function() {
+    div.className = 'elem';
+}); */
+
+//40.   Дана также кнопка. По нажатию на кнопку получите массив CSS классов нашего дива.
+/* const button9 = document.querySelector('#but3');
+const elem14 = document.querySelector('#elem14');
+button9.addEventListener('click', function() {
+    console.log(elem14.className.split(' '));
+}); */
+
+//41.   Дан инпут. По получению фокуса этим инпутом запишите в него число 1, а по потери фокуса - число 2. Для обращения у инпуту внутри функции-обработчика используйте объект this.
+/* const elem15 = document.querySelector('#elem15');
+elem15.addEventListener('focus', function() {
+    this.value = '1';
+});
+elem15.addEventListener('blur', function() {
+    this.value = '2';
+}); */
+
+//42.   Даны 5 абзацев с какими-то текстами. По клику на любой абзац запишите в конец его текста восклицательный знак.
+/* const elem16 = document.querySelector('#elem16');
+const elem17 = document.querySelector('#elem17');
+const elem18 = document.querySelector('#elem18');
+const elem19 = document.querySelector('#elem19');
+const elem20 = document.querySelector('#elem20');
+function func() {
+    this.textContent = this.textContent + '!';
+}
+
+elem16.addEventListener('click', func);
+elem17.addEventListener('click', func);
+elem18.addEventListener('click', func);
+elem19.addEventListener('click', func);
+elem20.addEventListener('click', func); */
+
+//43.   Даны 3 инпута, в которых записаны какие-то числа. По потери фокуса в любом из инпутов возведите стоящее в нем число в квадрат.
+/* const elem21 = document.querySelector('#elem21');
+const elem22 = document.querySelector('#elem22');
+const elem23 = document.querySelector('#elem23');
+function func() {
+    this.value = Math.pow(this.value, 2);
+}
+elem21.addEventListener('blur', func);
+elem22.addEventListener('blur', func);
+elem23.addEventListener('blur', func);
+ */
+
+//44.   Даны абзацы и кнопка. По нажатию на кнопку найдите все абзацы, переберите из циклом и установите текст каждого абзаца в значение 'text'.
+/* const elem17 = document.querySelectorAll('#elem17');
+const button9 = document.querySelector('#but3');
+button9.addEventListener('click', function() {
+    for(let elem of elem17) {
+        elem.textContent = 'text';
+    }
+}); */
+
+//45.   Даны абзацы с текстом и кнопка. По нажатию на кнопку запишите в конец текста каждого абзаца его порядковый номер.
+/* const elem17 = document.querySelectorAll('#elem17');
+const button9 = document.querySelector('#but3');
+button9.addEventListener('click', function() {
+    for(i = 0; i <= elem17.length; i++) {
+        elem17[i].textContent = elem17[i].textContent + i;
+    }
+}); */
+
+//46.   Даны инпуты с числами, абзац и кнопка. По нажатию на кнопку найдите сумму чисел из инпутов и запишите эту сумму в текст абзаца.
+const button9 = document.querySelector('#but3');
+const elem24 = document.querySelectorAll('.elem24');
+const elem25 = document.querySelector('#elem25');
+button9.addEventListener('click', function() {
+    console.log(elem24);
+});
+
+/* let sum = 0;
+    for(let elem of input) {
+        sum += elem;
+    }
+    elem25.textContent = sum; */
