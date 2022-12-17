@@ -388,15 +388,58 @@ button9.addEventListener('click', function() {
 }); */
 
 //46.   Даны инпуты с числами, абзац и кнопка. По нажатию на кнопку найдите сумму чисел из инпутов и запишите эту сумму в текст абзаца.
-const button9 = document.querySelector('#but3');
+/* const button9 = document.querySelector('#but3');
 const elem24 = document.querySelectorAll('.elem24');
 const elem25 = document.querySelector('#elem25');
-button9.addEventListener('click', function() {
-    console.log(elem24);
-});
 
-/* let sum = 0;
-    for(let elem of input) {
-        sum += elem;
+console.log(typeof(+elem24[0].value));
+
+console.log(typeof(+elem24.value));
+button9.addEventListener('click', function() {
+    let sum = 0;
+    for(i = 0; i <= 2; i++) {
+        sum += Number(elem24[i].value);
     }
-    elem25.textContent = sum; */
+    elem25.textContent = sum;
+
+}); */
+
+//47.   Даны также инпуты. Сделайте так, чтобы по потери фокуса в любом из наших инпутов выполнялась приведенная выше функция.
+/* const elem24 = document.querySelectorAll('.elem24');
+for(elem of elem24) {
+    elem.addEventListener('blur', func);
+}
+function func () {
+    this.value = Number(this.value) + 1;
+} */
+
+//48.   Даны абзацы с числами. Сделайте так, чтобы по клику на любой абзац его число в нем возводилось в квадрат.
+/* const elem25 = document.querySelectorAll('#elem25');
+
+for (let elem of elem25) {
+	elem.addEventListener('click', func);
+}
+function func() {
+    this.textContent = Math.pow(+this.textContent, 2);
+} */
+
+//49.   Сделайте функцию-обработчик анонимной.
+/* let divs = document.querySelectorAll('div');
+
+for (let div of divs) {
+	div.addEventListener('click', function() {
+        this.textContent++;
+    });
+} */
+
+
+//50.   Дана ссылка и кпнока. По нажатию на кнопку добавьте в конец текста ссылки содержимое ее атрибута href в круглых скобках. Сделайте так, чтобы это добавление происходило лишь по первому нажатию.
+/* const button10 = document.querySelector('#but4');
+const link = document.querySelector('a');
+button10.addEventListener('click', func);
+function func() {
+    link.textContent = link.textContent + '(' + link.href + ')';
+    this.removeEventListener('click', func);
+} */
+
+//51.Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по клику на эту кнопку ее значение каждый раз увеличивалось на единицу. После того, как значение кнопки достигнет 10 - отвяжите обработчик события, чтобы кнопка больше не реагировала на нажатие.
