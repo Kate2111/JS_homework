@@ -32,3 +32,15 @@ h1{
     border-right: 50px solid transparent;
     border-bottom: 100px solid brown;
 }
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.color {
+    color:crimson;
+}

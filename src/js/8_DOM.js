@@ -440,6 +440,239 @@ button10.addEventListener('click', func);
 function func() {
     link.textContent = link.textContent + '(' + link.href + ')';
     this.removeEventListener('click', func);
-} */
+}  */
 
 //51.Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по клику на эту кнопку ее значение каждый раз увеличивалось на единицу. После того, как значение кнопки достигнет 10 - отвяжите обработчик события, чтобы кнопка больше не реагировала на нажатие.
+/* const button10 = document.querySelector('#but5');
+button10.addEventListener('click', func);
+function func() {
+    this.textContent++;
+    if(this.textContent == 10) {
+        this.removeEventListener('click', func)
+    }
+}  */
+
+//52.Даны абзацы. По нажатию на любой из абзацев добавьте ему в конец восклицательный знак. Сделайте так, чтобы это добавление происходило лишь по первому нажатию.
+/* const elems = document.querySelectorAll('p');
+for(let elem of elems) {
+    elem.addEventListener('click', func);
+}
+function func(){
+    this.textContent = this.textContent + '!';
+    this.removeEventListener('click', func)
+} */
+
+//53.Дан список ul, в каждом пункте которого записано число. Сделайте так, чтобы по клику на любую li ее число увеличивалось на единицу.
+/* const li = document.querySelectorAll('li');
+for(let elem of li) {
+    elem.addEventListener('click', function func() {
+        this.textContent++;
+    });
+} */
+
+//54.Модифицируйте предыдущую задачу так, чтобы каждая li увеличивала свое значение только по первому нажатию на нее.
+/* const li = document.querySelectorAll('li');
+for(let elem of li) {
+    elem.addEventListener('click', function func() {
+        this.textContent++;
+        this.removeEventListener('click', func);
+    });
+} */
+
+//55.Модифицируйте предыдущую задачу так, чтобы каждая li увеличивала свое значение только если ее значение меньше 10.
+/* const li = document.querySelectorAll('li');
+for(let elem of li) {
+    elem.addEventListener('click', function func() {
+        this.textContent++;
+        if(this.textContent == 10) {
+            this.removeEventListener('click', func);
+        } 
+    });
+} */
+
+//56.Получите значение его атрибута value.
+/* const elem26 = document.querySelector('#elem');
+const value = elem26.getAttribute('value');
+console.log(value); */
+
+//57.Получите значение его атрибута class.
+/* const elem27 = document.querySelector('#elem');
+const eee = elem27.getAttribute('class');
+console.log(eee); */
+
+//58.Дан элемент:<input id="elem"> Установите его атрибут value в значение 'text'.
+/* const elem27 = document.querySelector('#elem');
+elem27.setAttribute('value', 'text') */
+
+//59.Дан элемент:<input id="elem"> Установите ему атрибут class в значение 'valid'.
+/* const elem27 = document.querySelector('#elem');
+elem27.setAttribute('class', 'valid'); */
+
+//60. Дан элемент:<input id="elem" value="text"> Проверьте наличие у него атрибута value.
+/* const elem27 = document.querySelector('#elem');
+console.log(elem27.hasAttribute('value')); */
+
+//Свойство classList содержит псевдомассив CSS классов элемента, а также позволяет добавлять и удалять классы элемента, проверять наличие определенного класса среди классов элемента.
+
+//61. Дан элемент:<p id="elem" class="www ggg zzz"></p>. Узнайте количество его классов.
+/* const elem27 = document.querySelector('#elem');
+const classNames = elem27.classList;
+console.log(classNames.length); */
+
+//62.Переберите в цикле его классы.
+/* const elem27 = document.querySelector('#elem');
+const classNames = elem27.classList;
+for(let elem of classNames) {
+    document.write(elem + '<br>');
+} */
+
+//63. Добавьте ему класс xxx.
+/* const elem27 = document.querySelector('#elem');
+const classNames = elem27.classList.add('xxx'); */
+
+//64. Удалите у него класс www и класс zzz.
+/* const elem27 = document.querySelector('#elem');
+const classNames = elem27.classList.remove('www', 'zzz'); */
+
+//65.Проверьте наличие у него класса ggg.
+/* const elem27 = document.querySelector('#elem');
+const classNames = elem27.classList.contains('ggg');
+console.log(classNames); */
+
+//66.Дан элемент. Добавьте ему класс www, если его нет и удалите - если есть.
+/* const elem27 = document.querySelector('#elem');
+elem27.addEventListener('click', func);
+function func() {
+    elem27.classList.toggle('www');
+} */
+
+//67.Дан див и кнопка. По клику на кнопку добавьте диву ширину, высоту и границу.
+/* const elem27 = document.querySelector('#elem');
+const div = document.querySelector('div');
+elem27.addEventListener('click', function () {
+    div.style.width = '100px';
+    div.style.height = '60px';
+    div.style.border = 'solid';
+}); */
+
+//68.Дан див с текстом и кнопка. По клику на кнопку установите диву размер шрифта в 20px, а также верхнюю границу и фон.
+/* const elem27 = document.querySelector('#elem');
+const div = document.querySelector('div');
+elem27.addEventListener('click', function () {
+    div.style.fontSize = '20px';
+    div.style.borderTop = 'solid 1px';
+    div.style.backgroundColor = 'green';
+}); */
+
+//68.Дан список ul и кнопка. По клику на кнопку добавьте тегам li свойство float в значении left.
+/* const elem27 = document.querySelector('#elem');
+const elem28 = document.querySelectorAll('li');
+for(let elem of elem28) {
+    elem27.addEventListener('click', function () {
+        elem.style.cssFloat = 'left';
+    })
+} */
+
+//69. Дан абзац. Даны кнопки 'перечеркнуть', 'сделать жирным', 'сделать красным'. Пусть по нажатию на каждую кнопку заданное действие происходит с абзацем (становится красным, например).
+/* const elem29 = document.querySelector('p');
+const line = document.querySelector('.but1');
+const bold = document.querySelector('.but2');
+const color = document.querySelector('.but3');
+
+line.addEventListener('click', function func() {
+    elem29.classList.toggle('line-through');
+});
+
+bold.addEventListener('click', function func() {
+    elem29.classList.toggle('bold');
+});
+
+color.addEventListener('click', function func() {
+    elem29.classList.toggle('color');
+}); */
+
+//70. Найдите первого потомка этого элемента и сделайте его текст красного цвета.
+/* const parent = document.querySelector('#elem');
+const text = parent.firstElementChild.classList.add('color');
+ */
+
+//71. Найдите последнего потомка этого элемента и сделайте его текст красного цвета.
+/* const parent = document.querySelector('#elem');
+const text = parent.lastElementChild.classList.add('color'); */
+
+//Свойство children хранит в себе псевдомассив дочерних элементов. Дочерними элементами считаются все теги, которые непосредственно расположены внутри блока.
+//72. Найдите всех потомков этого элемента и добавьте им в конец текст '!'.
+/* const parent = document.querySelector('#elem');
+const text = parent.children;
+for(let elem of text) {
+    elem.textContent = elem.textContent + ' !';
+} */
+
+//Свойство parentElement содержит родительский элемент.
+//73. Найдите его родителя и задайте ему красную границу.
+/* const elem30 = document.querySelector('#elem');
+const parent = elem30.parentElement;
+parent.style.border = 'solid 1px red'; */
+
+//Метод closest ищет ближайший родительский элемент, подходящий под указанный CSS селектор, при этом сам элемент тоже включается в поиск.
+//74. Найдите ближайшего родителя этого элемента, являющегося тегом div.
+/* const elem30 = document.querySelector('#elem');
+const parent = elem30.closest('div');
+console.log(parent); */
+
+//75. Найдите ближайшего родителя этого элемента, являющегося элементом с классом www.
+/* const elem30 = document.querySelector('#elem');
+const parent = elem30.closest('.www');
+console.log(parent.id); */
+
+//Свойство previousElementSibling содержит предыдущий элемент, находящийся в этом же родителе. Если такого элемента нет - возвращается null.
+//Свойство nextElementSibling содержит следующий элемент, находящийся в этом же родителе. Если такого элемента нет - возвращается null.
+
+//76. Найдите его соседа сверху и добавьте ему в конец текст '!'.
+/* const elem30 = document.querySelector('#elem');
+const sibling = elem30.previousElementSibling;
+sibling.textContent = sibling.textContent + '  - это сосед сверху' */
+
+//77. Найдите его соседа снизу и добавьте ему в конец текст '!'.
+/* const elem30 = document.querySelector('#elem');
+const sibling = elem30.nextElementSibling;
+sibling.textContent = sibling.textContent + ' - это сосед снизу' */
+
+//78. Найдите его соседа снизу его соседа снизу (следующий элемент за соседним) и добавьте ему в конец текст '!'.
+/* const elem30 = document.querySelector('#elem');
+const sibling = elem30.nextElementSibling.nextElementSibling;
+sibling.textContent = sibling.textContent + ' - это сосед соседа' */
+
+//79. Поменяйте местами текст его соседа сверху и текст его соседа снизу. НЕ РЕШИЛА
+/* const elem30 = document.querySelector('#elem');
+const previous = elem30.previousElementSibling;
+const next = elem30.nextElementSibling;
+previous.textContent = next.textContent;
+next.textContent = previous.textContent; */
+
+//80. Получите этот элемент с помощью метода getElementById и установите ему какой-нибудь текст.
+/* const elem30 = document.getElementById('elem');
+elem30.textContent = 'Hello'; */
+
+//81. Получите все теги li по имени тега и сделайте их текст красного цвета.
+/* const elem30 = document.getElementsByTagName('li')
+for(let elem of elem30) {
+    elem.classList.add('color');
+} */
+
+//82. Получите эти элементы по имени класса и сделайте их текст красного цвета.
+/* const elem30 = document.getElementsByClassName('www');
+
+for (let elem of elem30) {
+	elem.style.color = 'red';
+} */
+
+//83. Найдите внутри родителя элементы с классом www и запишите их в переменную elems1. Затем найдите внутри родителя элементы с классом ggg и запишите их в переменную elems2.
+const parent = document.querySelector('#parent');
+const elems1 = parent.querySelectorAll('.www');
+const elems2 = parent.querySelectorAll('.ggg');
+for (let elem of elems1) {
+	console.log(elem.textContent);
+}
+console.log(elems1, elems2);
+
