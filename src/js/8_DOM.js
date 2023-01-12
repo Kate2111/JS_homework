@@ -4,7 +4,7 @@ const p2 = document.querySelector('#elem2');
 const p3 = document.querySelector('#elem3');
 //console.log(p1, p2, p3);
 
-let elem = document.querySelector('#parent input');
+/* let elem = document.querySelector('#parent input'); */
 //console.log(elem);
 
 //3. Получите ссылку на первый абзац из дива с id, равным block.
@@ -539,7 +539,7 @@ const classNames = elem27.classList.remove('www', 'zzz'); */
 const classNames = elem27.classList.contains('ggg');
 console.log(classNames); */
 
-//66.Дан элемент. Добавьте ему класс www, если его нет и удалите - если есть.
+//66. урок 263. Дан элемент. Добавьте ему класс www, если его нет и удалите - если есть.
 /* const elem27 = document.querySelector('#elem');
 elem27.addEventListener('click', func);
 function func() {
@@ -592,87 +592,208 @@ color.addEventListener('click', function func() {
 }); */
 
 //70. Найдите первого потомка этого элемента и сделайте его текст красного цвета.
-/* const parent = document.querySelector('#elem');
+/* 
+const parent = document.querySelector('#elem');
 const text = parent.firstElementChild.classList.add('color');
  */
 
 //71. Найдите последнего потомка этого элемента и сделайте его текст красного цвета.
-/* const parent = document.querySelector('#elem');
-const text = parent.lastElementChild.classList.add('color'); */
-
+/* 
+const parent = document.querySelector('#elem');
+const text = parent.lastElementChild.classList.add('color');
+ */
 //Свойство children хранит в себе псевдомассив дочерних элементов. Дочерними элементами считаются все теги, которые непосредственно расположены внутри блока.
 //72. Найдите всех потомков этого элемента и добавьте им в конец текст '!'.
-/* const parent = document.querySelector('#elem');
+/* 
+const parent = document.querySelector('#elem');
 const text = parent.children;
 for(let elem of text) {
     elem.textContent = elem.textContent + ' !';
-} */
+} 
+*/
 
 //Свойство parentElement содержит родительский элемент.
 //73. Найдите его родителя и задайте ему красную границу.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const parent = elem30.parentElement;
-parent.style.border = 'solid 1px red'; */
+parent.style.border = 'solid 1px red'; 
+*/
 
 //Метод closest ищет ближайший родительский элемент, подходящий под указанный CSS селектор, при этом сам элемент тоже включается в поиск.
 //74. Найдите ближайшего родителя этого элемента, являющегося тегом div.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const parent = elem30.closest('div');
-console.log(parent); */
+console.log(parent); 
+*/
 
 //75. Найдите ближайшего родителя этого элемента, являющегося элементом с классом www.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const parent = elem30.closest('.www');
-console.log(parent.id); */
+console.log(parent.id); 
+*/
 
 //Свойство previousElementSibling содержит предыдущий элемент, находящийся в этом же родителе. Если такого элемента нет - возвращается null.
 //Свойство nextElementSibling содержит следующий элемент, находящийся в этом же родителе. Если такого элемента нет - возвращается null.
 
 //76. Найдите его соседа сверху и добавьте ему в конец текст '!'.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const sibling = elem30.previousElementSibling;
-sibling.textContent = sibling.textContent + '  - это сосед сверху' */
+sibling.textContent = sibling.textContent + '  - это сосед сверху' 
+*/
 
 //77. Найдите его соседа снизу и добавьте ему в конец текст '!'.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const sibling = elem30.nextElementSibling;
-sibling.textContent = sibling.textContent + ' - это сосед снизу' */
+sibling.textContent = sibling.textContent + ' - это сосед снизу' 
+*/
 
 //78. Найдите его соседа снизу его соседа снизу (следующий элемент за соседним) и добавьте ему в конец текст '!'.
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const sibling = elem30.nextElementSibling.nextElementSibling;
-sibling.textContent = sibling.textContent + ' - это сосед соседа' */
+sibling.textContent = sibling.textContent + ' - это сосед соседа' 
+*/
 
 //79. Поменяйте местами текст его соседа сверху и текст его соседа снизу. НЕ РЕШИЛА
-/* const elem30 = document.querySelector('#elem');
+/* 
+const elem30 = document.querySelector('#elem');
 const previous = elem30.previousElementSibling;
 const next = elem30.nextElementSibling;
 previous.textContent = next.textContent;
-next.textContent = previous.textContent; */
+next.textContent = previous.textContent; 
+*/
 
 //80. Получите этот элемент с помощью метода getElementById и установите ему какой-нибудь текст.
-/* const elem30 = document.getElementById('elem');
-elem30.textContent = 'Hello'; */
+/* 
+const elem30 = document.getElementById('elem');
+elem30.textContent = 'Hello'; 
+*/
 
 //81. Получите все теги li по имени тега и сделайте их текст красного цвета.
-/* const elem30 = document.getElementsByTagName('li')
+/* 
+const elem30 = document.getElementsByTagName('li')
 for(let elem of elem30) {
     elem.classList.add('color');
-} */
+} 
+*/
 
 //82. Получите эти элементы по имени класса и сделайте их текст красного цвета.
-/* const elem30 = document.getElementsByClassName('www');
+/* 
+const elem30 = document.getElementsByClassName('www');
 
 for (let elem of elem30) {
 	elem.style.color = 'red';
-} */
+} 
+*/
 
 //83. Найдите внутри родителя элементы с классом www и запишите их в переменную elems1. Затем найдите внутри родителя элементы с классом ggg и запишите их в переменную elems2.
+/*
 const parent = document.querySelector('#parent');
 const elems1 = parent.querySelectorAll('.www');
 const elems2 = parent.querySelectorAll('.ggg');
 for (let elem of elems1) {
 	console.log(elem.textContent);
 }
-console.log(elems1, elems2);
+console.log(elems1, elems2); 
+*/
 
+//84. Сделайте так, чтобы по клику на див в конец его текста добавилось содержимое его атрибута data-text.
+/* 
+const elem30 = document.querySelector('div');
+elem30.addEventListener('click', function() {
+    elem30.textContent = elem30.textContent + ' ' + elem30.dataset.text;
+}); 
+*/
+
+//85. Даны дивы, содержащие в атрибуте data-num свой порядковый номер. Сделайте так, чтобы по клику на любой из дивов ему в конец записывался его порядковый номер.
+/* 
+const divs = document.querySelectorAll('div');
+for(let div of divs) {
+    div.addEventListener('click', function func() {
+        div.textContent = div.textContent + div.dataset.num;
+    });
+} 
+*/
+
+//86. Дана кнопка. Сделайте так, чтобы эта кнопка считала количество кликов по ней, записывая их в какой-нибудь пользовательский атрибут. Пусть по клику на другую кнопку на экран выводится, сколько кликов было сделано по первой кнопке.
+/* 
+const butClick = document.querySelector('#click');
+const butTotal = document.querySelector('#total');
+const total = document.querySelector('div');
+let count = 0;
+butClick.addEventListener('click', function func() {
+    total.dataset.num = count++;
+    console.log(total.dataset.num);
+})
+butTotal.addEventListener('click', function func() {
+    total.textContent = total.textContent + ' ' + total.dataset.num;
+}) 
+*/
+
+//87. В этом инпуте в атрибуте data-length содержится количество символов, которое нужно ввести в инпут. Сделайте так, чтобы по потери фокуса, если количество введенных символов не совпадает с заданным, выводилось сообщение об этом.
+/* 
+const input = document.querySelector('#elem');
+input.addEventListener('blur', function func() {
+    console.log(typeof(input.value));
+    if(input.value.length != input.dataset.length) {
+        input.value = 'введите 5 символов';
+    }
+}) 
+*/
+
+//88. В этом инпуте атрибуты data-min и data-max содержат диапазон. Сделайте так, чтобы по потери фокуса, если количество введенных символов не попадает в этот диапазон, выводилось сообщение об этом.
+/* 
+const input = document.querySelector('#elem');
+input.addEventListener('blur', function func() {
+    if(input.value.length < input.dataset.min || input.value.length > input.dataset.max) {
+        input.value = 'мин 5, мах 10 символов';
+    }
+}) 
+*/
+
+
+//89. Сделайте так, чтобы по клику на див в конец его текста добавлялась стоимость покупки, равная цене, умноженной на количество.
+/* 
+const apple = document.querySelector('#elem');
+apple.addEventListener('click', function() {
+    let cost = apple.dataset.productPrice * apple.dataset.productAmount;
+    apple.textContent = apple.textContent + ' стоимость ' + cost + ' руб.';
+}) 
+*/
+
+//90. Даны абзацы. Переберите их циклом и каждому абзацу в атрибут data-num запишите порядковый номер этого абзаца. Используйте метод setAttribute.
+/* 
+const elems = document.querySelectorAll('p');
+for(i = 0; i < elems.length; i++) {
+    elems[i].dataset.num = i + 1; 
+}  
+
+
+//91. К пользовательским атрибутам можно также обращаться с помощью методов типа getAttribute, в этом случае следует писать полное название атрибута:
+/* 
+let elem = document.querySelector('#elem');
+console.log(elem.getAttribute('data-num'));  
+console.log(elem.getAttribute('data-my-num'));
+ */
+
+//92. Напишите код, который покажет разницу между lastChild и lastElementChild.
+
+const elem = document.querySelector('#elem');
+console.log(elem.lastChild);        // Заголовок
+console.log(elem.lastElementChild); //<ul>...</ul>
+
+
+//93. Напишите код, который покажет разницу между nextSibling и nextElementSibling.
+//const elem = document.querySelector('#elem');
+console.log(elem.nextSibling);        //?
+console.log(elem.nextElementSibling); // <nav>меню</nav>
+
+//94.  Напишите код, который покажет разницу между previousSibling и previousElementSibling.
+//const elem = document.querySelector('#elem');
+console.log(elem.previousSibling);        //?
+console.log(elem.previousElementSibling); //<h3>8.92</h3>
