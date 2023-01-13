@@ -782,18 +782,104 @@ console.log(elem.getAttribute('data-my-num'));
  */
 
 //92. Напишите код, который покажет разницу между lastChild и lastElementChild.
-
+/* 
 const elem = document.querySelector('#elem');
 console.log(elem.lastChild);        // Заголовок
 console.log(elem.lastElementChild); //<ul>...</ul>
-
+ */
 
 //93. Напишите код, который покажет разницу между nextSibling и nextElementSibling.
 //const elem = document.querySelector('#elem');
+/* 
 console.log(elem.nextSibling);        //?
 console.log(elem.nextElementSibling); // <nav>меню</nav>
+ */
 
 //94.  Напишите код, который покажет разницу между previousSibling и previousElementSibling.
 //const elem = document.querySelector('#elem');
+/* 
 console.log(elem.previousSibling);        //?
 console.log(elem.previousElementSibling); //<h3>8.92</h3>
+ */
+
+//95. Переберите циклом все узлы этого дива и выведите их в консоль.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    console.log(node);
+}
+ */
+
+//96. Переберите циклом все узлы этого дива и выведите в консоль их названия.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    console.log(node.nodeName); // #text B #comment #text B #comment
+}
+ */
+
+//97. Переберите циклом все узлы этого дива и выведите в консоль только узлы-элементы и текстовые узлы.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    if(node.nodeType == 1 || node.nodeType == 3) {
+        console.log(node);
+    }
+}
+ */
+
+//98. Переберите циклом все узлы этого дива и выведите в консоль тексты всех узлов.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    console.log(node.textContent);
+}
+ */
+
+//99. Переберите циклом все узлы этого дива и выведите в консоль тексты всех комментариев и текстовых узлов.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    if(node.nodeType == 3 || node.nodeType == 8) {
+        console.log(node.nodeValue);
+    }
+}
+ */
+
+//100. Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    if(node.nodeType == 1 || node.nodeType == 3) {
+        console.log(node.textContent);
+    }
+}
+ */
+
+//101. Переберите циклом все узлы этого дива и каждому узлу в конец запишите его тип.
+/* 
+const child = document.querySelector('#elem').childNodes;
+for(let node of child) {
+    node.textContent  = node.nodeName + ' - тип № ' + node.nodeType;
+}
+ */
+
+//102. Получите года, сумма цифр которых равна 6. Найдите сумму полученных годов.
+const elems = document.querySelectorAll('li');
+let sumYear = 0;
+let years = [];
+for(let elem of elems) {
+    let sum = 0;
+    let arr = elem.textContent.split('');  //['2', '0', '0', '0']
+    for(let i = 0; i < arr.length; i++) {
+        sum += +arr[i];    
+    } 
+    if( sum == 6) {
+        years.push(elem.textContent);
+    }  
+}
+for(let year of years) {
+    sumYear += +year;
+}
+console.log(years); //года, сумма цифр которых равна 6
+console.log(sumYear); //сумма полученных годов
