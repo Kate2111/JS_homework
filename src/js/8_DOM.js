@@ -773,7 +773,6 @@ for(i = 0; i < elems.length; i++) {
     elems[i].dataset.num = i + 1; 
 }  
 
-
 //91. К пользовательским атрибутам можно также обращаться с помощью методов типа getAttribute, в этом случае следует писать полное название атрибута:
 /* 
 let elem = document.querySelector('#elem');
@@ -796,90 +795,148 @@ console.log(elem.nextElementSibling); // <nav>меню</nav>
  */
 
 //94.  Напишите код, который покажет разницу между previousSibling и previousElementSibling.
-//const elem = document.querySelector('#elem');
-/* 
-console.log(elem.previousSibling);        //?
-console.log(elem.previousElementSibling); //<h3>8.92</h3>
- */
+
+function task94() {
+    const elem = document.querySelector('.task94 #elem');
+
+    console.log(elem.previousSibling);        //?
+    console.log(elem.previousElementSibling); //<h3>8.92</h3>
+}
+task94();
 
 //95. Переберите циклом все узлы этого дива и выведите их в консоль.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    console.log(node);
-}
- */
 
-//96. Переберите циклом все узлы этого дива и выведите в консоль их названия.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    console.log(node.nodeName); // #text B #comment #text B #comment
-}
- */
-
-//97. Переберите циклом все узлы этого дива и выведите в консоль только узлы-элементы и текстовые узлы.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    if(node.nodeType == 1 || node.nodeType == 3) {
+function task95() {
+    const child = document.querySelector('.task95 #elem').childNodes;
+    for(let node of child) {
         console.log(node);
     }
 }
- */
+task95();
 
-//98. Переберите циклом все узлы этого дива и выведите в консоль тексты всех узлов.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    console.log(node.textContent);
-}
- */
+//96. Переберите циклом все узлы этого дива и выведите в консоль их названия.
 
-//99. Переберите циклом все узлы этого дива и выведите в консоль тексты всех комментариев и текстовых узлов.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    if(node.nodeType == 3 || node.nodeType == 8) {
-        console.log(node.nodeValue);
+function task96() {
+    const child = document.querySelector('.task96 #elem').childNodes;
+    for(let node of child) {
+        console.log(node.nodeName); // #text B #comment #text B #comment
     }
 }
- */
+task96();
 
-//100. Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    if(node.nodeType == 1 || node.nodeType == 3) {
+//97. Переберите циклом все узлы этого дива и выведите в консоль только узлы-элементы и текстовые узлы.
+
+function task97() {
+    const child = document.querySelector('.task97 #elem').childNodes;
+    for(let node of child) {
+        if(node.nodeType == 1 || node.nodeType == 3) {
+            console.log(node);
+        }
+    }
+}
+task97();
+
+//98. Переберите циклом все узлы этого дива и выведите в консоль тексты всех узлов.
+
+function task98() {
+    const child = document.querySelector('.task98 #elem').childNodes;
+    for(let node of child) {
         console.log(node.textContent);
     }
 }
- */
+task98();
+
+//99. Переберите циклом все узлы этого дива и выведите в консоль тексты всех комментариев и текстовых узлов.
+
+function task99() {
+    const child = document.querySelector('.task99 #elem').childNodes;
+    for(let node of child) {
+        if(node.nodeType == 3 || node.nodeType == 8) {
+            console.log(node.nodeValue);
+        }
+    }
+}
+task99();
+
+//100. Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.
+
+function task100() {
+    const child = document.querySelector('.task100 #elem').childNodes;
+    for(let node of child) {
+        if(node.nodeType == 1 || node.nodeType == 3) {
+            console.log(node.textContent);
+        }
+    }
+}
+task100();
 
 //101. Переберите циклом все узлы этого дива и каждому узлу в конец запишите его тип.
-/* 
-const child = document.querySelector('#elem').childNodes;
-for(let node of child) {
-    node.textContent  = node.nodeName + ' - тип № ' + node.nodeType;
+
+function task101() {
+    const child = document.querySelector('.task101 #elem').childNodes;
+    for(let node of child) {
+        node.textContent  = node.nodeName + ' - тип № ' + node.nodeType;
+    }
 }
- */
+task101();
 
 //102. Получите года, сумма цифр которых равна 6. Найдите сумму полученных годов.
-const elems = document.querySelectorAll('li');
-let sumYear = 0;
-let years = [];
-for(let elem of elems) {
-    let sum = 0;
-    let arr = elem.textContent.split('');  //['2', '0', '0', '0']
-    for(let i = 0; i < arr.length; i++) {
-        sum += +arr[i];    
-    } 
-    if( sum == 6) {
-        years.push(elem.textContent);
-    }  
+
+function task102() {
+    const elems = document.querySelectorAll('li');
+    const res = document.querySelector('.task102 p');
+    const but = document.querySelector('.task102 button');
+    let sumYear = 0;
+    let years = [];
+
+    for(let elem of elems) {
+        let sum = 0;
+        let arr = elem.textContent.split('');  //['2', '0', '0', '0']
+        for(let i = 0; i < arr.length; i++) {
+            sum += +arr[i];    
+        } 
+        if( sum == 6) {
+            years.push(elem.textContent);
+        }  
+    }
+    for(let year of years) {
+        sumYear += +year;
+    }
+
+    but.addEventListener('click', function() {
+        res.textContent += sumYear;
+    }); 
+    console.log(years); //года, сумма цифр которых равна 6
+    console.log(sumYear); //сумма полученных годов 
 }
-for(let year of years) {
-    sumYear += +year;
+
+task102();
+
+//103. Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.
+
+function task103 () {
+    const inp = document.querySelector('.task103 input');
+    const res = document.querySelector('.task103 p');
+
+    inp.addEventListener('blur', function() {
+        res.textContent = res.textContent + ' ' + inp.value;
+    }); 
 }
-console.log(years); //года, сумма цифр которых равна 6
-console.log(sumYear); //сумма полученных годов
+
+task103 ();
+
+//104. Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.
+function task104() {
+    const inputs = document.querySelectorAll('.task104 input');
+    const res = document.querySelector('.task104 p');
+    const but = document.querySelector('.task104 button');
+    but.addEventListener('click', function() {
+        let sum = 0;
+        for(let input of inputs) {
+            sum += +input.value;
+        }
+        res.textContent = res.textContent + ' ' + sum;
+    });
+}
+
+task104 ();
