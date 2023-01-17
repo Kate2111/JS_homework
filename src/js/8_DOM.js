@@ -940,3 +940,124 @@ function task104() {
 }
 
 task104 ();
+
+//105. Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
+
+function task105() {
+    const input = document.querySelector('.task105 input');
+    const res = document.querySelector('.task105 p');
+
+    input.addEventListener('blur', function () {
+        let sum = 0;
+        let nums = input.value.split('');
+        for(let num of nums) {
+            sum += +num;
+        }
+        res.textContent = res.textContent + ' ' + sum;
+    });
+    
+}
+
+task105();
+
+//106. Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).
+
+function task106() {
+    const input = document.querySelector('.task106 input');
+    const res = document.querySelector('.task106 .res');
+
+    input.addEventListener('blur', function() {
+        let nums = input.value.split(',');
+        let sum = 0;
+        for(let num of nums) {
+            sum += +num;
+        }
+        let sumMedium = Math.round(sum / nums.length);
+        console.log(sumMedium);
+        res.textContent = sumMedium;
+    });
+    input.addEventListener('click', function() {
+        input.value = '';
+        res.textContent = '';
+    });
+}
+
+task106();
+
+//107. Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).
+
+function task107() {
+    const fullName = document.querySelector('.task107 #main');
+    const name = document.querySelectorAll('.task107 #name');
+    const arr = ['Ваша фамилия', 'Ваше имя', 'Ваше отчество'];
+
+    function standartName () {
+        for(let i = 0; i < arr.length; i++) {
+            for(let k = 0; k < name.length; k++) {
+                name[k].value = arr[k];
+            }
+        } 
+    }
+
+    fullName.addEventListener('click', function() {
+        fullName.value = '';
+        if(name) {
+            standartName ();
+        }
+    });
+
+    fullName.addEventListener('blur', function func() {
+        let nameArr = fullName.value.split(' ');
+        if(nameArr.length > 2) {
+            for(let i = 0; i < nameArr.length; i++) {
+                nameArr[i] = nameArr[i].slice(0, 1).toUpperCase() + nameArr[i].slice(1);
+                for(let k = 0; k < name.length; k++) {
+                    name[k].value = nameArr[k];
+                }
+            } 
+            fullName.value = nameArr.join(' ');
+        } else {
+            fullName.value = 'Введите ФИО';
+            standartName ();
+        }
+    });
+
+}
+task107();
+
+//108. Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
+
+function task108() {
+    const input = document.querySelector('.task108 input');
+    const res = document.querySelector('.task108 .res');
+    input.addEventListener('blur', function() {
+        const inputArr = input.value.split(' ');
+        console.log(inputArr.length);
+        if(inputArr.length == 1) {
+            res.textContent = `В этом тексте ${inputArr.length} слово`;
+        } if (inputArr.length >= 2 && inputArr.length <= 4) {
+            res.textContent = `В этом тексте ${inputArr.length} слова`;
+        } if (inputArr.length >= 5) {
+            res.textContent = `В этом тексте ${inputArr.length} слов`;
+        }
+        
+    });
+}
+
+task108();
+
+//109. Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
+
+function task109() {
+    const input = document.querySelector('.task109 input');
+    input.addEventListener('blur', function() {
+        input.value = input.value.split('.').join('-');
+    });
+}
+task109();
+
+//110. Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).
+function task110() {
+
+}
+task110();

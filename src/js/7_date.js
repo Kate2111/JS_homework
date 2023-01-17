@@ -14,7 +14,7 @@ console.log(date.getTime()); //формат timestamp, который показ
 
 
 //1.  Выведите на экран текущую дату-время в формате 12:59:59 31.12.2014. Используйте для всех частей даты (кроме года) созданную нами функцию для добавления нуля при необходимости.
-let date = new Date();
+let date0 = new Date();
 
 function addZero (num) {
     if(num >= 0 && num <= 9) {
@@ -23,9 +23,9 @@ function addZero (num) {
         return num;
     }
 }
-let nowDay = addZero(date.getDate()) + '.' + addZero(date.getMonth() + 1) + '.' + addZero(date.getFullYear());
+let nowDay = addZero(date0.getDate()) + '.' + addZero(date0.getMonth() + 1) + '.' + addZero(date0.getFullYear());
 
-let nowHours = addZero(date.getHours()) + ':' + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds());
+let nowHours = addZero(date0.getHours()) + ':' + addZero(date0.getMinutes()) + ':' + addZero(date0.getSeconds());
 
 console.log(nowHours + ' ' + nowDay);
 
@@ -221,32 +221,32 @@ console.log(week (2022, 0));
 //20.   Определите, сколько дней между 1 января и 10 сентября текущего года.
 let day1 = new Date(2022, 1, 1);
 let day2 = new Date(2022, 9, 10);
-let res = (((day1 - day2) / 60000) / 60 ) / 24;
-console.log(res);
+let res3 = (((day1 - day2) / 60000) / 60 ) / 24;
+console.log(res3);
 
 //21.   Определите, сколько дней между 20 числом текущего месяца и 10 числом следующего.
 let day3 = new Date(2022, new Date().getMonth(), 20);
 let day4 = new Date(2022, new Date().getMonth() + 1, 10);
-let res = (((day4 - day3) / 60000) / 60 ) / 24;
-console.log(res);
+let res1 = (((day4 - day3) / 60000) / 60 ) / 24;
+console.log(res1);
 
 //22.   Определите, сколько часов прошло между вчерашним полднем и текущим моментом времени.
 let day5 = new Date();
 let day6 = new Date(day5.getFullYear(), day5.getMonth(), day5.getDate()-1, 11, 59, 59);
-let res = ((day5 - day6) / 60000) / 60;
-console.log(res);
+let res2 = ((day5 - day6) / 60000) / 60;
+console.log(res2);
 
 //23.   Определите, сколько часов прошло между началом дня и текущим моментом времени.
 let day7 = new Date();
 let day8 = new Date(day7.getFullYear(), day7.getMonth(), day7.getDate(), 0, 0, 0);
-let res = ((day7 - day8) / 60000) / 60;
-console.log(res);
+let res4 = ((day7 - day8) / 60000) / 60;
+console.log(res4);
 
 //24.   Определите, сколько часов осталось до конца дня.
 let day9 = new Date();
 let day10 = new Date(day9.getFullYear(), day9.getMonth(), day9.getDate(), 24);
-let res = ((day10 - day9) / 60000) / 60;
-console.log(res);
+let res5 = ((day10 - day9) / 60000) / 60;
+console.log(res5);
 
 //25.   Рассмотрите промежуток от 2000 года до текущего года. Определите, сколько раз 1 января в этом промежутке попадало на выходной день, то есть на субботу или на воскресенье.
 function newYear() {

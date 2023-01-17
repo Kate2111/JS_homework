@@ -173,10 +173,10 @@ function chackValue(param) {
 }
 
 // 16 Какой будет результат? ПОЧЕМУ? / 10 раз выведется число 10
-for (let i = 0; i < 10; i++) {
-    setTimeout(function () {
+/* for (let i = 0; i < 10; i++) {
+    setTimeout(function  () {
         console.log(i);
     }, 0);
-}
+} */
 // 10 раз запустится отложенный console.log(i), который лежит внутри анонимной функции, которая создается каждый раз.
 
