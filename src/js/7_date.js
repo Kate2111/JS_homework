@@ -95,7 +95,7 @@ let nowMonth = new Date().getMonth();
 console.log(months[nowMonth]);
 
 //6.    Узнайте, какой день недели был в ваш день рождения.
-let myBD = new Date(1994, 11, 21).getDay();
+let myBD = new Date(1994, 10, 21).getDay();
 let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 console.log(days[myBD]);
 

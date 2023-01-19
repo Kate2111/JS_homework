@@ -48,3 +48,25 @@ h1{
 .surname {
     color:rgb(143, 141, 141);
 }
+
+.task113 a {
+    display: block;
+    text-decoration: none;
+}
+
+.task114 a {
+    display: block;
+    text-decoration: none;
+}
+
+.nowDay {
+    display: inline-block;
+}
+
+.task119 .container {
+    padding: 5px 0;
+}
+.task119 div {
+    display: flex;
+    padding: 0 4px;
+}

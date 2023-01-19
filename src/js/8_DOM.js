@@ -1058,6 +1058,177 @@ task109();
 
 //110. Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).
 function task110() {
-
+    const input = document.querySelector('.task110 input');
+    const btn = document.querySelector('.task110 button');
+    const res = document.querySelector('.task110 .res');
+    btn.addEventListener('click', function() {
+        const num1 = input.value.split('').join('');
+        const num2 = input.value.split('').reverse().join('');
+        if(num1 == num2) {
+            res.textContent += 'верно';
+        } else {
+            res.textContent += 'попробуйте другое слово';
+        }
+    });
+    input.addEventListener('click', function () {
+        input.value = '';
+        res.textContent = 'Результат: ';
+    });
 }
 task110();
+
+//111. Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3.
+
+function task111() {
+    const input = document.querySelector('.task111 input');
+    const res = document.querySelector('.task111 .res');
+    input.addEventListener('blur', function() {
+        const arr = input.value.split('');
+        if(arr.includes('3')) {
+            res.textContent += 'Число содержит цифру 3';
+        } else {
+            res.textContent += 'Попробуйте еще';
+        }
+    });
+    input.addEventListener('click', function () {
+        input.value = '';
+        res.textContent = 'Результат: ';
+    });
+
+}
+task111();
+
+//112. Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.
+function task112() {
+    const text = document.querySelectorAll('.task112 p');
+    const btn = document.querySelector('.task112 button');
+    btn.addEventListener('click', function() {
+        for(let i=0; i < text.length; i++) {
+            console.log();
+            text[i].textContent += `порядковый номер - ${i+1}`;
+        }
+    });
+}
+task112();
+
+//113. Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.
+function task113() {
+    const links = document.querySelectorAll('.task113 a');
+    for(let link of links) {
+        link.addEventListener('click', function() {
+            this.textContent += ` ссылка на данный урок ( ${this.href} )`;
+            this.href = '#';
+        });
+    }
+}
+task113();
+
+//114. Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).
+function task114() {
+    const links = document.querySelectorAll('.task114 a');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            if(link.href.startsWith('http://')) {
+                this.innerHTML += '&rarr;';
+                this.href = '#';
+            } else {
+                this.href = '#';
+                console.log('несодержит');
+            }  
+        });
+    });
+}
+task114();
+
+//115. Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.
+function task115() {
+    const elems = document.querySelectorAll('.task115 p');
+    elems.forEach(elem => {
+        elem.addEventListener('click', function() {
+            elem.textContent = Math.pow(+elem.textContent, 2);
+        });
+    });
+}
+task115();
+
+//116. Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.
+function task116() {
+    const input = document.querySelector('.task116 input');
+    const nowDay = document.querySelector('.task116 .nowDay');
+    const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    input.addEventListener('blur', function() {
+        const arr = input.value.split('.').reverse();  //['12', '10', '2021']
+        let newArr = [];
+        arr.forEach(elem => newArr.push(+elem)); //[2021, 10, 12]
+
+        function func(year, month, day) {
+            let numberDay = new Date(year, month - 1, day).getDay();
+            nowDay.textContent = days[numberDay];
+        }
+        func(...newArr);
+    });
+    input.addEventListener('click', function() {
+        input.value = '';
+    });
+}
+task116();
+
+//117. Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
+function task117() {
+    let input = document.querySelector('.task117 input');
+    const plus = document.querySelector('.task117 .plus');
+    const minus = document.querySelector('.task117 .minus');
+    const source = document.querySelector('.task117 .source');
+
+    plus.addEventListener('click', function() {
+        input.value = +input.value + 1;
+    });
+
+    minus.addEventListener('click', function() {
+        if(input.value == 0) {
+            input.value == 0;
+        } else {
+            input.value = +input.value - 1;
+        }
+    });
+
+    source.addEventListener('click', function() {
+        input.value = '2';
+    });
+}
+task117();
+
+//118. Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.
+function task118() {
+    const clicks = document.querySelectorAll('.task118 p');
+    const input = document.querySelector('.task118 input');
+    let counter = 0;
+
+    clicks.forEach(function func(click) {
+        click.addEventListener('click', function() {
+            counter++;
+            input.value = counter;
+        });
+    });    
+}
+task118();
+
+//119. На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста
+function task119 () {
+    const texts = document.querySelectorAll('.task119 .text');
+    const checkMarks = document.querySelectorAll('.task119 .check-mark');
+    for(let i = 0; i <=checkMarks.length; i++) {
+        checkMarks[i].addEventListener('click', function func () {
+            for(let j = 0; j < texts.length; j++) {
+                let textLength = texts[j].textContent.length;
+                if(textLength >= 10) {
+                    texts[i].innerHTML = texts[i].innerHTML.substring(0, 10) + '&#8230;';
+                }
+            }
+        });
+    }   
+
+}
+task119();
+
