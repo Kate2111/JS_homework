@@ -64,9 +64,16 @@ h1{
 }
 
 .task119 .container {
-    padding: 5px 0;
+    padding: 5px;
 }
-.task119 div {
-    display: flex;
-    padding: 0 4px;
+.task119 button {
+    margin-top: 10px;
+}
+
+.task123 .deg {
+    display: inline;
+}
+.task123 .container {
+    margin: 5px 15px;
+    display: inline;
 }

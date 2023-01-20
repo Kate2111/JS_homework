@@ -1217,18 +1217,153 @@ task118();
 //119. На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста
 function task119 () {
     const texts = document.querySelectorAll('.task119 .text');
-    const checkMarks = document.querySelectorAll('.task119 .check-mark');
-    for(let i = 0; i <=checkMarks.length; i++) {
-        checkMarks[i].addEventListener('click', function func () {
-            for(let j = 0; j < texts.length; j++) {
-                let textLength = texts[j].textContent.length;
-                if(textLength >= 10) {
-                    texts[i].innerHTML = texts[i].innerHTML.substring(0, 10) + '&#8230;';
-                }
+    const btn = document.querySelector('.task119 button');
+    
+    btn.addEventListener('click', function() {
+        for(let i = 0; i < texts.length; i++) {
+            let textLength = texts[i].textContent.length;
+            if(textLength >= 10) {
+                texts[i].innerHTML = texts[i].innerHTML.substring(0, 10) + '&#8230;';
             }
-        });
-    }   
-
+        }
+    });
 }
 task119();
 
+//120. Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный.
+
+function task120() {
+    const input = document.querySelector('.task120 input');
+    input.addEventListener('blur', function() {
+        const num = +input.value;
+        if(num >=1 && num <=100) {
+            input.style.backgroundColor = 'rgb(53, 220, 20)';
+        } else {
+            input.style.backgroundColor = 'rgba(244, 29, 29, 0.708)';
+        }
+    });
+}
+task120();
+
+//121. Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.
+function task121() {
+    const input = document.querySelector('.task121 input');
+    const btn = document.querySelector('.task121 button');
+    
+    btn.addEventListener('click', function() {
+        let result = '';
+        const str = 'abcdefghijklmnopqrstuvwxyz1234567890/-_ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for(let i = 0; i <= 8; i++) {
+            result += str[strRandom(0, str.length - 1)];
+        }
+        input.value = result;
+    });
+
+    function strRandom (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+}
+task121();
+
+//122. Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку перемешайте введенные символы случайным образом и запишите ее обратно в инпут.
+function task122() {
+    const input = document.querySelector('.task122 input'); //'a,b,c,d'
+    const btn = document.querySelector('.task122 button');
+
+    btn.addEventListener('click', function() {
+        const arr = input.value.split(''); //[a,b,c,d]
+       
+        let newArrs = arr.map(i => [Math.random(), i]).sort(); //создаем пары массивов в виде ([0.3673263719784776, 'a']) и тд, после возвращаем массив с сортировкой по первому элементу, которое нам дает метод Math.random()
+
+        let result = newArrs.map(i => i[1]).join(''); //Создаем один массив только из вторых элементов наший парных массивов и преобразуем обратно в строку
+
+        input.value = result;
+    });
+}
+task122();
+
+//123. Дан инпут, кнопка и абзац. В инпут вводится температура в градусах Фаренгейта. По клику на кнопку выведите в абзац температуру в градусах Цельсия.
+function task123() {
+    const degFarLeft = document.querySelector('.task123 #Fahrenheit-left'); 
+    const degCelRight = document.querySelector('.task123 #Celsius-right'); 
+    const degFarRight = document.querySelector('.task123 #Fahrenheit-right'); 
+    const degCelLeft = document.querySelector('.task123 #Celsius-left'); 
+    const btnF = document.querySelector('.task123 .degFar');
+    const btnC = document.querySelector('.task123 .degCel');
+
+    btnF.addEventListener('click', function() {
+        degCelRight.value = Math.round((+degFarLeft.value - 32) / 1.8);
+    });
+
+    btnC.addEventListener('click', function() {
+        degFarRight.value = Math.round((+degCelLeft.value * 1.8) + 32);
+    });
+}
+task123();
+
+//124. Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал этого числа.
+function task124() {
+    const input = document.querySelector('.task124 input');
+    let res = document.querySelector('.task124 p');
+    const btn = document.querySelector('.task124 button');
+
+    btn.addEventListener('click', function() {
+        let factorial = 1;
+       for(let i = 1; i <= +input.value; i++) {
+        factorial*= i;
+       }  
+       res.textContent += factorial;
+    });
+    input.addEventListener('click', function() {
+        input.value = '';
+        res.textContent = 'Результат: ';
+    });
+}
+task124();
+
+//125. Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их в абзац.
+ function task125() {
+    const coefA = document.querySelector('.task125 #a');
+    const coefB = document.querySelector('.task125 #b');
+    const coefC = document.querySelector('.task125 #c');
+    const btn = document.querySelector('.task125 button');
+    const res = document.querySelector('.task125 p');
+
+    btn.addEventListener('click', function() {
+        const a = +coefA.value;
+        const b = +coefB.value;
+        const c = +coefC.value;
+        let root1 = 0;
+        let root2 = 0;
+
+        if(a == 0) {
+            return res.textContent += 'Попробуйте еще раз. Коэффицент а не может быть равен 0';
+        }
+
+        let discr = (b ** 2) - (4 * a * c);
+        console.log(discr);
+
+        if(discr < 0) {
+            res.textContent += 'У данного уравнения нет корней. Попробйте еще раз';
+        } if (discr == 0 ) {
+            root1 = Math.round( -b + Math.sqrt(discr)) / (2 * a);
+            res.textContent += root1;
+        } if( discr > 0) {
+            root1 = Math.round( -b + Math.sqrt(discr)) / (2 * a);
+            root2 = Math.round( -b - Math.sqrt(discr)) / (2 * a);
+            res.textContent += root1 + ', ' + root2;
+        }      
+    });
+
+    coefA.addEventListener('click', remove);
+    coefB.addEventListener('click', remove);
+    coefC.addEventListener('click', remove);
+
+    function remove() {
+        this.value = '';
+        res.textContent = 'Результат: ';
+    }
+ }
+ task125();
+
+ 
