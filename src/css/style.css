@@ -77,3 +77,14 @@ h1{
     margin: 5px 15px;
     display: inline;
 }
+
+.task10_3 ul {
+	padding: 30px;
+	border: 1px solid red;
+}
+
+.task10_3 li {
+	list-style-type: none;
+	margin-bottom: 20px;
+	border: 1px dashed black;
+}

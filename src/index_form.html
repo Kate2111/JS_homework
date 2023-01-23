@@ -13,24 +13,271 @@
 
     <div class="task1">
         <h3>1 Дан текстареа и абзац. По потери фокуса в текстареа запишите его текст в абзац.</h3>
-            <textarea id="elem">Привет, как дела?</textarea>
-            <p></p>
-        </div>
+        <textarea id="elem">Привет, как дела?</textarea>
+        <p></p>
+      
     </div>
 
     <!-- 9.2-->
 
     <div class="task2">
         <h3>2 Дан инпут и две кнопки. Пусть нажатие на первую кнопку блокирует инпут, а нажатие на вторую - отблокирует.</h3>
-            <input type="text">
-            <button class="block">заблокировать</button>
-            <button class="unlock">разблокировать</button>
-        </div>
+        <input type="text">
+        <button class="block">заблокировать</button>
+        <button class="unlock">разблокировать</button>
+        
     </div>
 
-    
+    <!-- 9.3-->
 
+    <div class="task3">
+        <h3>3 Дан инпут и кнопка. По нажатию на кнопку узнайте, заблокирован инпут или нет.</h3>
+        <input type="text">
+        <button class="block">заблокировать</button>
+        <button class="unlock">разблокировать</button>
+        <button class="condition">проверить состояние</button>
+        <div class="res"></div>
+       
+    </div>
+
+    <!-- 9.4-->
+
+    <div class="task4">
+        <h3>4 Дан чекбокс и две кнопки. По нажатию на первую кнопку установите чекбокс в отмеченное состояние, а по нажатию на вторую - в неотмеченное.</h3>
+        <input type="checkbox">
+        <button class="btn1">кнопка 1</button>
+        <button class="btn2">кнопка 2</button>
+    </div>
+
+    <!-- 9.5-->
+
+    <div class="task5">
+        <h3>5 Дан чекбокс, кнопка и абзац. По нажатию на кнопку, если чекбокс отмечен, выведите в абзац слово 'привет', а если чекбокс не отмечен, то слово 'пока'.</h3>
+        <input type="checkbox">
+        <button>клик</button>
+        <p></p>
+    </div>
     
+    <!-- 9.6-->
+
+    <div class="task6">
+        <h3>6 Дан чекбокс и кнопка. Сделайте так, чтобы каждый клик по кнопке приводил к смене состояния чекбокса.</h3>
+        <input type="checkbox">
+        <button>клик</button>
+    </div>
+
+    <!-- 9.7-->
+
+    <div class="task7">
+        <h3>7 Даны 3 радиокнопки, абзац и кнопка. По клику на кнопку выведите в абзац value отмеченной радиокнопки.</h3>
+        <input type="radio" name="elem" 
+        value="1" checked> 
+        <input type="radio" name="elem" 
+            value="2"> 
+        <input type="radio" name="elem" 
+            value="3">
+        <input type="submit" id="button">
+        <p class="res"></p>
+    </div>
+    
+    <!-- 9.8-->
+
+    <div class="task8">
+        <h3>8 Дан инпут и абзац. По изменению инпута выведите его текст в абзац.</h3>
+        <input value="Hi! How are you?"> 
+        <p class="res"></p>
+    </div>
+
+    <!-- 9.9-->
+
+    <div class="task9">
+        <h3>9 Дан чекбокс. По изменению чебокса выведите на экран его новое состояние.</h3>
+        <input type="checkbox"> 
+        <p class="res"></p>
+    </div>
+
+    <!-- 9.10-->
+
+    <div class="task10">
+        <h3>10 Дан инпут. По его изменению проверьте, количество символов в нем меньше 5-ти или нет. Если меньше - покрасьте границу инпута в зеленый цвет, а если больше - в красный.</h3>
+        <input value="Hi! How are you?"> 
+    </div>
+    
+    <!-- 9.11-->
+
+    <div class="task11">
+        <h3>11 Дан инпут. Пусть в него вводится текст. Как только длина текста достигнет 5-ти, выведите на экран сообщение об этом.</h3>
+        <input> 
+        <div></div>
+    </div>
+
+    <!-- 9.12-->
+
+    <div class="task12">
+        <h3>12 Дан инпут. Пусть в него разрешено ввести 5 символов. Дан также абзац. По мере ввода символов в инпут пишите, сколько еще символов можно ввести. Когда количество символов превысит 5-ти, то в абзац выводите то, на сколько символов превышена длина текста.</h3>
+        <input> 
+        <div class="num"></div>
+        <div class="res"></div>
+        
+    </div>
+
+    <!-- 9.13-->
+
+    <div class="task13">
+        <h3>13 Даны два инпута. Сделайте так, чтобы после ввода двух символов фокус ввода переходил ко второму инпуту, а после ввода двух символов в этот инпут - фокус из него убирался.</h3>
+        <input class="num1"> 
+        <input class="num2"> 
+    </div>
+
+    <!-- 9.14-->
+
+    <div class="task14">
+        <h3>14 Дан селект, абзац и кнопка. По клику на кнопку выведите текст выбранного пункта списка в абзац.</h3>
+        <select>
+            <option >focus</option>
+            <option >blur</option>
+            <option >change</option>
+            <option >click</option>
+        </select> 
+        <p></p>
+        <button>клик</button>
+    </div>
+
+    <!-- 9.15-->
+
+    <div class="task15">
+        <h3>15 Сделайте выпадающий список годов от 2020 до 2030. При выборе какого-нибудь пункта списка выведите сообщение о том, високосный этот год или нет.</h3>
+        <select>
+            <option >2020</option>
+            <option >2021</option>
+            <option >2022</option>
+            <option >2023</option>
+            <option >2024</option>
+            <option >2025</option>
+            <option >2026</option>
+            <option >2027</option>
+            <option >2028</option>
+            <option >2029</option>
+            <option >2030</option>
+        </select> 
+        <p></p>
+    </div>
+
+    <!-- 9.16-->
+
+    <div class="task16">
+        <h3>16 Сделайте выпадающий список с названиями дней недели. В качестве атрибутов value пунктов списка добавьте номера дней недели от 1 до 7. По изменению списка выведите на экран сообщение о том, выбран выходной день или рабочий.</h3>
+        <select>
+            <option value="1">понедельник</option>
+            <option value="2">вторник</option>
+            <option value="3">среда</option>
+            <option value="4">четверг</option>
+            <option value="5" selected>пятница</option>
+            <option value="6">суббота</option>
+            <option value="7">воскресенье</option>
+        </select> 
+        <p></p>
+    </div>
+
+    <!-- 9.17-->
+
+    <div class="task17">
+        <h3>17 Сделайте выпадающий список с названиями дней недели. Сделайте так, чтобы JavaScript по умолчанию выбирал в этом списке текущий день недели.</h3>
+        <select>
+            <option value="0">понедельник</option>
+            <option value="1">вторник</option>
+            <option value="2">среда</option>
+            <option value="3">четверг</option>
+            <option value="4">пятница</option>
+            <option value="5">суббота</option>
+            <option value="6">воскресенье</option>
+        </select> 
+    </div>
+
+    <!-- 9.18-->
+
+    <div class="task18">
+        <h3>18 Дан инпут и селект. В инпут вводится какое-то число. По потери фокуса сделайте выделенным пункт списка, номер которого равен значению из инпута.</h3>
+        <input>
+        <select>
+            <option>понедельник</option>
+            <option>вторник</option>
+            <option>среда</option>
+            <option>четверг</option>
+            <option>пятница</option>
+            <option>суббота</option>
+            <option>воскресенье</option>
+        </select> 
+       
+    </div>
+
+    <!-- 9.19-->
+
+    <div class="task19">
+        <h3>19 Переберите все пункты списка циклом и в конец текста каждого пункта добавьте значение его атрибута value.</h3>
+        <select>
+            <option value="1">понедельник</option>
+            <option value="2">вторник</option>
+            <option value="3">среда</option>
+            <option value="4">четверг</option>
+            <option value="5">пятница</option>
+            <option value="6">суббота</option>
+            <option value="7">воскресенье</option>
+        </select> 
+    </div>
+
+    <!-- 9.20-->
+
+    <div class="task20">
+        <h3>20 Переберите пункты списка циклом и для выбранного пункта в конец текста добавьте восклицательный знак, а для невыбранных пунктов - вопросительный.</h3>
+        <select>
+            <option value="1">понедельник</option>
+            <option value="2">вторник</option>
+            <option value="3">среда</option>
+            <option value="4">четверг</option>
+            <option value="5">пятница</option>
+            <option value="6">суббота</option>
+            <option value="7">воскресенье</option>
+        </select> 
+    </div>
+
+    <!-- 9.21-->
+
+    <div class="task21">
+        <h3>21 Дан выпадающий список и кнопка. По клику на кнопку сделайте отмеченным последний пункт списка.</h3>
+        <select>
+            <option value="1">понедельник</option>
+            <option value="2">вторник</option>
+            <option value="3">среда</option>
+            <option value="4">четверг</option>
+            <option value="5">пятница</option>
+            <option value="6">суббота</option>
+            <option value="7">воскресенье</option>
+        </select> 
+        <button>клик</button>
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <script src="/src/js/9_form.js"></script>
