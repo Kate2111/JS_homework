@@ -145,3 +145,58 @@ function task10() {
     });  
 }
 task10();
+
+//11. 11 Навешайте на див обработчик клика. В этом обработчике определите, в каком из тегов сработало событие.  Сделайте так, чтобы при клике на li, ей в конец добавлялся восклицательный знак, а при клике на ul - ей в конец добавлялась новая li.
+function task11() {
+    const div = document.querySelector('.task10_11 div');
+    const ul = document.querySelector('.task10_11 ul');
+    const li = document.querySelector('.task10_11 li');
+
+    div.addEventListener('click', (e) => {
+        if(e.target.matches('div')) {
+            div.style.border = 'solid 3px red';
+        }
+        if(e.target.matches('ul')) {
+            ul.style.border = 'solid 3px orange';
+            let newLi = document.createElement('li');
+            ul.appendChild(newLi);
+        }
+        if(e.target.matches('li')) {
+            e.target.style.border = 'solid 3px green';
+            e.target.textContent += '!';
+        } 
+    });
+}
+task11();
+
+//12. Пусть внутри одного родителя у нас есть кнопка и некоторый блок. Блок изначально скрыт. Сделате так, чтобы по клику на кнопку наш блок показался
+function task12() {
+    const parent = document.querySelector('.task10_12 #parent');
+    const button = document.querySelector('.task10_12 button');
+    const block  = document.querySelector('.task10_12 #block');
+
+    button.addEventListener('click', (e) => {
+        block.classList.add('active');
+        e.stopPropagation();
+    });
+
+    parent.addEventListener('click', (e) => {
+        block.classList.remove('active');
+        //e.stopImmediatePropagation();
+    });
+}
+task12();
+
+//13. Навешайте на див обработчик клика. Сделайте так, чтобы при клике на li, ей в конец добавлялся восклицательный знак
+function task13() {
+    const ul = document.querySelector('.task10_13 ul');
+    ul.addEventListener('click', (e) => {
+        let li = e.target.closest('li'); //ищем родителя по селектору li и получаем этот же элемент
+
+        if(li) {
+            li.textContent += '!';
+        }
+        //e.target.textContent += '!'; //Если кликнуть по <i>italic</i>, то ! добавится в конце этого элемента , а не li
+    });
+}
+task13();
