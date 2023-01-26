@@ -94,3 +94,21 @@ function task6() {
     func.apply(input, ['Smit', 'John']);
 }
 task6();
+
+//7. Напишите конструкцию с методом bind так, чтобы this внутри функции func всегда указывал на инпут из переменной elem.
+function task7() {
+    const elem = document.querySelector('.task11_7 #elem');
+    const task7 = document.querySelector('.task11_7');
+
+    function func(name, surname) {
+        let text = document.createElement('div');
+        text.textContent = this.value + ', ' + name + ' ' + surname; 
+        task7.appendChild(text);
+    }
+
+    const functJ = func.bind(elem); //метод bind не вызывает фунцкцию, в отличии от call() и apply([]), bind()()
+    functJ('John', 'Smit');         //вызываем функцию
+
+    const functE = func.bind(elem)('Eric', 'Luis'); //или в одну строку
+}
+task7();

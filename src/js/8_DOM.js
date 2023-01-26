@@ -1,129 +1,176 @@
+//1.    Запишите ссылку на каждый из абзацев в отдельную переменную и выведите содержимое каждой из этих переменных в консоль.
+function task1() {
+    const p1 = document.querySelector('.task8_1 #elem1');
+    const p2 = document.querySelector('.task8_1 #elem2');
+    const p3 = document.querySelector('.task8_1 #elem3');
+    console.log(p1, p2, p3);
+}
+task1();
 
-const p1 = document.querySelector('#elem1');
-const p2 = document.querySelector('#elem2');
-const p3 = document.querySelector('#elem3');
-//console.log(p1, p2, p3);
-
-/* let elem = document.querySelector('#parent input'); */
-//console.log(elem);
+//2.    Давайте получим ссылку на инпут, находящийся внутри блока #parent:
+function task2() {
+    let elem = document.querySelector('.task8_2 #parent input'); 
+    console.log(elem);
+}
+task2();
 
 //3. Получите ссылку на первый абзац из дива с id, равным block.
-const block = document.querySelector('#block p');
-//console.log(block);
+function task3() {
+    const block = document.querySelector('.task8_3 #block p');
+    console.log(block);
+}
+task3();
 
 //4.    Получите ссылку на первый абзац из дива с классом block.
-const block1 = document.querySelector('.block p');
-//console.log(block);
+function task4() {
+    const block = document.querySelector('.task8_4 .block p');
+    console.log(block);
+}
+task4();
 
 //5.    Получите ссылку на первый абзац с классом www.
-const www = document.querySelector('.www');
-//console.log(www);
+function task5() {
+    const www = document.querySelector('.task8_5 .www');
+    console.log(www);
+}
+task5();
 
 //6.    Cделаем кнопку, по нажатию на которую на экран алертом выведется какой-то текст
-const button = document.querySelector('#button');
-/* button.addEventListener('click', function() {
+function task6() {
+    const button = document.querySelector('.task8_6 #button');
+    button.addEventListener('click', function() {
     alert('Привет');
-}); */
+    });
+}
+task6();
 
 //7.    Сделайте так, чтобы по клику на первую кнопку на экран выводилось число 1, по клику на вторую - число 2, а по клику на третью - число 3.
-const button1 = document.querySelector('#button1');
-const button2 = document.querySelector('#button2');
-const button3 = document.querySelector('#button3');
-/* button1.addEventListener('click', function() {
-    alert('1');
-});
-button2.addEventListener('click', function() {
-    alert('2');
-});
-button3.addEventListener('click', function() {
-    alert('3');
-}); */
+function task7() {
+    const button1 = document.querySelector('.task8_7 #button1');
+    const button2 = document.querySelector('.task8_7 #button2');
+    const button3 = document.querySelector('.task8_7 #button3');
+    button1.addEventListener('click', function() {
+        alert('1');
+    });
+    button2.addEventListener('click', function() {
+        alert('2');
+    });
+    button3.addEventListener('click', function() {
+        alert('3');
+    });
+}
+task7();
 
 //8.    Сделайте так, чтобы по клику на первую кнопку выполнилась функция func1, а по клику на вторую - функция func2.
-const button4 = document.querySelector('#button4');
-const button5 = document.querySelector('#button5');
+function task8() {
+    const button4 = document.querySelector('.task8_8 #button4');
+    const button5 = document.querySelector('.task8_8 #button5');
+    
+    function func1() {
+        console.log(1);
+    }
+    
+    function func2() {
+        console.log(2);
+    }
 
-function func1() {
-	console.log(1);
+    button4.addEventListener('click', func1);
+    button5.addEventListener('click', func2);
 }
+task8();
 
-function func2() {
-	console.log(2);
-}
-
-/* button4.addEventListener('click', func1);
-button5.addEventListener('click', func2);
- */
 //9.    Привяжите эту функцию ко всем 5-ти абзацам.
-const elem1 = document.querySelector('#elem1'),
-      elem2 = document.querySelector('#elem2'),
-      elem3 = document.querySelector('#elem3'),
-      elem4 = document.querySelector('#elem4'),
-      elem5 = document.querySelector('#elem5');
+function task9() {
+    const elem1 = document.querySelector('.task8_9 #elem1'),
+      elem2 = document.querySelector('.task8_9 #elem2'),
+      elem3 = document.querySelector('.task8_9 #elem3'),
+      elem4 = document.querySelector('.task8_9 #elem4'),
+      elem5 = document.querySelector('.task8_9 #elem5');
 
-function func() {
-    console.log('message');
+    function func() {
+        console.log('message');
+    }
+
+    elem1.addEventListener('click', func);
+    elem2.addEventListener('click', func);
+    elem3.addEventListener('click', func);
+    elem4.addEventListener('click', func);
+    elem5.addEventListener('click', func);
 }
+task9();
 
-/* elem1.addEventListener('click', func);
-elem2.addEventListener('click', func);
-elem3.addEventListener('click', func);
-elem4.addEventListener('click', func);
-elem5.addEventListener('click', func);
- */
+
 //10.   Привяжите все эти функции к нашему абзацу.
-//const elem6 = document.querySelector('#elem6');
-function func1() {
-	console.log('1');
-}
+function task10() {
+    const elem6 = document.querySelector('.task8_10 #elem6');
+    function func1() {
+        console.log('1');
+    }
 
-function func2() {
-	console.log('2');
-}
+    function func2() {
+        console.log('2');
+    }
 
-function func3() {
-	console.log('3');
+    function func3() {
+        console.log('3');
+    }
+    elem6.addEventListener('click', func1);
+    elem6.addEventListener('click', func2);
+    elem6.addEventListener('click', func3);
 }
-
-/* elem6.addEventListener('click', func1);
-elem6.addEventListener('click', func2);
-elem6.addEventListener('click', func3); */
+task10();
 
 //11.   Дана кнопка. По двойному клику по ней выведите какое-нибудь сообщение.
-//const elem6 = document.querySelector('#elem6');
-function func4() {
-	alert('Ура! Сработало!');
+function task11() {
+    const elem = document.querySelector('.task8_11 .elem');
+    function func4() {
+        alert('Ура! Сработало!');
+    }
+    elem.addEventListener('dblclick', func4);
 }
-//elem6.addEventListener('dblclick', func4);
+task11();
+
 
 //12.   Дана кнопка. По наведению на нее выведите какое-нибудь сообщение.
-//const button6 = document.querySelector('#but');
-
-function func5() {
-	alert('Hi');
+function task12() {
+    const button = document.querySelector('.task8_12 #but');
+    function func5() {
+        alert('Hi');
+    }
+    button.addEventListener('mouseover', func5);
 }
-
-//button6.addEventListener('mouseover', func5);
+task12();
 
 //13.   Дана кнопка. По наведению на нее выведите одно сообщение, а по уходу с нее - другое.
-//const button6 = document.querySelector('#but');
-function func6() {
-	console.log('Hi');
+function task13() {
+    const button = document.querySelector('.task8_13 #but');
+    function func6() {
+        console.log('Hi');
+    }
+    function func7() {
+        console.log('bye');
+    }
+    button.addEventListener('mouseover', func6);
+    button.addEventListener('mouseout', func7);
 }
-function func7() {
-	console.log('bye');
-}
-//button6.addEventListener('mouseover', func6);
-//button6.addEventListener('mouseout', func7);
+task13();
 
 //14.   Дан абзац и кнопка. По клику на кнопку прочитайте текст абзаца и выведите его в консоль.
-//const button6 = document.querySelector('#but');
-//const elem6 = document.querySelector('#elem6');
-/* button6.addEventListener('click', function() {
-    console.log(elem6.textContent);
-}); */
+function task14() {
+    const button = document.querySelector('.task8_14 #but');
+    const elem = document.querySelector('.task8_14 #elem');
+    button.addEventListener('click', function() {
+        console.log(elem.textContent);
+    });
+}
+task14();
+
 
 //15.   Дан абзац и кнопка. По клику на кнопку запишите в абзац новый текст.
+function task15() {
+    //Урок 247 задача2
+}
+task15();
 /* button6.addEventListener('click', function() {
     elem6.textContent = 'текст';
 }); */

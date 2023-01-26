@@ -180,9 +180,8 @@ function task12() {
         e.stopPropagation();
     });
 
-    parent.addEventListener('click', (e) => {
+    parent.addEventListener('click', () => {
         block.classList.remove('active');
-        //e.stopImmediatePropagation();
     });
 }
 task12();

@@ -9,39 +9,127 @@
 </head>
 <body>
 
-    <!-- <p id="elem1">1</p>
-    <p id="elem2">2</p>
-    <p id="elem3">3</p>
+    <!-- 8.1-->
 
-    <div id="parent">
-        <input>
+    <div class="task8_1 border">
+        <h3>1 Запишите ссылку на каждый из абзацев в отдельную переменную и выведите содержимое каждой из этих переменных в консоль.</h3>
+        <p id="elem1">1</p>
+        <p id="elem2">2</p>
+        <p id="elem3">3</p>
     </div>
 
-    <div id="block">
-        <p>1</p>
-        <p>2</p>
+    <!-- 8.2-->
+
+    <div class="task8_2 border">
+        <h3>2 Давайте получим ссылку на инпут, находящийся внутри блока #parent:</h3>
+        <div id="parent">
+            <input value="инпут, внутри #parent">
+        </div>
     </div>
 
-    <p class="www">text</p>
-    <p class="www">text</p> -->
+    <!-- 8.3-->
 
-    <!-- <input id="button" type="submit">
+    <div class="task8_3 border">
+        <h3>3 Получите ссылку на первый абзац из дива с id, равным block.</h3>
+        <div id="block">
+            <p>1</p>
+            <p>2</p>
+        </div>
+    </div>
 
-    <input id="button1" type="submit">
-    <input id="button2" type="submit">
-    <input id="button3" type="submit"> -->
+    <!-- 8.4-->
 
-    <!-- <input id="button4" type="submit" value="button1">
-    <input id="button5" type="submit" value="button2">
+    <div class="task8_4 border">
+        <h3>4 Получите ссылку на первый абзац из дива с классом block.</h3>
+        <div id="block">
+            <p>1</p>
+            <p>2</p>
+        </div>
+    </div>
 
-    <p id="elem1">text</p>
-    <p id="elem2">text</p>
-    <p id="elem3">text</p>
-    <p id="elem4">text</p>
-    <p id="elem5">text</p> -->
+    <!-- 8.5-->
+
+    <div class="task8_5 border">
+        <h3>5 Получите ссылку на первый абзац с классом www.</h3>
+        <p class="www">text</p>
+        <p class="www">text</p>
+    </div>
+
+    <!-- 8.6-->
+
+    <div class="task8_6 border">
+        <h3>6 Cделаем кнопку, по нажатию на которую на экран алертом выведется какой-то текст</h3>
+        <input id="button" type="submit">
+    </div>
+
+    <!-- 8.7-->
+
+    <div class="task8_7 border">
+        <h3>7 Сделайте так, чтобы по клику на первую кнопку на экран выводилось число 1, по клику на вторую - число 2, а по клику на третью - число 3.</h3>
+        <input id="button1" type="submit">
+        <input id="button2" type="submit">
+        <input id="button3" type="submit">
+    </div>
+
+    <!-- 8.8-->
+
+    <div class="task8_8 border">
+        <h3>8 Сделайте так, чтобы по клику на первую кнопку выполнилась функция func1, а по клику на вторую - функция func2.</h3>
+        <input id="button1" type="submit" value="button1"> 
+        <input id="button2" type="submit" value="button2"> 
+    </div>
+
+    <!-- 8.9-->
+
+    <div class="task8_9 border">
+        <h3>9 Сделайте так, чтобы по клику на первую кнопку выполнилась функция func1, а по клику на вторую - функция func2.</h3>
+        <p id="elem1">text</p>
+        <p id="elem2">text</p>
+        <p id="elem3">text</p>
+        <p id="elem4">text</p>
+        <p id="elem5">text</p> 
+    </div>
+    
+    <!-- 8.10-->
+
+    <div class="task8_10 border">
+        <h3>10 Привяжите функции к нашему абзацу.</h3>
+        <p id="elem6">5</p>
+    </div>
+
+    <!-- 8.11-->
+
+    <div class="task8_11 border">
+        <h3>11 Дана кнопка. По двойному клику по ней выведите какое-нибудь сообщение.</h3>
+        <button class="elem">click me</button>
+    </div>
+
+    <!-- 8.12-->
+
+    <div class="task8_12 border">
+        <h3>12  Дана кнопка. По наведению на нее выведите какое-нибудь сообщение.</h3>
+        <button id="but">click me</button>
+    </div>
+
+    <!-- 8.13-->
+
+    <div class="task8_13 border">
+        <h3>13  Дана кнопка. По уходу курсора с нее выведите какое-нибудь сообщение.</h3>
+        <button id="but">click me</button>
+    </div>
+    
+    <!-- 8.14-->
+
+    <div class="task8_14 border">
+        <h3>14  Дан абзац и кнопка. По клику на кнопку прочитайте текст абзаца и выведите его в консоль.</h3>
+        <button id="but">click me</button>
+        <p id="elem">text</p>
+    </div>
+
+    
 
 
-    <!-- <p id="elem6">5</p>
+    <!-- 
     <p id="elem7">6</p>
     <p id="elem8"></p>
 
@@ -312,88 +400,72 @@
 
     <!-- 8.94 -->
     
-   <div class="task94">
+   <div class="task94 border">
         <h3>94 Напишите код, который покажет разницу между previousSibling и previousElementSibling.</h3>
         <div class="child" id="elem">
             <p>Заголовок</p>
             <ul> 
-                <li>text1</li>
+                <li>text1</li>       
                 <li>text2</li>
             </ul>
             Заголовок
         </div>
         <nav>меню</nav>
    </div>
-   
-    <hr>
 
      <!-- 8.95 -->
 
-    <div class="task95">
+    <div class="task95 border">
         <h3>95 Переберите циклом все узлы этого дива и выведите их в консоль.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
 
-    <hr>
-
     <!-- 8.96 -->
 
-    <div class="task96">
+    <div class="task96 border">
         <h3>96 Переберите циклом все узлы этого дива и выведите в консоль их названия.</h3>
         <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
         
     </div>
 
-    <hr>
-
     <!-- 8.97 -->
 
-    <div class="task97">
+    <div class="task97 border">
         <h3>97 Переберите циклом все узлы этого дива и выведите в консоль только узлы-элементы и текстовые узлы.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
 
-    <hr>
-
     <!-- 8.98 -->
 
-    <div class="task98">
+    <div class="task98 border">
         <h3>98 Переберите циклом все узлы этого дива и выведите в консоль тексты всех узлов.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
 
-    <hr>
-
     <!-- 8.99 -->
 
-    <div class="task99">
+    <div class="task99 border">
         <h3>99 Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
 
-    <hr>
-
     <!-- 8.100 -->
 
-    <div class="task100">
+    <div class="task100 border">
         <h3>100 Переберите циклом все узлы этого дива и выведите в консоль тексты текстовых узлов и элементов.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
 
-    <hr>
-
     <!-- 8.101 -->
 
-    <div class="task101">
+    <div class="task101 border">
         <h3>101 Переберите циклом все узлы этого дива и каждому узлу в конец запишите его тип.</h3>
     <div id="elem">txt<b>tag</b>txt<b>tag</b></div> 
     </div>
-
-    <hr>
  
     <!-- 8.102 -->
     
-    <div class="task102">
+    <div class="task102 border">
         <h3>102 Получите года, сумма цифр которых равна 6. Найдите сумму полученных годов.</h3>
         <ul>
             <li>2000</li>
@@ -406,22 +478,19 @@
         <p>Результат:</p>
         <button>Посмотреть результат</button>
     </div>
-    
-    <hr>
+
 
     <!-- 8.103 -->
  
-    <div class="task103">
+    <div class="task103 border">
         <h3>103 Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.</h3>
         <input>
         <p>Результат:</p>
     </div>
-
-    <hr>
         
     <!-- 8.104 -->
 
-    <div class="task104">
+    <div class="task104 border">
         <h3>104 Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.</h3>
         <input>
         <input>
@@ -430,111 +499,101 @@
         <button>Посмотреть результат</button>
     </div>
 
-     <hr>
     
     <!-- 8.105 -->
 
-    <div class="task105">
+    <div class="task105 border">
         <h3>105 Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.</h3>
         <input >
         <div>Результат: 
             <div class="res">23</div> 
         </div>
     </div>
-    
-    <hr>
+
 
     <!-- 8.106 -->
 
-    <div class="task106">
+    <div class="task106 border">
         <h3>106 Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).</h3>
         <input >
         <p>Результат: <a class="res"></a></p>
     </div>
-    
-    <hr>
+
 
     <!-- 8.107 -->
 
-    <div class="task107">
+    <div class="task107 border">
         <h3>107 Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).</h3>
         <input id="main" class="surname" value="Введите ФИО">
         <input id="name" class="surname" value="Ваша фамилия">
         <input id="name" class="surname" value="Ваше имя">
         <input id="name" class="surname" value="Ваше отчество">
     </div>
-    
-    <hr>
+
 
     <!-- 8.108 -->
 
-    <div class="task108">
+    <div class="task108 border">
         <h3>108 Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.</h3>
         <input>
         <div class="res"></div>
 
     </div>
-    
-    <hr>
+
 
     <!-- 8.109 -->
 
-    <div class="task109">
+    <div class="task109 border">
         <h3>109 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.</h3>
         <input>
 
     </div>
-    
-    <hr>
+
 
     <!-- 8.110-->
 
-    <div class="task110">
+    <div class="task110 border">
         <h3>110 Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).</h3>
         <input>
         <button>проверить</button>
         <div class="res">Результат: </div>
     </div>
-    
-    <hr>
+
 
     <!-- 8.111-->
 
-    <div class="task111">
+    <div class="task111 border">
         <h3>111 Дан инпут. Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3.</h3>
         <input>
         <div class="res">Результат: </div>
     </div>
-    
-    <hr>
+
 
     <!-- 8.112-->
 
-    <div class="task112">
+    <div class="task112 border">
         <h3>112 Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.</h3>
         <p>text </p>
         <p>text </p>
         <p>text </p>
         <button>клик</button>
     </div>
-    
-    <hr>
+
 
     <!-- 8.113-->
 
-    <div class="task113">
+    <div class="task113 border">
         <h3>113 Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.</h3>
         <a href="https://www.code.mu/ru/javascript/book/prime/dom/form/textarea/">Урок 274</a>
         <a href="https://www.code.mu/ru/javascript/book/prime/dom/form/disabled/">Урок 275</a>
         <a href="https://www.code.mu/ru/javascript/book/prime/dom/form/checkbox/">Урок 276</a>
         
     </div>
-    
-    <hr>
+
 
     <!-- 8.114-->
 
-    <div class="task114">
+    <div class="task114 border">
         <h3>114 Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).</h3>
         <a href="http://www.code.mu/ru/javascript/book/prime/dom/form/textarea/">Урок 274</a>
         <a href="https://www.code.mu/ru/javascript/book/prime/dom/form/disabled/">Урок 275</a>
@@ -542,23 +601,21 @@
         <a href="https://www.code.mu/ru/javascript/book/prime/dom/form/attributes-without-values-alternation/">Урок 277</a>
         
     </div>
-    
-    <hr>
+
 
      <!-- 8.115-->
 
-     <div class="task115">
+     <div class="task115 border">
         <h3>115 Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.</h3>
         <p>2</p>
         <p>3</p>
         <p>4</p>
     </div>
-    
-    <hr>
+
 
      <!-- 8.116-->
 
-     <div class="task116">
+     <div class="task116 border">
         <h3>116 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.</h3>
         <input>
         <div> 
@@ -566,36 +623,31 @@
             <br>
         </div>
     </div>
-    
-    <hr>
+
 
      <!-- 8.117-->
 
-     <div class="task117">
+     <div class="task117 border">
         <h3>117 Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.</h3>
         <input value="2">
         <button class="plus">+1</button>
         <button class="minus">-1</button>
         <button class="source">Вернуться к исходному значению</button>
     </div>
-    
-    <hr>
 
     <!-- 8.118-->
 
-    <div class="task118">
+    <div class="task118 border">
         <h3>118 Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.</h3>
         <p>нажми меня</p>
         <p>нажми меня</p>
         <p>нажми меня</p>
         <input value="Итого">
     </div>
-    
-    <hr>
 
     <!-- 8.119-->
 
-    <div class="task119">
+    <div class="task119 border">
         <h3>119 На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста</h3>
             <div class="container">
                 <div class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
@@ -611,44 +663,36 @@
             <button>Обрезать текст</button>
         </div>
     </div>
-    
-    <hr>
 
     <!-- 8.120-->
 
-    <div class="task120">
+    <div class="task120 border">
         <h3>120 Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный.</h3>
             <input>
         </div>
     </div>
-    
-    <hr>
 
     <!-- 8.121-->
 
-    <div class="task121">
+    <div class="task121 border">
         <h3>121 Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.</h3>
             <input>
             <button>сгенерировать пароль</button>
         </div>
     </div>
-    
-    <hr>
 
     <!-- 8.122-->
 
-    <div class="task122">
+    <div class="task122 border">
         <h3>122 Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку перемешайте введенные символы случайным образом и запишите ее обратно в инпут.</h3>
             <input>
             <button>перемешать</button>
         </div>
     </div>
-    
-    <hr>
 
     <!-- 8.123-->
 
-    <div class="task123">
+    <div class="task123 border">
         <h3>123 Дан инпут, кнопка и абзац. В инпут вводится температура в градусах Фаренгейта. По клику на кнопку выведите в абзац температуру в градусах Цельсия.</h3>
             <div class="container">
                 <div class="deg">&deg;F</div> <input id="Fahrenheit-left"> 
@@ -674,24 +718,20 @@
             </div>
       
     </div>
-    
-    <hr>
 
     <!-- 8.124-->
 
-    <div class="task124">
+    <div class="task124 border">
         <h3>124 Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал этого числа.</h3>
             <input>
             <button>найти факториал</button>
             <p>Результат: </p>
         </div>
     </div>
-    
-    <hr>
 
      <!-- 8.125-->
 
-     <div class="task125">
+     <div class="task125 border">
         <h3>125 Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их в абзац.</h3>
             <input id="a">
             <input id="b">
@@ -701,7 +741,7 @@
         </div>
     </div>
     
-    <hr>
+  
 
 
 
