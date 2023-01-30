@@ -165,3 +165,92 @@ h1{
     color: green;
 }
 
+.task13_4 .wrapper{
+    display: flex;
+    height: 135px;
+    flex-direction: column;
+}
+
+.task13_4 input {
+    width: 200px;
+    margin-top: 5px;
+}
+
+.task13_7 input{
+    color:rgb(143, 141, 141);
+}
+
+.task13_12 #elem {
+    padding-left: 10px;
+}
+
+.task13_13 #elem {
+    padding-left: 10px;
+}
+
+.task13_14 #elem {
+    padding-left: 10px;
+}
+
+.task13_15 .wrapper{
+    display: flex;
+    max-height: 100px;
+    flex-direction: column;
+}
+
+.task13_15 input {
+    width: 200px;
+    margin-top: 5px;
+}
+
+.task14_2 input{
+    color:rgb(143, 141, 141);
+}
+
+.task14_2 ol {
+    list-style-type: none; /* Убираем исходные маркеры */
+    counter-reset: item;   /* Убираем исходные маркеры */
+}
+
+.task14_2 li {
+    display: flex;
+    width: 250px;
+}
+
+.task14_2 li::before {
+    content:counter(item) '. '; /* Добавляем к числам точку*/
+    counter-increment: item;    /* Задаём имя счетчика */
+}
+
+.task14_2 li div {
+    width: 240px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.task14_2 li div input {
+    width: 18px;
+    height: 13px;
+    margin-left: 10px;
+    color: black;
+}
+
+.task14_3 .width {
+    margin-top: 10px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task14_3 .height {
+    margin-top: 10px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task14_3 button {
+    margin: 10px 0;
+}
