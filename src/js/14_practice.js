@@ -83,92 +83,261 @@ function task3() {
 
         this.removeEventListener('click', createTable);
     }
+    btn.addEventListener('click', createTable);
 
     function greenTd (e) {
         if(e.target.tagName === 'TD') {
             e.target.style.backgroundColor = 'green';
         }
-
-
-        let arr = [];
-
-        for(let elem of arr) {
-            elem = Math.random();
-            arr.push(elem);
-        }
-       
-
-        console.log(arr);
-       
-    }
-
-    btn.addEventListener('click', createTable);
-
+    }    
     table.addEventListener('click', greenTd);
-  
 }
 task3();
 
-//4. Дан див. Запустите цикл, который добавит в наш див 5 инпутов. Пусть дан также абзац. Сделайте так, чтобы каждый из новых инпутов по потери фокуса записывал свой текст в абзац.
+//4. Выведите на экран HTML таблицу размером 5 рядов на 5 колонок так, чтобы в ее ячейках последовательно стояли четные числа в промежутке от 2 до 50.
 function task4() {
-   
+    const table = document.querySelector('.task14_4 #table');
+    const btn = document.querySelector('.task14_4 button');
+
+    let num = 1;
+    
+    function createTable() {
+        for( let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+            
+            for(let i = 0; i < 5; i++) {
+                let td = document.createElement('td');            
+                td.textContent = num++ * 2;
+                
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    }
+
+    btn.addEventListener('click', createTable);
 }
 task4();
 
-//5. Сделайте так, чтобы любая li удалялась по клику на нее.
+//5. Выведите на экран HTML таблицу, сделайте так, чтобы в таблицу записывались не элементы, а квадраты этих элементов.
 function task5() {
-  
+    const table = document.querySelector('.task14_5 #table');
+    const arr = [[1, 2 , 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
+
+    for(let subArr of arr) {
+        const tr = document.createElement('tr');
+
+        for(let elem of subArr) {
+            const td = document.createElement('td');
+            td.textContent = Math.pow(elem, 2);
+
+            tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+    }
 }
 task5();
 
-//6. Сделайте так, чтобы по каждому клику на кнопку удалялся последний элемент из #parent.
+//6. Заполните таблицу данными из объекта, сделайте так, чтобы по клику на любую ячейку с возрастом ее содержимое увеличивалось на 1, а по клику на любую ячейку с зарплатой ее содержимое увеличивалось на 10%.
 function task6() {
-   
+    const table = document.querySelector('.task14_6 #table');
+    let employees = [
+        {name: 'Имя', age: 'Возраст', salary: 'Зарплата'}, 
+        {name: 'employee1', age: 30, salary: 400}, 
+        {name: 'employee2', age: 31, salary: 500}, 
+        {name: 'employee3', age: 32, salary: 600}, 
+    ];
+
+    for(let employee of employees) {
+        let tr = document.createElement('tr');
+
+        let td1 = document.createElement('td');
+        td1.textContent = employee.name;
+        td1.addEventListener('click', changeName);
+        tr.appendChild(td1);
+
+        let td2 = document.createElement('td');
+        td2.textContent = employee.age;
+        td2.addEventListener('click', addAge);
+        tr.appendChild(td2);
+
+        let td3 = document.createElement('td');
+        td3.textContent = employee.salary;
+        td3.addEventListener('click', addSalary);
+        tr.appendChild(td3);
+
+        table.appendChild(tr);
+    }
+
+    function changeName() {
+        let input = document.createElement('input');
+        input.style.backgroundColor = 'rgba(252, 250, 125, 0.5)';
+        this.textContent = '';
+        this.appendChild(input);
+
+        let td = this;
+        input.addEventListener('blur', () => {
+            td.textContent = input.value;
+            td.addEventListener('click', changeName);
+        });
+
+        this.removeEventListener('click', changeName);
+    }
+
+    function addAge () {
+        this.textContent = +this.textContent + 1;
+    }
+
+    function addSalary() {
+        this.textContent = +this.textContent + (+this.textContent * 0.1);
+    }
 }
 task6();
 
-//7. Сделайте так, чтобы по каждому клику на кнопку add добавлялся элемент, а по клику на кнопку del удалялся последний элемент.
+//7. Сделайте кнопку, по нажатию на которую в таблицу будет добавляться новый ряд.
 function task7() {
+    const table = document.querySelector('.task14_7 #table');
+    const btn = document.querySelector('.task14_7 button');
+
+    btn.addEventListener('click', () => {
+        const tr = document.createElement('tr');
+        tr.style.height = '20px';
+
+        for(let i = 0; i <= 3; i++) {
+            let td = document.createElement('td');
+            td.style.width = '20px';
+            td.style.border = 'solid 1px green';
+
+            tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+    });
     
 }
 task7();
 
-//8. Дан инпут с числом. Сделайте так, чтобы каждую секунду в нем появлялся квадрат того числа, которое в нем записано.
+//8. Дана также кнопка. Сделайте так, чтобы по нажатию на кнопку таблица увеличивалась на один ряд и на одну колонку.
 function task8() {
+    const table = document.querySelector('.task14_8 #table');
+    const rows = document.querySelectorAll('.task14_8 tr');
+    const columns = document.querySelectorAll('.task14_8 td');
+    const addRow = document.querySelector('.task14_8 .row');
+    const addColumn = document.querySelector('.task14_8 .column');
+
+    function createTD (e) {
+        const td = document.createElement('td');
+        e.appendChild(td);
+    }
+
+    addColumn.addEventListener('click', () => {
+        for(let row of rows) {
+            createTD (row);
+        }
+    });
+
+    addRow.addEventListener('click', () => {
+        const tr = document.createElement('tr');
+        tr.style.height = '20px';
+
+        for(let i =0; i < columns.length - 2; i++) {
+            createTD (tr);
+        }
+        table.appendChild(tr);
+    });
+
    
 }
 task8();
 
-//9. Вставьте в начало элемент с текстом 'start', а в конец - элемент с текстом 'finish'.
+//9. Сделайте так, чтобы по клику на кнопку в список добавлялся новый элемент. Сделайте так, чтобы любая li удалялась по клику на нее. Речь идет как о тех li, которые уже есть в списке, так о новых, созданных после нажатия на кнопку.
 function task9() {
-   
+    const btn = document.querySelector('.task14_9 button');
+    const list = document.querySelector('.task14_9 #parent'); 
+
+    btn.addEventListener('click', (e) => {
+        const li = document.createElement('li');
+        li.textContent = '!';
+        list.appendChild(li);
+    });
+
+    list.addEventListener('click', function (e) {
+        if(e.target.tagName === 'LI') {
+            e.target.remove();
+        }
+    });
 }
 task9();
 
-//10. Дан элемент #elem. Вставьте перед этим элементом элемент с текстом 'new'.
+//10. Пусть у нас абзац. Давайте рядом с ним сделаем ссылку, с помощью которой этот абзац можно будет удалить.
 function task10() {
-   
+    const elem = document.querySelector('.task14_10 #elem');
+    const remove = document.querySelector('.task14_10 #remove');
+
+    remove.addEventListener('click', function (e) {
+        elem.remove();
+        e.preventDefault();
+    });
 }
 task10();
 
-//11. Модифицируйте предыдущую задачу так, чтобы клик на вставленный элемент приводил к тому, что в конец его текста будет добавляться '!'.
+//11. Дан тег ul. Добавьте в конец каждого тега li ссылку на удаления этого li из списка.
 function task11() {
+    const list = document.querySelectorAll('.task14_11 li');
+
+    for(let li of list) {
+        let remove = document.createElement('a');
+        remove.href = '';
+        remove.textContent = 'del';
+        li.appendChild(remove);
+
+        remove.addEventListener('click', function (e) {
+            li.remove();
+            e.preventDefault();
+        });
+    }
 }
 task11();
 
-//12. Дан элемент. Вставьте перед ним абзац с текстом '!!!'.
+//12. Дана HTML таблица. Добавьте в нее еще одну колонку, в которой для каждого ряда таблицы будет стоять ссылка на удаление этого ряда.
 function task12() {
-   
+    const columns = document.querySelectorAll('.task14_12 tr');
+    for(let column of columns) {
+        let td =document.createElement('td');
+        let del = document.createElement('a');
+        del.href = '';
+        del.textContent = 'del';
+        del.addEventListener('click', function (e) {
+            column.remove();
+            e.preventDefault();
+        });
+        td.appendChild(del);
+        column.appendChild(td);
+    }
 }
 task12();
 
-//13. Дан элемент. Вставьте после него абзац с текстом '!!!'.
+//13. Пусть у нас даны абзац и инпут, расположенные в одном родителе. Сделайте так, чтобы текст абзаца менялся по мере ввода текста в инпут.
 function task13() {
-   
+    const input = document.querySelector('.task14_13 #input');
+    const text = document.querySelector('.task14_13 #elem');
+
+    input.value = text.textContent;
+    text.textContent = '';
+
+    input.addEventListener('click', () => {
+        input.value = '';
+    });
+
+    input.addEventListener('blur', () => {
+        text.textContent = input.value;
+        input.value = '';
+    });
 }
 task13();
 
-//14. Дан элемент. Вставьте ему в начало и в конец абзац с текстом 'Оглавление', 'Заключение'.
+//14. При клике на абзац добавляйте инпут, сделайте так, чтобы по потери фокуса в инпуте менялся текст абзаца:
 function task14() {
     
 }

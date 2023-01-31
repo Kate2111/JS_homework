@@ -254,3 +254,56 @@ h1{
 .task14_3 button {
     margin: 10px 0;
 }
+
+.task14_4 tr {
+    height: 20px;
+}
+
+.task14_4 td {
+    border: solid 1px rgb(4, 17, 254);
+    width: 20px;
+}
+
+.task14_5 tr {
+    height: 25px;
+}
+
+.task14_5 td {
+    border: solid 1px rgb(254, 142, 4);
+    width: 25px;
+}
+
+.task14_6 tr {
+    height: 30px;
+}
+
+.task14_6 td {
+    border: solid 1px rgb(254, 4, 241);
+    width: 100px;
+}
+
+.task14_8 td {
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+
+.task14_11 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: brown;
+    margin-left: 15px;
+}
+
+.task14_12 td {
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+
+.task14_12 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: brown;
+    margin-left: 15px;
+}

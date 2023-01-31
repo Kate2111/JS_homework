@@ -690,7 +690,7 @@ console.log(rr3);
 let rr4 = ['a', 'b', 'c', 'd', 'e'];
 let ob5 = {};
 
-for(i = 0; i < rr4.length; i++) {
+for(let i = 0; i < rr4.length; i++) {
     ob5[i + 1] = rr4[i];
 }
 console.log(ob5);
@@ -699,7 +699,7 @@ console.log(ob5);
 let rr5 = ['a', 'b', 'c', 'd', 'e'];
 let ob6 = {};
 
-for(i = 0; i < rr5.length; i++) {
+for(let i = 0; i < rr5.length; i++) {
     ob6[rr5[i]] = i + 1;
 }
 console.log(ob6);
