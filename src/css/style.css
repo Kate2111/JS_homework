@@ -307,3 +307,38 @@ h1{
     color: brown;
     margin-left: 15px;
 }
+
+.task14_15 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: brown;
+    margin-left: 15px;
+}
+
+.task14_15 input {
+    color: rgb(143, 141, 141);
+}
+
+.task14_16 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: brown;
+    margin-left: 15px;
+}
+
+.task14_17 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: brown;
+    margin-left: 15px;
+}
+
+.task14_17 .line {
+    text-decoration: line-through;
+}
+
+.task14_18 td {
+	width: 100px;
+	height: 20px;
+	border: 1px solid black;
+}

@@ -337,26 +337,187 @@ function task13() {
 }
 task13();
 
-//14. При клике на абзац добавляйте инпут, сделайте так, чтобы по потери фокуса в инпуте менялся текст абзаца:
+//14. При клике на абзац добавляйте инпут, сделайте так, чтобы по потери фокуса в инпуте менялся текст абзаца.
 function task14() {
-    
+    const text = document.querySelector('.task14_14 #elem');
+    text.addEventListener('click', function createInput () {
+        let input = document.createElement('input');        //создаем инпут
+        
+        text.textContent = '';                              //прячем текст абзаца
+        input.value = 'Введите текст';                      //сохраняем тект в инпут по умолчанию
+        input.style.color = 'rgb(143, 141, 141)';
+        
+        text.appendChild(input);                            //добавляем инпут в абзац
+       
+        let text1 = this;                                   //записываем контект в переменную
+       
+        input.addEventListener('click', () => {             //обнуляем значение инпута при клике
+            input.value = '';
+            input.style.color = 'black';
+        });
+        
+        input.addEventListener('blur', () => {
+            text.textContent = input.value;                 //в абзац записываем значение инпута
+            text1.addEventListener('click', createInput);   //вкл обратно обработчик собития
+        });
+
+        this.removeEventListener('click', createInput);     //откл событие, чтобы не задвоился
+    });
 }
 task14();
 
-//15. Дан инпут. Дана кнопка. По нажатию на кнопку клонируйте этот инпут.
+//15. Дан тег ul. Сделайте так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого можно будет поредатировать текст этой li.
 function task15() {
+    const list = document.querySelectorAll('.task14_15 li'); 
+    const ul = document.querySelector('.task14_15 ul');
+    const task = document.querySelector('.task14_15 input');
+    const btn = document.querySelector('.task14_15 button');
     
+    function clearInput (elem) {
+        elem.addEventListener('click', () => {         
+            elem.value = '';
+            elem.style.color = 'black';
+        });
+    }
+
+    clearInput (task);
+
+    btn.addEventListener('click', function addTask () {
+        let li = document.createElement('li');
+        li.innerHTML = `<span>${task.value}</span>`;
+        ul.appendChild(li);
+
+        createInput(li);
+        removeInput(li);
+    });
+
+    function createInput(elem) {
+        let edit = document.createElement('a');
+        edit.textContent = 'edit';
+        edit.style.color = 'green';
+
+        edit.addEventListener('click', function addText() {
+            let input = document.createElement('input');
+            input.style.color = 'black';
+            input.value = elem.textContent;
+
+            elem.textContent = '';
+            elem.appendChild(input);
+
+            clearInput (input);
+
+            input.addEventListener('blur', () => {
+                elem.textContent = input.value;
+                elem.addEventListener('click', addText);
+                createInput(elem);
+                removeInput(elem);
+            });
+
+            elem.removeEventListener('click', addText);
+        });
+
+        elem.appendChild(edit);
+    }
+
+    function removeInput(elem) {
+        let del = document.createElement('a');
+        del.textContent = 'del';
+        elem.appendChild(del);
+
+        del.addEventListener('click', function remove() {
+            elem.remove();
+        });
+    }
+
+    for(let li of list) {
+        createInput(li);
+        removeInput(li);
+    }
 }
 task15();
 
-//16. Проверьте, является ли этот элемент элементом с классом www. Проверьте, является ли этот элемент абзацем.
+//16. Оберните сначала текст абзаца в теги span, добавьте к этим тегам возможность редактирования, а затем добавьте в конец каждого абзаца ссылку на удаление.
 function task16() {
-  
+    const list = document.querySelectorAll('.task14_16 p');
+   
+
+    function getSpan (arr) {
+        for(let elem of arr) {
+            elem.innerHTML = `<span>${elem.textContent}</span>`;
+            
+            const texts = document.querySelectorAll('.task14_16 p span');
+            for(let text of texts) {
+                text.addEventListener('click', shangeText);
+            }
+            removeInput(elem);
+        }
+    }
+
+    getSpan (list);
+    
+    function shangeText () {
+        let input = document.createElement('input');
+        input.value = '';
+        this.textContent = '';
+
+        this.appendChild(input);
+        this.removeEventListener('click', shangeText);
+        let text = this;
+        input.addEventListener('blur', () => {
+            text.textContent = input.value;
+        });
+    }
+
+    function removeInput(elem) {
+        let del = document.createElement('a');
+        del.textContent = 'del';
+        elem.appendChild(del);
+
+        del.addEventListener('click', function remove() {
+            elem.remove();
+        });
+    }
 }
 task16();
 
-//17. Даны две переменные elem1 и elem2, содержащие два элемента. Проверьте, является ли элемент из elem2 потомком элемента из elem1.
+//17. Добавьте в конец каждого абзаца ссылку, по клику на которую текст абзаца будет перечеркиваться (а ссылка - нет). Модифицируйте предыдущую задачу так, чтобы после нажатия на ссылку эта ссылка удалялась из абзаца (а текст абзаца становился перечеркнутым).
 function task17() {
-    
+    const items = document.querySelectorAll('.task14_17 p');
+
+    function wrapSpan (arr) {
+        for(let elem of arr) {
+            elem.innerHTML = `<span>${elem.textContent}</span>`;
+
+            addButton(elem);
+        }
+    }
+
+    wrapSpan (items);
+
+    function addButton(arr) {
+        const btn = document.createElement('a');
+        btn.textContent = 'cross out';
+        arr.appendChild(btn);
+
+        textCrossOutHandler (btn);
+    }
+
+    function textCrossOutHandler (button) {
+        button.addEventListener('click', function () {
+            const item = document.querySelectorAll('.task14_17 span');
+
+            for(let elem of item) {
+                if(!elem.matches('line')) {
+                    elem.classList.toggle('line');           
+                } 
+            }
+        });
+    }    
 }
 task17();
+
+//18. Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд с этой ссылкой должен стать зеленого фона. Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие отменяло это действие.
+function task18() {
+    
+}
+task18();
