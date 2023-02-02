@@ -516,8 +516,203 @@ function task17() {
 }
 task17();
 
-//18. Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд с этой ссылкой должен стать зеленого фона. Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие отменяло это действие.
+//18. Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд красило в зеленый фон, а второе нажатие отменяло это действие.
 function task18() {
+    const tr = document.querySelector('.task14_18 tr');
+    const list = document.querySelectorAll('.task14_18 td');
+
+    function createLink () {
+        const td = document.createElement('td');
+        tr.appendChild(td);
+
+        const link = document.createElement('a');
+        link.textContent = 'клик';
+        td.appendChild(link);
+
+        colorChangeHandler(link);
+    }
     
+    function colorChangeHandler(item) {
+        item.addEventListener('click', () => {
+            list.forEach(elem => elem.classList.toggle('color'));
+        });
+    }
+
+    createLink ();
 }
 task18();
+
+//19. Сделайте кнопку для скрытия и показа абзаца
+function task19() {
+    const elem = document.querySelector('.task14_19 #elem');
+    const button = document.querySelector('.task14_19 button');
+
+    button.addEventListener('click', () => {
+        elem.classList.toggle('hidden');
+    });
+}
+task19();
+
+//20. Пусть теперь у нас есть много абзацев и у каждого своя кнопка для сокрытия. Сделаем так, чтобы по клику на кнопку скрывался или показывался соответствующий ей абзац(через id и data-elem).
+function task20() {
+    const buttons = document.querySelectorAll('.task14_20 .wrapper button');
+
+    for(let button of buttons) {
+        button.addEventListener('click', function () {
+            const item = document.querySelector('#' + this.dataset.elem);
+            item.classList.toggle('hidden');
+        });  
+    }
+}
+task20();
+
+//21. Расставлять id и data-атрибуты не очень удобно. Давайте сделаем так, чтобы связь была по порядковому номеру: пусть первая кнопка скрывает первый абзац, вторая кнопка - второй и так далее.
+function task21() {
+    const buttons = document.querySelectorAll('.task14_21 #btn');
+    const elems = document.querySelectorAll('.task14_21 p');
+
+    for(let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function (event) {
+            elems[i].classList.toggle('hidden');
+        });
+    }
+}
+task21();
+
+//22. Решите предыдущую задачу используя соседа слева(previousElementSibling).
+function task22() {
+    const buttons = document.querySelectorAll('.task14_22 .wrapper button');
+
+    for(let button of buttons) {
+        button.addEventListener('click', function () {
+            this.previousElementSibling.classList.toggle('hidden');
+        });
+    }
+}
+task22();
+
+//23. Дана HTML список ul. Сделайте так, чтобы по нажатию на любой пункт списка он активировался красным фоном. Модифицируйте предыдущую задачу так, чтобы по нажатию на активированный пункт списка активация с него снималась.
+function task23() {
+    const list = document.querySelectorAll('.task14_23 li');
+
+    list.forEach(li => {
+        li.addEventListener('click', () => { 
+            li.classList.toggle('active');
+        });
+    });
+}
+task23();
+
+//24. Чередование стилей активации.
+function task24() {
+    let tds = document.querySelectorAll('.task14_24 td');
+
+    let color = 'color1';
+    for (let td of tds) {
+        td.addEventListener('click', function() {
+            if (color == 'color1') {
+                color = 'color2';
+            } else {
+                color = 'color1';
+            }
+            
+            this.classList.add(color);
+        });
+    }
+}
+task24();
+
+//25. Чередование многих цветов из массива
+function task25() {
+    let tds = document.querySelectorAll('.task14_25 td');
+    const color = ['color1', 'color2', 'color3'];
+    let i = 0;
+
+    for(let td of tds) {
+        td.addEventListener('click', function() {
+            this.classList.add(color[i]);
+            i++
+
+            if(i == color.length) {
+                i = 0;
+            }
+        });
+    }    
+}
+task25();
+
+//26. Дан массив. Выведите его элементы в виде списка ul. Пусть по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать. Пусть в конце каждой li стояла ссылка 'удалить' и 'перечеркнуть', с помощью которой можно будет удалить эту li из ul.
+function task26() {
+    const list        = document.querySelector('.task14_26 ul');
+    const window      = document.querySelector('.task14_26 input');
+    const button      = document.querySelector('.task14_26 button');
+    const cartoon     = ['Красавица и чудовище', 'Русалочка', 'Мулан'];
+
+    function createVariable (text) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${text}</span>`;      
+        list.appendChild(li);
+
+        const crossOut = document.createElement('a');
+        crossOut.textContent = 'перечеркнуть';
+        crossOut.classList.add('link', 'crossOut');
+        li.appendChild(crossOut);
+
+        const del = document.createElement('a');
+        del.textContent = 'удалить';
+        del.classList.add('link');
+        li.appendChild(del);
+
+        contextChangeHandler (li);
+        contextCrossOutHandler ();
+        //contextDeleteHandler (del);
+    }
+
+    function createList () {
+        for(let elem of cartoon) {
+            createVariable (elem);
+        }
+    }
+
+    function editInput (elem, item) {
+        elem.addEventListener('blur', function () {
+            item.textContent = this.value;
+        });
+    }
+
+    function createInput () {
+        const input = document.createElement('input');
+        input.value = this.textContent;
+        this.textContent = '';
+        const li = this;
+
+
+        this.appendChild(input);
+
+        editInput (input, li);
+
+        this.removeEventListener('click', createInput);
+    }
+
+    function contextChangeHandler (elem) {
+        elem.firstElementChild.addEventListener('click', createInput);
+    }
+
+    function contextCrossOutHandler () {
+        const elems = document.querySelectorAll('.task14_26 li a');
+        for(let elem of elems) {
+            elem.addEventListener('click', function () {
+                this.previousElementSibling.classList.toggle('line');
+            });   
+        }   
+
+        //НЕ МОГУ получить ссылку на "перечекнуть"
+    }
+
+    createList (cartoon);
+}
+task26();
+
+
+
+

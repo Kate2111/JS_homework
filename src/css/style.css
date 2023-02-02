@@ -264,7 +264,7 @@ h1{
     width: 20px;
 }
 
-.task14_5 tr {
+.task14_5 tr, .task14_6 tr {
     height: 25px;
 }
 
@@ -273,42 +273,18 @@ h1{
     width: 25px;
 }
 
-.task14_6 tr {
-    height: 30px;
-}
-
 .task14_6 td {
     border: solid 1px rgb(254, 4, 241);
     width: 100px;
 }
 
-.task14_8 td {
+.task14_8 td, .task14_12 td, .task14_18 td,  .task14_24 td, .task14_25 td {
 	width: 20px;
 	height: 20px;
 	border: 1px solid black;
 }
 
-.task14_11 a {
-    text-decoration: none;
-    font-weight: 500;
-    color: brown;
-    margin-left: 15px;
-}
-
-.task14_12 td {
-	width: 20px;
-	height: 20px;
-	border: 1px solid black;
-}
-
-.task14_12 a {
-    text-decoration: none;
-    font-weight: 500;
-    color: brown;
-    margin-left: 15px;
-}
-
-.task14_15 a {
+.task14_11 a, .task14_12 a, .task14_15 a, .task14_16 a, .task14_17 a, .task14_18 a, .task14_26 .link {
     text-decoration: none;
     font-weight: 500;
     color: brown;
@@ -319,26 +295,39 @@ h1{
     color: rgb(143, 141, 141);
 }
 
-.task14_16 a {
-    text-decoration: none;
-    font-weight: 500;
-    color: brown;
-    margin-left: 15px;
-}
-
-.task14_17 a {
-    text-decoration: none;
-    font-weight: 500;
-    color: brown;
-    margin-left: 15px;
-}
-
-.task14_17 .line {
+.task14_17 .line, .task14_26 .line {
     text-decoration: line-through;
 }
 
-.task14_18 td {
-	width: 100px;
-	height: 20px;
-	border: 1px solid black;
+.task14_18 .color {
+    background-color: rgba(4, 168, 4, 0.415);
+}
+
+.task14_19 .hidden, .task14_20 .hidden, .task14_21 .hidden, .task14_22 .hidden{
+    display: none;
+}
+
+.task14_20 p, .task14_21 p, .task14_22 p {
+    display: inline-block;
+    width: 150px;
+}
+
+.task14_20 .wrapper, .task14_21 .wrapper, .task14_22 .wrapper {
+    height: 40px;
+}
+
+.task14_23 .active {
+	background: rgba(255, 0, 0, 0.586);
+}
+
+.task14_24 .color1, .task14_25 .color1 {
+	background: rgba(255, 0, 0, 0.538);
+}
+
+.task14_24 .color2, .task14_25 .color2 {
+	background: rgba(0, 128, 0, 0.484);
+}
+
+.task14_25 .color3 {
+	background: rgba(4, 84, 243, 0.484);
 }
