@@ -273,7 +273,7 @@ h1{
     width: 25px;
 }
 
-.task14_6 td {
+.task14_6 td, .task14_27 td {
     border: solid 1px rgb(254, 4, 241);
     width: 100px;
 }
@@ -284,14 +284,14 @@ h1{
 	border: 1px solid black;
 }
 
-.task14_11 a, .task14_12 a, .task14_15 a, .task14_16 a, .task14_17 a, .task14_18 a, .task14_26 .link {
+.task14_11 a, .task14_12 a, .task14_15 a, .task14_16 a, .task14_17 a, .task14_18 a {
     text-decoration: none;
     font-weight: 500;
     color: brown;
     margin-left: 15px;
 }
 
-.task14_15 input {
+.task14_15 input, .task14_27 input {
     color: rgb(143, 141, 141);
 }
 
@@ -330,4 +330,12 @@ h1{
 
 .task14_25 .color3 {
 	background: rgba(4, 84, 243, 0.484);
+}
+
+.task14_26 .link {
+    margin: 5px 5px 5px 10px;
+}
+
+.task14_27 table {
+    margin: 15px;
 }

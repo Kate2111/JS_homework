@@ -572,7 +572,7 @@ function task21() {
     const elems = document.querySelectorAll('.task14_21 p');
 
     for(let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function (event) {
+        buttons[i].addEventListener('click', function () {
             elems[i].classList.toggle('hidden');
         });
     }
@@ -631,7 +631,7 @@ function task25() {
     for(let td of tds) {
         td.addEventListener('click', function() {
             this.classList.add(color[i]);
-            i++
+            i++;
 
             if(i == color.length) {
                 i = 0;
@@ -644,7 +644,7 @@ task25();
 //26. Дан массив. Выведите его элементы в виде списка ul. Пусть по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать. Пусть в конце каждой li стояла ссылка 'удалить' и 'перечеркнуть', с помощью которой можно будет удалить эту li из ul.
 function task26() {
     const list        = document.querySelector('.task14_26 ul');
-    const window      = document.querySelector('.task14_26 input');
+    const firstInput  = document.querySelector('.task14_26 input');
     const button      = document.querySelector('.task14_26 button');
     const cartoon     = ['Красавица и чудовище', 'Русалочка', 'Мулан'];
 
@@ -653,30 +653,29 @@ function task26() {
         li.innerHTML = `<span>${text}</span>`;      
         list.appendChild(li);
 
-        const crossOut = document.createElement('a');
+        const crossOut = document.createElement('button');
         crossOut.textContent = 'перечеркнуть';
         crossOut.classList.add('link', 'crossOut');
         li.appendChild(crossOut);
 
-        const del = document.createElement('a');
+        const del = document.createElement('button');
         del.textContent = 'удалить';
-        del.classList.add('link');
+        del.classList.add('link', 'delete');
         li.appendChild(del);
 
         contextChangeHandler (li);
-        contextCrossOutHandler ();
-        //contextDeleteHandler (del);
     }
 
     function createList () {
         for(let elem of cartoon) {
             createVariable (elem);
-        }
+        }  
     }
 
     function editInput (elem, item) {
         elem.addEventListener('blur', function () {
             item.textContent = this.value;
+            item.addEventListener('click', createInput);
         });
     }
 
@@ -685,7 +684,6 @@ function task26() {
         input.value = this.textContent;
         this.textContent = '';
         const li = this;
-
 
         this.appendChild(input);
 
@@ -698,20 +696,58 @@ function task26() {
         elem.firstElementChild.addEventListener('click', createInput);
     }
 
+    function newLiAddHandler () {
+        button.addEventListener('click', function () {
+            createVariable (firstInput.value);
+            firstInput.value = '';
+            
+        });  
+    }
+
+    newLiAddHandler ();
+
+    createList (cartoon);
+
     function contextCrossOutHandler () {
-        const elems = document.querySelectorAll('.task14_26 li a');
+        const elems = list.querySelectorAll('.crossOut');
+        console.log(elems);
         for(let elem of elems) {
             elem.addEventListener('click', function () {
                 this.previousElementSibling.classList.toggle('line');
             });   
-        }   
-
-        //НЕ МОГУ получить ссылку на "перечекнуть"
+        }  
     }
 
-    createList (cartoon);
+    contextCrossOutHandler ();
+
+    function contextDeleteHandler() {
+        const elems = document.querySelectorAll('.task14_26 .delete');
+        for(let elem of elems) {
+            elem.addEventListener('click', function() {
+                elem.parentElement.remove();
+            });
+        }
+    }
+
+    contextDeleteHandler ();
 }
 task26();
+
+//27. Дан следующий массив с работниками. Выведите этих работников в HTML таблице. Добавьте ячейкам созданной таблицы возможность редактирования. Добавьте в вашу таблицу новую колонку со ссылкой на удаления ряда из таблицы. Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников.
+function task27() {
+    let employees = [
+        {name: 'Иван', age: 30, salary: 
+            400}, 
+        {name: 'Петя', age: 31, salary: 
+            500}, 
+        {name: 'Вася', age: 32, salary: 
+            600}, 
+    ];
+}
+task27();
+
+
+
 
 
 
