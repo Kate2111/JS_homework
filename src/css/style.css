@@ -80,6 +80,12 @@ h1{
     display: inline;
 }
 
+.task134 td {
+    width: 50px;
+	height: 50px;
+	border: 1px solid black;
+}
+
 .task10_3 ul {
 	padding: 30px;
 	border: 1px solid red;
@@ -338,4 +344,9 @@ h1{
 
 .task14_27 table {
     margin: 15px;
+}
+
+.task14_27 .firstTD {
+    background-color: rgba(245, 31, 234, 0.697);
+    color:azure;
 }

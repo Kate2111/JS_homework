@@ -735,7 +735,12 @@ task26();
 
 //27. Дан следующий массив с работниками. Выведите этих работников в HTML таблице. Добавьте ячейкам созданной таблицы возможность редактирования. Добавьте в вашу таблицу новую колонку со ссылкой на удаления ряда из таблицы. Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников.
 function task27() {
-    let employees = [
+    const nameInput     = document.querySelector('.task14_27 .name');
+    const ageInput      = document.querySelector('.task14_27 .old');
+    const salaryInput   = document.querySelector('.task14_27 .salary');
+    const button        = document.querySelector('.task14_27 button');
+    const table         = document.querySelector('.task14_27 table');
+    const employees     = [
         {name: 'Иван', age: 30, salary: 
             400}, 
         {name: 'Петя', age: 31, salary: 
@@ -743,11 +748,171 @@ function task27() {
         {name: 'Вася', age: 32, salary: 
             600}, 
     ];
+
+    function createList (elems) {
+        for(let elem of elems) {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            const td2 = document.createElement('td');
+            const td3 = document.createElement('td');
+            const td4 = document.createElement('td');
+            const del = document.createElement('a');
+            
+            td1.textContent = elem.name;
+            td2.textContent = elem.age;
+            td3.textContent = elem.salary; 
+            del.textContent = 'delete';
+
+            td4.append(del);
+            tr.append(td1, td2, td3, td4);
+            table.appendChild(tr);
+        }
+    }
+
+    createList (employees);
+
+    function elemEditHandler(event) {
+        if(event.target.tagName === 'A') {
+            this.parentElement.remove();
+        } else {
+            const input = document.createElement('input');
+            input.value = this.textContent;
+            this.textContent = '';
+            this.appendChild(input);
+
+            let td = this;
+
+            input.addEventListener('blur', function () {
+                td.textContent = this.value;
+                td.addEventListener('click', elemEditHandler);
+            });
+        }
+        
+        this.removeEventListener('click', elemEditHandler);
+    }
+
+    function editElem () {
+        const elems = table.querySelectorAll('td');
+
+        for(let elem of elems) {
+            elem.addEventListener('click', elemEditHandler);
+        }
+    }
+
+    editElem ();
+
+    function inputClearHandler (elem) {
+        elem.addEventListener('click', () => {
+            elem.value = '';
+        });
+    }
+
+    inputClearHandler (nameInput);
+    inputClearHandler (ageInput);
+    inputClearHandler (salaryInput);
+
+    function employeeAddHandler () {
+        button.addEventListener('click', function() {
+            const newArrayEmployees = [];
+
+            const conditions = nameInput.value != 'Имя' && ageInput.value != 'Возраст' && salaryInput.value!= 'Зарплата';
+            if(conditions) {
+                newArrayEmployees.push({
+                    name: `${nameInput.value}`,
+                    age: `${ageInput.value}`,
+                    salary: `${salaryInput.value}`
+                });
+            }
+
+            nameInput.value = 'Имя';
+            ageInput.value = 'Возраст';
+            salaryInput.value = 'Зарплата';
+
+            createList (newArrayEmployees);
+            editElem ();
+        });
+    }
+
+    employeeAddHandler ();
 }
 task27();
 
+//28. Выведите на экран каждого работника в своем теге li тега ul. Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля. Добавьте в конец каждого тега li ссылку на удаление этого li из списка. Под списком сделайте форму для добавления нового работника.
+function task28() {
+    const list          = document.querySelector('.task14_28 ul');
+    const nameInput     = document.querySelector('.task14_28 .name');
+    const ageInput      = document.querySelector('.task14_28 .old');
+    const salaryInput   = document.querySelector('.task14_28 .salary');
+    const button        = document.querySelector('.task14_28 button');
+    let employees       = [
+        {name: 'Иван', age: 30, salary: 
+            400}, 
+        {name: 'Петя', age: 31, salary: 
+            500}, 
+        {name: 'Вася', age: 32, salary: 
+            600}, 
+    ];
 
 
+    function createList(elems) {
+        for(let elem of elems) {
+            const li = document.createElement('li');
+            li.innerHTML = 'Имя: ' + `<span>${elem.name}</span>` + ', возраст: ' +`<span>${elem.age}</span>` + ', зарплата: ' + `<span>${elem.salary}</span>`;
+
+            elemEditHandler(li);
+
+            list.appendChild(li);
+        }
+    }
+
+    function elemEditHandler(elem) {
+        elem.addEventListener('click', function editElem(e) {
+            const input = document.createElement('input');
+            input.value = e.target.textContent;
+            e.target.textContent = '';
+
+            input.addEventListener('blur', function () {
+                e.target.textContent = input.value;
+                input.remove();
+            });
+
+            this.removeEventListener('click', editElem);
+            this.appendChild(input);
+        });
+    }
+
+    function inputClearHandler (elem) {
+        elem.addEventListener('click', () => {
+            elem.value = '';
+        });
+    }
+
+    inputClearHandler (nameInput);
+    inputClearHandler (ageInput);
+    inputClearHandler (salaryInput);
+
+    function addNewEmployee () {
+        button.addEventListener('click', function () {
+            const newArrayEmployees = [];
+            newArrayEmployees.push({
+                name: `${nameInput.value}`,
+                age: `${ageInput.value}`,
+                salary: `${salaryInput.value}`
+            });
+
+            nameInput.value = 'Имя';
+            ageInput.value = 'Возраст';
+            salaryInput.value = 'Зарплата';
+
+            createList(newArrayEmployees);
+        });
+    }
+
+    addNewEmployee (); 
+    createList(employees);
+}
+
+task28();
 
 
 

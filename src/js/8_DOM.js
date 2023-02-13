@@ -63,8 +63,8 @@ task7();
 
 //8.    Сделайте так, чтобы по клику на первую кнопку выполнилась функция func1, а по клику на вторую - функция func2.
 function task8() {
-    const button4 = document.querySelector('.task8_8 #button4');
-    const button5 = document.querySelector('.task8_8 #button5');
+    const button4 = document.querySelector('.task8_8 #button1');
+    const button5 = document.querySelector('.task8_8 #button2');
     
     function func1() {
         console.log(1);
@@ -857,6 +857,7 @@ function task95() {
     const child = document.querySelector('.task95 #elem').childNodes;
     for(let node of child) {
         console.log(node);
+
     }
 }
 task95();
@@ -1413,4 +1414,178 @@ task124();
  }
  task125();
 
- 
+//126. Сделайте функцию, которая первым параметром будет принимать CSS селектор, а вторым - текст элемента, и будет устанавливать этому элементу новый текст.
+function task126() {
+    function changeText(selector, text) {
+        const p = document.querySelector(`.task126 ${selector}`);
+        const button = document.querySelector('.task126 button');
+
+        button.onclick = () => {p.textContent = text;};
+    }
+    changeText('p', 'TEXT1');
+}
+task126();
+
+//127. Сделайте функцию setAttr, которая будет менять атрибут DOM элементу. Пусть первым параметром функция принимает селектор элемента, вторым - имя атрибута, а третьим - его новое значение.
+function task127() {
+    function satAttr (selector, atribute, value) {
+        const button = document.querySelector('.task127 button');
+        const div = document.querySelector('.task127 div');
+        const p = document.querySelector(`.task127 ${selector}`);
+
+        div.textContent = p.getAttribute(`${atribute}`);
+        button.onclick = () => {
+            p.setAttribute(`${atribute}`,`${value}`);
+            div.textContent = p.getAttribute(`${atribute}`);
+        };
+    }
+    satAttr ('p', 'id', 'elem2');
+}
+task127();
+
+//128. Сделайте функцию appendText, которая первым параметром будет принимать селектор, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец переданных элементов.
+function task128() {
+    function appendText (selector, text) {
+        const elems = document.querySelectorAll(`.task128 ${selector}`);
+        const button = document.querySelector('.task128 button');
+
+        button.onclick = () => {
+            elems.forEach(elem => {elem.textContent += text;});
+        };
+    }
+
+    appendText ('p', ' - это цвет');
+}
+task128();
+
+//129. Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте в конец его текста восклицательный знак.
+function task129() {
+    function forEach(selector, callBack) {
+        let elems = document.querySelectorAll(`.task129 ${selector}`);
+        
+        for (let elem of elems) {
+            callBack(elem);
+        }
+    }
+
+    function appendText(elem) {
+        elem.textContent += '!'; 
+    }
+
+    forEach('.elem', appendText);
+}
+task129();
+
+//130. Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте ему в начало его порядковый номер.
+function task130() {
+    function forEach(selector, callBack) {
+        const elems = document.querySelectorAll(`.task130 ${selector}`);
+
+        for(let i = 0; i < elems.length; i++) {
+            callBack(elems[i], i);
+        }
+    }
+
+    function callBack(elem, index) {
+        elem.textContent += ' - порядковый номер ' + (index + 1);
+    }
+
+    forEach('.elem', callBack);
+}
+task130();
+
+//131. Сделайте функцию setValue, которая первым параметром будет принимать ссылку на инпут, а вторым - текст. Сделайте так, чтобы данная функция устанавливала переданный текст в value инпута.
+function task131() {
+    const item = document.querySelector('.task131 input');
+    function setValue (input, text) {
+        input.value = text;
+    }
+
+    setValue (item, 'New text');
+}
+task131();
+
+//132. Дан массив и ul. Сделайте функцию appendElem, которая первым параметром будет принимать ссылку на DOM объект, в котором лежит тег ul, а вторым - текст. Сделайте так, чтобы данная функция создавала новую li с переданным текстом из массива.
+function task132() {
+    const list = document.querySelector('.task132 ul');
+    const birds = ['кукушка', 'сорока', 'дятел', 'сапсан'];
+
+    function appendElem(selector, text) {
+        let li = document.createElement('li');
+        li.textContent = text;
+        selector.appendChild(li);
+    }
+
+    function arrBirds () {
+        for(let bird of birds) {
+            appendElem(list, bird);
+        }
+    } 
+
+    arrBirds ();
+}
+task132();
+
+//133. Сделайте функцию appendText, которая первым параметром будет принимать массив DOM элементов, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец переданных элементов.
+
+function task133() {
+    const items = document.querySelectorAll('.task133 .elem');
+
+    function appendText (elems, text) {
+        for(let elem of elems) {
+            elem.textContent += text;
+        }
+    }
+
+    appendText(items, 'это текст');
+}
+task133();
+
+
+//134. Сделайте функцию createTable, которая будет будет создавать таблицу заданного размера и добавлять ее в конец заданного элемента.
+
+function task134() {
+    const parent = document.querySelector('.task134 div');
+    function createTable(rows, cols, parent) {
+        let table = document.createElement('table');
+
+        for(let i = 0; i < rows; i++) {
+            let tr = document.createElement('tr');
+                for(let i = 0; i < cols; i++) {
+                    let td = document.createElement('td');
+                    tr.appendChild(td);
+                }
+            table.appendChild(tr);
+        }
+
+        parent.appendChild(table);
+    }
+
+    createTable(3, 4, parent);
+}
+task134();
+
+//135. Модифицируйте функцию из предыдущей задачи так, чтобы она не добавляла таблицу в какой-то элемент, а просто возвращала ее через return.
+function task135() {
+    const div = document.querySelector('.task135 #elem');
+
+    function createTable(rows, cols) {
+       let table = document.createElement('table');
+
+        for(let i = 0; i < rows; i++) {
+            let tr = document.createElement('tr');
+                for(let i = 0; i < cols; i++) {
+                    let td = document.createElement('td');
+                    tr.appendChild(td);
+                }
+            table.appendChild(tr);
+        }
+
+        return table; 
+    }
+
+    
+    div.appendChild(createTable(2, 4) );
+
+}
+task135();
