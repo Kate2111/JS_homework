@@ -1,0 +1,69 @@
+body {
+    background-color:rgba(17, 246, 5, 0.471);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.border {
+    border:rgba(16, 16, 2, 0.997) dotted 2px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+h3 {
+    color:rgb(6, 6, 247);
+}
+
+.container {
+    width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.decision {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    width: 180px;
+}
+
+.decision h4{
+    margin: 10px 0;
+}
+
+.decision button, .resTask5 {
+    background-color:rgba(13, 176, 5, 0.848);
+    border: solid 1px green;
+    margin: 20px auto;
+    font-size: 15px;
+    min-width: 90px;
+    height: 25px;
+}
+
+.decision .data {
+    display: flex;
+    justify-content: space-between;    
+}
+
+.decision .data input {
+    width: 40px;
+}
+
+.task5 .data {
+    display: flex;
+    margin: 10px 0;
+}
+
+.task5 .data_div {
+    margin-right: 20px;
+}
+
+.task5 input {
+    width: 30px;
+}
+

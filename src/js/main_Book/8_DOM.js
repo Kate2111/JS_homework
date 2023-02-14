@@ -1568,7 +1568,7 @@ task134();
 //135. Модифицируйте функцию из предыдущей задачи так, чтобы она не добавляла таблицу в какой-то элемент, а просто возвращала ее через return.
 function task135() {
     const div = document.querySelector('.task135 #elem');
-
+    
     function createTable(rows, cols) {
        let table = document.createElement('table');
 
@@ -1584,8 +1584,96 @@ function task135() {
         return table; 
     }
 
-    
-    div.appendChild(createTable(2, 4) );
-
+    //div.appendChild(createTable(2, 4));
+    const table = createTable(2, 4);
+    table.style.backgroundColor = 'green';
+    div.appendChild(table);
 }
 task135();
+
+//136. Сделайте функцию createTableByArr, которая параметром будет принимать двухмерный массив и строить на его основе таблицу.
+function task136() {
+    const div = document.querySelector('.task136 #elem');
+    let elems = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+    function createTable(arr) {
+       let table = document.createElement('table');
+
+        for(let subarr of arr) {
+            let tr = document.createElement('tr');
+                for(let elem of subarr) {
+                    let td = document.createElement('td');
+                    td.textContent = elem;
+                    tr.appendChild(td);
+                }
+            table.appendChild(tr);
+        }
+
+        return table; 
+    }
+
+    div.appendChild(createTable(elems));
+}
+task136();
+
+//137. Дана кнопка и три инпута, в которые вводятся числа. По нажатию на кнопку выведите в консоль сумму введенных чисел. Реализуйте задачу с помощью модуля.
+
+;(function (selector1, selector2) {
+    const btn = document.querySelector(`.task137 ${selector1}`);
+    const elems = document.querySelectorAll(`.task137 ${selector2}`);
+    const res = document.querySelector('.task137 p');
+
+    function sum() {
+        let sum = 0;
+        for(let elem of elems) {
+            sum += +elem.value;
+        }
+        
+        res.textContent = `Результат: ${sum}`;
+    }
+
+    btn.addEventListener('click', sum);
+
+})('button', 'input');
+
+//138. Экспортируйте наружу объект с первыми пятью функциями и первыми двумя переменными.
+
+;(function() {
+    let modul = {};
+	modul.str1 = 'переменная модуля';
+	modul.str2 = 'переменная модуля';
+	let str3 = 'переменная модуля';
+	
+	modul.func1 = function () {
+		alert('функция модуля');
+	};
+	modul.func2 = function () {
+		alert('функция модуля');
+	};
+	modul.func3 = function () {
+		alert('функция модуля');
+	};
+	modul.func4 = function () {
+		alert('функция модуля');
+	};
+	modul.func5 = function () {
+		alert('функция модуля');
+	};
+
+    window.modul = modul;
+})();
+
+;(function() {
+	function func1() {
+		alert('функция модуля');
+	}
+	function func2() {
+		alert('функция модуля');
+	}
+	function func3() {
+		alert('функция модуля');
+	}
+	
+	//window.module = {func1: func1, func2:func2, func3: func3};
+    window.module = {func1, func2, func3}; 
+})();
