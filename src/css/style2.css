@@ -39,7 +39,7 @@ h3 {
 .decision button, .resTask5 {
     background-color:rgba(13, 176, 5, 0.848);
     border: solid 1px green;
-    margin: 20px auto;
+    margin: 15px auto;
     font-size: 15px;
     min-width: 90px;
     height: 25px;
@@ -54,16 +54,16 @@ h3 {
     width: 40px;
 }
 
-.task5 .data {
+.task5 .data, .task6 .data{
     display: flex;
     margin: 10px 0;
 }
 
-.task5 .data_div {
+.task5 .data_div, .task6 .data_div {
     margin-right: 20px;
 }
 
-.task5 input {
+.task5 input, .task6 input {
     width: 30px;
 }
 
