@@ -186,62 +186,178 @@ function task8() {
     const input2 = document.querySelector('.task8 .num2');
     const res = document.querySelector('.task8 .result');
     const btn = document.querySelector('.task8 button');
-    let arrNum1 = [];
-    let arrNum2 = [];
     let itemDivider1 = [];
     let itemDivider2 = [];
-    let result = [];
 
-    btn.onclick = () => {
-        getDivider(input1, arrNum1, itemDivider1);
-        getDivider(input2, arrNum2, itemDivider2);
+    btn.addEventListener('click', findDividerHalder);
+    input1.addEventListener('click', clearWindow);
+    input2.addEventListener('click', clearWindow);
+
+    function findDividerHalder () {
+        getDivider(input1, itemDivider1);
+        getDivider(input2, itemDivider2);
 
         compareDivider(itemDivider1, itemDivider2);
-    };
 
-    function getDivider(input, arr, items) {
+        btn.removeEventListener('click', findDividerHalder);
+    }
+
+    function clearWindow () {
+        res.textContent = 'Список общих делителей чисел: ';
+        itemDivider1 = [];
+        itemDivider2 = [];
+        btn.addEventListener('click', findDividerHalder);
+    }
+
+    function getDivider(input, items) {
+        let arr = [];
         for(let i = +input.value; i > 0; i-- ) {
             arr.push(i);
         }
         
-        arr.map(elem => {
+        arr.forEach(elem => {
             if(+input.value % elem === 0) {
                 items.push(elem);
             }
         });
-
-        console.log(items);
     }
 
     function compareDivider(item1, item2) {
-       /*  for(let i = 0; i < item1.length; i++) {
-            result = item1[i];
-            for(let j = 0; j < item2.length; j++) {
-                if(result === item2[j]) {
-                    res.textContent += result + ' ';
-                    console.log(typeof(result));
-                }
-            }
-        } */
-        result = [...item1, ...item2];
-
-        result.sort((a, b) => a - b);
+        let generalArr = [...item1, ...item2];
+        generalArr.sort((a, b) => a - b);
 
         let removed = [];
 
-        for(let i = 0; i < result.length; i++) {
-            if(result[i] === result[i - 1]) {
-                removed.push(result.splice(i, 1));
+        for(let i = 0; i < generalArr.length; i++) {
+            if(generalArr[i] === generalArr[i - 1]) {
+                removed.push(generalArr.splice(i, 1));
                 i--;
-                
             }
         }
-        console.log(removed);
-        console.log(result);
-        
-    }
 
-    input1.onclick = () => {res.textContent = 'Список делителей числа: ';};
-    input1.onselect = () => {res.textContent = 'Список делителей числа: ';};
+        let result = [].concat(...removed).join(',');
+        res.textContent += result;
+    }    
 }
 task8();
+
+//9.  Даны 2 инпута и кнопка. В инпуты вводятся числа. По нажатию на кнопку выведите наибольший общий делитель этих двух чисел.
+function task9() {
+    const input1 = document.querySelector('.task9 .num1');
+    const input2 = document.querySelector('.task9 .num2');
+    const res1 = document.querySelector('.task9 .result1');
+    const res2 = document.querySelector('.task9 .result2');
+    const btn = document.querySelector('.task9 button');
+
+    btn.addEventListener('click', findMoreDeneralDivider);
+    input1.addEventListener('click', clearWindow);
+    input2.addEventListener('click', clearWindow);
+
+    function findMoreDeneralDivider() {
+        let item1 = getDivider (input1); 
+        let item2 = getDivider (input2);
+
+        generalDivider (item1, item2);
+
+        btn.removeEventListener('click', findMoreDeneralDivider);
+    }
+
+    function clearWindow () {
+        res1.textContent = 'Наибольший общий делитель: ';
+        res2.textContent = 'Наименьший общий делитель: ';
+        btn.addEventListener('click', findMoreDeneralDivider);
+    }
+
+    function getDivider (input) {
+        let arr = [];
+        for(let i = +input.value; i > 1; i--) {
+            arr.push(i);
+        }
+
+        let elems = arr.filter(elem => +input.value % elem === 0);
+        return elems;
+    }
+
+    function generalDivider (arr1, arr2) {
+        let generalArr = [...arr1, ...arr2].sort((a, b) => a - b);
+
+        let removed = [];
+
+        for(let i = 0; i < generalArr.length; i++) {
+            if(generalArr[i] === generalArr[i - 1]){
+                removed.push(generalArr.splice(i, 1));
+                i--;
+            }
+        }
+
+        let maxNum = Math.max.apply(null, ([].concat(...removed)));
+        let minNum = Math.min.apply(null, ([].concat(...removed)));
+
+        res1.textContent += maxNum;
+        res2.textContent += minNum;
+    }
+}
+task9();
+
+//10. Дан textarea. Пусть в него вводится текст. Сделайте так, чтобы по потери фокуса под текстареа вывелось сообщение о том, сколько в этом тексте слов, сколько в тексте символов за вычетом пробелов. Модифицируйте предыдущую задачу так, чтобы также вывелось сообщение о процентном содержании каждого символа в тексте.
+function task10() {
+    const text = document.querySelector('.task10 textarea');
+    const words = document.querySelector('.task10 .words');
+    const simbol = document.querySelector('.task10 .simbol');
+    const percent = document.querySelector('.task10 .percent');
+    const wrapper = document.querySelector('.task10');
+    const flags = document.querySelectorAll('.task10 input');
+    
+
+    for(let flag of flags) {
+        flag.addEventListener('click', function func() {
+            const counterWords = text.value.split(' ');
+            if(flag.parentElement.className == 'words') {
+                console.log(counterWords);
+                counterWord (counterWords);
+            } 
+            if(flag.parentElement.className == 'simbol') {
+                counterSimbol (counterWords);
+            } 
+            if(flag.parentElement.className == 'percent') {
+                percentSimbol (counterWords);
+            }
+        });
+    }
+
+    function counterWord (arr) {
+        let lastWord = arr[arr.length - 1];
+        if(lastWord == '') {
+            //counterWord.pop(lastWord, 1);
+            arr.splice(-1, 1);
+        }
+
+        words.textContent = `Количество слов в тексте: ${arr.length}`;
+    }
+
+    function counterSimbol (arr) {
+        let sum = 0;
+        for(let elem of arr) {
+            sum += elem.length;
+        } 
+        simbol.textContent = `Количество символов в тексте: ${sum}`;
+    } 
+
+    function percentSimbol (arr) {
+        let simbols = arr.join('').split('').sort();
+
+        let sum = simbols.reduce((obj, i) => {
+            obj[i] ? obj[i] += 1 : obj[i] = 1;
+            return obj;
+        }, {});
+
+        for(let key in sum) {
+            let a = Math.round((sum[key] * 100) / simbols.length);
+
+            let percent = document.createElement('div');
+            percent.textContent = `Количество символа ${key} в тексте = ${a}%`;
+            wrapper.appendChild(percent);
+        }
+    }
+}
+task10();
