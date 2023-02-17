@@ -299,25 +299,30 @@ function task9() {
 }
 task9();
 
-//10. Дан textarea. Пусть в него вводится текст. Сделайте так, чтобы по потери фокуса под текстареа вывелось сообщение о том, сколько в этом тексте слов, сколько в тексте символов за вычетом пробелов. Модифицируйте предыдущую задачу так, чтобы также вывелось сообщение о процентном содержании каждого символа в тексте.
+//10. Дан textarea. Пусть в него вводится текст. Сделайте так, чтобы по потери фокуса под текстареа вывелось сообщение о том:
+//- сколько в этом тексте слов
+//- сколько в тексте символов
+//- сколько в тексте символов за вычетом пробелов
+//- сообщение о процентном содержании каждого символа в тексте.
 function task10() {
     const text = document.querySelector('.task10 textarea');
-    const words = document.querySelector('.task10 .words');
-    const simbol = document.querySelector('.task10 .simbol');
-    const percent = document.querySelector('.task10 .percent');
+    const words = document.querySelector('.task10 .words_text');
+    const simbol = document.querySelector('.task10 .simbol_text');
+    const simbolSpace = document.querySelector('.task10 .space_text');
     const wrapper = document.querySelector('.task10');
     const flags = document.querySelectorAll('.task10 input');
     
-
     for(let flag of flags) {
         flag.addEventListener('click', function func() {
             const counterWords = text.value.split(' ');
             if(flag.parentElement.className == 'words') {
-                console.log(counterWords);
                 counterWord (counterWords);
             } 
             if(flag.parentElement.className == 'simbol') {
-                counterSimbol (counterWords);
+                counterSimbol (text.value);
+            }
+            if(flag.parentElement.className == 'simbolSpaces') {
+                counterSimbolSpaces (counterWords);
             } 
             if(flag.parentElement.className == 'percent') {
                 percentSimbol (counterWords);
@@ -335,12 +340,17 @@ function task10() {
         words.textContent = `Количество слов в тексте: ${arr.length}`;
     }
 
-    function counterSimbol (arr) {
+    function counterSimbol (str) {
+        let sum = str.length;
+        simbol.textContent = `Количество символов в тексте: ${sum}`;
+    } 
+
+    function counterSimbolSpaces (arr) {
         let sum = 0;
         for(let elem of arr) {
             sum += elem.length;
         } 
-        simbol.textContent = `Количество символов в тексте: ${sum}`;
+        simbolSpace.textContent = `Количество символов в тексте(без пробелов): ${sum}`;
     } 
 
     function percentSimbol (arr) {
@@ -361,3 +371,92 @@ function task10() {
     }
 }
 task10();
+
+//11. Игра угадай число
+function task11() {
+    const inputNumber = document.querySelector('.task11 .number');
+    const inputName = document.querySelector('.task11 .name');
+    const massage = document.querySelector('.task11 .massage');
+    const parent = document.querySelector('.task11 .game');
+    const number = Math.round(Math.random() * 100);
+    console.log(number);
+    let counter = 7;
+    let showCounter = document.createElement('div');
+    parent.appendChild(showCounter);
+
+    inputNumber.focus();
+
+    inputNumber.addEventListener('blur',guessNumber);
+    inputNumber.addEventListener('click',clearInput);
+    inputName.addEventListener('blur', showRules);
+
+    function guessNumber () {
+        let guess = Number.parseInt(inputNumber.value);
+
+        if(guess > number) {
+            massage.textContent = 'введите число поменьше';
+        } if (guess < number) {
+            massage.textContent = 'введите число побольше';
+        } if (guess == number) {
+            massage.textContent = 'Ты молодец!';
+            inputNumber.classList.add('win');
+        }
+
+        
+        showCounter.textContent = `Осталось попыток ${counter -= 1}`;
+        if(counter == 0) {
+            massage.textContent = 'GAME OVER';
+            massage.style.color = 'red';
+            showCounter.textContent = '';
+            inputNumber.classList.add('lose');
+        }
+    }
+
+    function clearInput () {
+        inputNumber.value = '';
+    }
+
+    function showRules() {
+        let rules = document.createElement('div');
+        rules.textContent = `${inputName.value}, правила игры: загадано число от 1 до 100, у тебя есть всего 7 попыток его угадать.`;
+        parent.prepend(rules);
+        inputName.remove();
+    }
+    
+}
+task11();
+
+//12. Игра угадай ячейку. В этой игре будет дана таблица 10 на 10. Компьютер случайным образом запоминает 10 ячеек из этой таблицы. Игроку нужно кликать на клетки пока он не найдет все загаданные компьютером клетки.
+
+function task12() {
+    const table = document.querySelector('.task12 #field');
+    const rows = 10;
+    const column = 10;
+
+    function createTable() {
+        for(let i = 0; i < rows; i++) {
+            let tr = document.createElement('tr');
+
+            for(let k = 0; k < column; k++) {
+                let td = document.createElement('td');
+                tr.append(td);
+
+                td.textContent = Math.round(Math.random()*100);
+                td.addEventListener('click', paintCell);
+            }
+
+            table.append(tr);            
+        }
+    }
+
+    function paintCell() {
+        for(let i = 0; i < 10; i++) {
+            this.style.backgroundColor = 'green';
+        }
+        
+    }
+
+
+    createTable();
+}
+task12();
