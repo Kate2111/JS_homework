@@ -378,8 +378,7 @@ function task11() {
     const inputName = document.querySelector('.task11 .name');
     const massage = document.querySelector('.task11 .massage');
     const parent = document.querySelector('.task11 .game');
-    const number = Math.round(Math.random() * 100);
-    console.log(number);
+    const number = Math.round(Math.random() * 100)
     let counter = 7;
     let showCounter = document.createElement('div');
     parent.appendChild(showCounter);
@@ -432,6 +431,7 @@ function task12() {
     const table = document.querySelector('.task12 #field');
     const rows = 10;
     const column = 10;
+    let items = [];
 
     function createTable() {
         for(let i = 0; i < rows; i++) {
@@ -441,22 +441,64 @@ function task12() {
                 let td = document.createElement('td');
                 tr.append(td);
 
-                td.textContent = Math.round(Math.random()*100);
-                td.addEventListener('click', paintCell);
+                td.addEventListener('click', cellPaintHandler);
             }
 
-            table.append(tr);            
-        }
-    }
-
-    function paintCell() {
-        for(let i = 0; i < 10; i++) {
-            this.style.backgroundColor = 'green';
+            table.append(tr); 
         }
         
+        let elems = table.querySelectorAll('td');
+        
+        let arrTd = [];
+        for(let i = 0; i < 10; i++) {
+            arrTd[i] = [];
+            for(let j = 0; j < 10; j++) {
+                arrTd[i].push(elems[(i * 10) + j]);
+            }
+        } 
+
+        console.log(arrTd);
+        getClassName (arrTd);   
     }
 
+    function createArrRandomNumber() {
+        for(let i = 0; i < 10; i++) {
+            items[i] = [];
+            for(let j = 0; j < 9; j++) {
+                items[i].push('no');
+            }
+        }
+
+        for(let i = 0; i < 10; i++) {
+            let num = Math.round(Math.random() * 9);
+            items[i].splice(num, 0, 'yes');
+        }
+    }
+
+    createArrRandomNumber();
+
+    function getClassName (list) {
+        console.log(items);
+        for(let i = 0; i < 10; i++) {
+            console.log(items[i]);
+            for(let j = 0; j < 10; j++) {
+                list[i][j].classList.add(items[i][j]);
+                console.log(items[i][j]);
+            }  
+        }  
+    } 
+
+    function cellPaintHandler() {
+        if(this.className == 'yes') {
+            this.style.backgroundColor = 'green';
+        } else {
+            this.style.backgroundColor = 'gold';
+        }
+    }
 
     createTable();
 }
 task12();
+
+
+
