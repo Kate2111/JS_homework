@@ -120,11 +120,24 @@ h3 {
     border: solid 2px rgb(3, 166, 3);
 }
 
-.task12 td {
+.task12 td, .task13 td {
     width: 20px;
     border: solid 1px black;
 }
 
 .task12 tr {
     height: 20px;
+}
+
+.task12 .time {
+    margin: 10px 20px;
+}
+
+.task13 td {
+    width: 35px;
+    border: solid 1px black;
+}
+
+.task13 tr {
+    height: 35px;
 }

@@ -429,9 +429,20 @@ task11();
 
 function task12() {
     const table = document.querySelector('.task12 #field');
+    const timer = document.querySelector('.task12 .timer');
     const rows = 10;
     const column = 10;
     let items = [];
+    let arrTd = [];
+    let counter = 0;
+    let time = 40;
+
+    createTable();
+    createArrTd ();
+    createArrRandomNumber();
+    getClassName (arrTd);
+    counterClassYesHandler ();
+    table.addEventListener('click', countDownTimerHandler);
 
     function createTable() {
         for(let i = 0; i < rows; i++) {
@@ -445,22 +456,21 @@ function task12() {
             }
 
             table.append(tr); 
-        }
-        
-        let elems = table.querySelectorAll('td');
-        
-        let arrTd = [];
-        for(let i = 0; i < 10; i++) {
-            arrTd[i] = [];
-            for(let j = 0; j < 10; j++) {
-                arrTd[i].push(elems[(i * 10) + j]);
-            }
         } 
-
-        console.log(arrTd);
-        getClassName (arrTd);   
     }
 
+    function createArrTd () {
+        let elems = table.querySelectorAll('td');
+        for(let i = 0; i < rows; i++) {
+            arrTd[i] = [];
+            for(let j = 0; j < column; j++) {
+                arrTd[i].push(elems[(i * column) + j]);
+            }
+        } 
+        console.log(arrTd);
+    }
+
+    //Создаем массив с рандомным положением классов 'no' и 'yes'
     function createArrRandomNumber() {
         for(let i = 0; i < 10; i++) {
             items[i] = [];
@@ -475,15 +485,11 @@ function task12() {
         }
     }
 
-    createArrRandomNumber();
-
+    //Присваеваем каждому элементу Td класс по индексу нахождения в массиве
     function getClassName (list) {
-        console.log(items);
         for(let i = 0; i < 10; i++) {
-            console.log(items[i]);
             for(let j = 0; j < 10; j++) {
                 list[i][j].classList.add(items[i][j]);
-                console.log(items[i][j]);
             }  
         }  
     } 
@@ -496,9 +502,42 @@ function task12() {
         }
     }
 
-    createTable();
+    function counterClassYesHandler () {
+        const yesTd = table.querySelectorAll('.yes');
+        console.log(yesTd);
+        yesTd.forEach(yes => {
+            yes.addEventListener('click', function() {
+                if(time > 0) {
+                    counter++;
+                    console.log(counter);
+                }
+            });
+        });
+    }
+
+    function countDownTimerHandler() {
+        let timerID = setInterval(function() {
+            timer.textContent = `До конца игры осталось ${--time} секунд`;
+            if(time < 10) {
+                timer.textContent = `До конца игры осталось 0${--time} секунд`;
+            }
+            if(time === 0) {
+                clearInterval(timerID);
+                if(counter === 10) {
+                    timer.textContent = 'Всемя закончилось. Ты выйграл';
+                } else {
+                    timer.textContent = 'Всемя закончилось. Попробуй еще раз';
+                }
+                
+            }
+        }, 1000); 
+        this.removeEventListener('click', countDownTimerHandler);
+    }
+    
 }
 task12();
+
+//13. Давайте реализуем экранную клавиатуру. На ней должны быть кнопочки со всеми буквами и цифрами клавиатуры компьютера. Кликая мышкой по этим кнопочкам мы сможем вводить данные, например, при неработающей клавиатуре.
 
 
 
