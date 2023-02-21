@@ -136,8 +136,40 @@ h3 {
 .task13 td {
     width: 35px;
     border: solid 1px black;
+    background-color:rgb(246, 246, 55);
 }
 
 .task13 tr {
     height: 35px;
+}
+
+.task14 .choice {
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(84, 137, 235);
+}
+
+.task14 a {
+    text-decoration: none;
+    color:brown;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.task14 ul {
+    margin-top: 5px;
+    width: 210px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.task14 .day_week {
+    background-color:rgb(145, 176, 235);
+}
+
+.task14 li {
+    width: 30px;
+    list-style-type: none;
+    text-align: center;
 }

@@ -539,5 +539,117 @@ task12();
 
 //13. Давайте реализуем экранную клавиатуру. На ней должны быть кнопочки со всеми буквами и цифрами клавиатуры компьютера. Кликая мышкой по этим кнопочкам мы сможем вводить данные, например, при неработающей клавиатуре.
 
+//14. Линейный календарь. Выведите в виде списка ul все числа текущего месяца. Средствами CSS поставьте пункты списка в ряд. Сделайте так, чтобы :
+//-текущий день в календаре был выделен каким-нибудь цветом.
+//-над списком было написано название текущего месяца по-русски и номер года.
+//-над календарем появились ссылки вперед и назад, позволяющие менять месяц. Месяц и год, выводимые над календарем, должны соответствовать отображаемому месяцу.
+
+function task14() {
+    const next = document.querySelector('.task14 .next');
+    const back = document.querySelector('.task14 .back');
+    const calendar = document.querySelector('.task14 .calendar');
+    const yearList = document.querySelector('.task14 .year-list');
+    const monthList = document.querySelector('.task14 .month-list');
+    let lastDate;
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
+    const arr = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+    
+    getListMonthAndYear (0, arr.length, monthList);
+    getListMonthAndYear (1990, currentYear + 1, yearList);
+    getCurrentMonthAndYear('.month-list', currentMonth);
+    getCurrentMonthAndYear('.year-list', currentYear);
+    getLastDay();
+    createCalendar();
+    createFreeItem ();
+    
+    //next.addEventListener('click', cnahgeMonthHandler);
+    //back.addEventListener('click', cnahgeMonthHandler);
+   
+    function getListMonthAndYear (start, length, selector) {
+        for(let i = start; i < length; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            if(selector == monthList) {
+                option.innerHTML = arr[i];
+            } else {
+                option.innerHTML = i;
+            }
+            selector.appendChild(option);
+        }  
+    }
+
+    function getCurrentMonthAndYear(selector, item) {
+        const elems = document.querySelectorAll(`.task14 ${selector} option`);
+        
+        for(let elem of elems) {
+            if(elem.value == item) {
+                elem.selected = true;
+            }
+        }
+    }
+
+    function getLastDay() {
+        const elems = document.querySelectorAll(`.task14 .month-list option`);
+        const items = document.querySelectorAll(`.task14 .year-list option`);
+        let month;
+        let year;
+
+        month = 1;
+        /* for(let elem of elems) {
+            month = 1;
+            
+        } */
+
+        for(let item of items) {
+            if(item.selected) {
+                year = item.value;
+            }
+            
+        }
+
+        //console.log(month);
+        //console.log(year);
+        lastDate = new Date(year, month + 1, 0).getDate();
+        console.log(lastDate);
+        return lastDate;
+    }
+
+    function createCalendar () {
+        for(let i = 0; i < lastDate; i++) {
+            const li = document.createElement('li');
+            li.textContent = i + 1;
+            let nowDay = li.textContent == new Date().getDate();
+            if(nowDay) {
+                li.style.backgroundColor = 'rgba(109, 158, 249, 0.838)';
+            }
+            calendar.appendChild(li); 
+        } 
+    }
+
+    function createFreeItem () {
+        let length = new Date(2023, 1, 1).getDay();
+        for(let i = 0; i < length - 1; i++) {
+            const freeLi = document.createElement('li');
+            freeLi.textContent = '';
+            calendar.prepend(freeLi);
+        }
+    }
+
+    /* function cnahgeMonthHandler(event) {
+        this.preventDefault();
+        const elems = document.querySelectorAll(`.task14 .month-list option`);
+        for(let elem of elems) {
+            if(event.togle.className == 'next') {
+                elem.selectedIndex = elem.value + 1;
+            }
+        }
+        
+        
+    } */
+
+}
 
 
+
+task14();
