@@ -467,7 +467,6 @@ function task12() {
                 arrTd[i].push(elems[(i * column) + j]);
             }
         } 
-        console.log(arrTd);
     }
 
     //Создаем массив с рандомным положением классов 'no' и 'yes'
@@ -504,7 +503,6 @@ function task12() {
 
     function counterClassYesHandler () {
         const yesTd = table.querySelectorAll('.yes');
-        console.log(yesTd);
         yesTd.forEach(yes => {
             yes.addEventListener('click', function() {
                 if(time > 0) {
@@ -546,32 +544,54 @@ task12();
 
 function task14() {
     const next = document.querySelector('.task14 .next');
-    const back = document.querySelector('.task14 .back');
+    const prev = document.querySelector('.task14 .back');
     const calendar = document.querySelector('.task14 .calendar');
     const yearList = document.querySelector('.task14 .year-list');
     const monthList = document.querySelector('.task14 .month-list');
+    let showMonth = new Date().getMonth();
+    let showYear = new Date().getFullYear();
     let lastDate;
-    const currentMonth = new Date().getMonth();
-    const currentYear = new Date().getFullYear();
-    const arr = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+
+    initCalendar(showYear, showMonth);
+
+    function initCalendar(year, month) {
+        showInfo();
+        drawCalendar(year, month);
+    }
     
-    getListMonthAndYear (0, arr.length, monthList);
-    getListMonthAndYear (1990, currentYear + 1, yearList);
-    getCurrentMonthAndYear('.month-list', currentMonth);
-    getCurrentMonthAndYear('.year-list', currentYear);
-    getLastDay();
-    createCalendar();
-    createFreeItem ();
+    //Активируем стрелочки
+    next.addEventListener('click', nextMonthYearHandler);
+    prev.addEventListener('click', prevMonthYearHandler);
+
+    //Активируем блок с выбором месяца и года
+    selectedMonthYear ();
+
+
+    //Получаем блок с выбором месяца и года
+    function showInfo() {
+        const arr = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+        getListMonthAndYear (0, arr.length, monthList, arr);
+        getListMonthAndYear (1970, 2030, yearList);
+        getCurrentMonthAndYear('.month-list', showMonth);
+        getCurrentMonthAndYear('.year-list', showYear);
+    }
+
+    //Создаем календарь
+    function drawCalendar(year, month) {
+        getLastDay(year, month);
+        createCalendar(calendar);
+        shiftFreeItem (year, month, calendar);
+    }
     
-    //next.addEventListener('click', cnahgeMonthHandler);
-    //back.addEventListener('click', cnahgeMonthHandler);
    
-    function getListMonthAndYear (start, length, selector) {
+    //Получаем блок с выбором месяца и года
+    function getListMonthAndYear (start, length, selector, list) {
+        selector.innerHTML = '';
         for(let i = start; i < length; i++) {
             const option = document.createElement('option');
             option.value = i;
             if(selector == monthList) {
-                option.innerHTML = arr[i];
+                option.innerHTML = list[i];
             } else {
                 option.innerHTML = i;
             }
@@ -579,43 +599,23 @@ function task14() {
         }  
     }
 
-    function getCurrentMonthAndYear(selector, item) {
+    function getCurrentMonthAndYear(selector, currentMoment) {
         const elems = document.querySelectorAll(`.task14 ${selector} option`);
         
         for(let elem of elems) {
-            if(elem.value == item) {
+            if(elem.value == currentMoment) {
                 elem.selected = true;
             }
         }
     }
-
-    function getLastDay() {
-        const elems = document.querySelectorAll(`.task14 .month-list option`);
-        const items = document.querySelectorAll(`.task14 .year-list option`);
-        let month;
-        let year;
-
-        month = 1;
-        /* for(let elem of elems) {
-            month = 1;
-            
-        } */
-
-        for(let item of items) {
-            if(item.selected) {
-                year = item.value;
-            }
-            
-        }
-
-        //console.log(month);
-        //console.log(year);
+    
+    //Создаем календарь
+    function getLastDay(year, month) {
         lastDate = new Date(year, month + 1, 0).getDate();
-        console.log(lastDate);
-        return lastDate;
     }
 
-    function createCalendar () {
+    function createCalendar (parent) {
+        parent.innerHTML = '';
         for(let i = 0; i < lastDate; i++) {
             const li = document.createElement('li');
             li.textContent = i + 1;
@@ -623,33 +623,94 @@ function task14() {
             if(nowDay) {
                 li.style.backgroundColor = 'rgba(109, 158, 249, 0.838)';
             }
-            calendar.appendChild(li); 
+            parent.appendChild(li); 
         } 
     }
 
-    function createFreeItem () {
-        let length = new Date(2023, 1, 1).getDay();
-        for(let i = 0; i < length - 1; i++) {
+    function shiftFreeItem (year, month, parent) {
+        let dayOfWeek = new Date(year, month, 1).getDay(); 
+        if (dayOfWeek == 0) {
+            createFreeLi (6, parent);
+        }
+        if(dayOfWeek >= 1) {
+            createFreeLi (dayOfWeek - 1, parent);
+        } 
+        
+    }
+
+    function createFreeLi (length, parent) {
+        for(let i = 0; i < length; i++) {
             const freeLi = document.createElement('li');
             freeLi.textContent = '';
-            calendar.prepend(freeLi);
+            parent.prepend(freeLi);
+        } 
+    }
+    
+     //Активируем блок с выбором месяца и года
+     function selectedMonthYear () {
+        yearList.addEventListener('change', function(){
+            showYear = this.value;
+            initCalendar(showYear, showMonth);
+        });
+        monthList.addEventListener('change', function(){
+            showMonth = this.value;
+            initCalendar(showYear, showMonth);
+        });    
+    }
+
+
+    //Активируем стрелку назад
+    function prevMonthYearHandler(e) {
+       e.preventDefault();
+        showYear = getPrevYear(showYear, showMonth);
+        showMonth = getPrevMonth(showMonth);
+        
+        initCalendar(showYear, showMonth);
+    }
+
+    function getPrevYear(year, month) {
+        if(month == 0) {
+            return year - 1;
+        } else {
+            return year;
         }
     }
 
-    /* function cnahgeMonthHandler(event) {
-        this.preventDefault();
-        const elems = document.querySelectorAll(`.task14 .month-list option`);
-        for(let elem of elems) {
-            if(event.togle.className == 'next') {
-                elem.selectedIndex = elem.value + 1;
-            }
+    function getPrevMonth(month) {
+        if(month == 0) {
+            return 11;
+        } else {
+            return month - 1;
         }
-        
-        
-    } */
+    }
 
+    //Активируем стрелку вперед
+    function nextMonthYearHandler(e) {
+        e.preventDefault();
+        showYear = getNextYear(showYear,showMonth);
+        showMonth = getNextMonth(showMonth);
+        
+        initCalendar(showYear, showMonth);
+    }
+
+    function getNextYear(year, month) {
+        if(month == 11) {
+            return year + 1;
+        } else {
+            return year;
+        }
+    }
+
+    function getNextMonth(month) {
+        if(month == 11) {
+            return 0;
+        } else {
+            return month + 1;
+        }
+    }
 }
 
-
-
 task14();
+
+
+
