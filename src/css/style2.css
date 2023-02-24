@@ -177,3 +177,12 @@ h3 {
     list-style-type: none;
     text-align: center;
 }
+
+.task15 li {
+    display: flex;
+    
+    flex: 1;
+}
+
+
+
