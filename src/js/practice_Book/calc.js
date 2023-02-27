@@ -712,5 +712,54 @@ function task14() {
 
 task14();
 
+//15. Сейчас мы сделаем сайт, который будет помогать определить значение HTML тега. Пусть в этом скрипте будет инпут, в который пользователь будет вводить имя тега. После этого по нажатию на Enter под инпутом пусть выдается описание этого тега
+
+function task15() {
+    const input = document.querySelector('.task15 input');
+
+    filterSelect();
+    
+    function filterSelect() {
+        const select = document.querySelector('.task15 select');
+        const nameTag = document.querySelectorAll('.task15 .name_tag');
+        const category = document.querySelectorAll('.task15 .category');
+        const descr = document.querySelectorAll('.task15 .descr');
+
+        select.addEventListener('blur', () => {
+            for(let elem of select) {
+                hasElemValue('name_tag', elem, nameTag);
+                hasElemValue('category', elem, category);
+                hasElemValue('descr', elem, descr);
+            }
+        });    
+    }
+
+    function hasElemValue(nameValue, select, nameList) {
+        if(select.selected && select.value == nameValue) {
+            input.addEventListener('input', searchTagHandler.bind(input,nameList));
+        }
+    }
+
+    function searchTagHandler(arr) {
+        let val = this.value.trim();
+        if(val != '' ) {
+            searchTag(arr, val);
+        }  
+    }
+
+    function searchTag(arr, text) {
+        const header = document.querySelector('.task15 .header');
+        
+        arr.forEach(elem => {
+            if(elem.textContent.search(text) == 0) {
+                header.classList.add('activ');
+                elem.parentElement.classList.add('activ');
+            } else {
+                elem.parentElement.classList.remove('activ');
+            }  
+        });
+    }
+}   
+task15();
 
 

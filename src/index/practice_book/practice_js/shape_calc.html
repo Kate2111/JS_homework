@@ -347,30 +347,337 @@
 
 <div class="task15 border">
     <h3>15 Поиск тегов</h3>
-    <input type="text"> 
+    <div class="wrapper_search">
+        <div class="menu">
+            <div>поиск по:</div>
+            <select>
+                <option>выберите</option>
+                <option value="category">категории</option>
+                <option value="name_tag">тегу</option>
+                <option value="descr">описанию</option>
+            </select>
+        </div>
+        <input type="text"> 
+    </div>
+    
     <ul>
-        <li><span class="category">Базовый HTML-код</span>&lt;!DOCTYPE&gt; <span class="descr">Определяет тип документа</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;html&gt; <span class="decrt">Определяет HTML-документ</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;head&gt; <span class="decrt">Определяет сведения о документе</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;title&gt; <span class="decrt">Определяет заголовок документа</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;body&gt; <span class="decrt">Определяет тело документа</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;h1&gt; to &lt;h6&gt;<span class="decrt">Определяет заголовки HTML</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;p&gt; <span class="decrt">Определяет заголовки HTML</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;br&gt; <span class="decrt">Вставка одного разрыва строки</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;!--...--&gt; <span class="decrt">Определяет комментарий</span><a href="">подробнее...</a></li>
-        <li><span class="category">Базовый HTML-код</span>&lt;hr&gt; <span class="decrt">Определяет тематическое изменение содержания</span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-        <li><span class="category"></span>&lt; &gt; <span class="decrt"></span><a href="">подробнее...</a></li>
-
+        <li class="header">
+            <span>Категория</span>
+            <span>Тег </span>        
+            <span>Описание</span>
+        </li>
+        <!-- базовый HTML-код -->
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">doctype</span>        
+            <span class="descr">определяет тип документа</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">html</span>  
+            <span class="descr">определяет HTML-документ</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">head</span>   
+            <span class="descr">определяет сведения о документе</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">title </span>  
+            <span class="descr">определяет заголовок документа</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">body</span>   
+            <span class="descr">определяет тело документа</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">h1 to h6</span>
+            <span class="descr">определяет заголовки HTML</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">p</span>
+            <span class="descr">определяет заголовки HTML</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">br</span>
+            <span class="descr">вставка одного разрыва строки</span>
+            <a href="">подробнее...</a>
+        </li>
+        <li>
+            <span class="category">базовый HTML-код</span>
+            <span class="name_tag">hr</span>
+            <span class="descr">определяет тематическое изменение содержания</span>
+            <a href="">подробнее...</a>
+        </li> 
         
+
+        <!-- форматирование -->
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">abbr</span>
+            <span class="descr">определяет аббревиатуру или акроним</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">address</span>
+            <span class="descr">определяет контактные данные автора/владельца документа/статьи</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">b</span>
+            <span class="descr">определяет полужирный текст</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">bdi</span>
+            <span class="descr">изолирует часть текста, которая может быть отформатирована в другом направлении от другого текста за его пределами</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">bdo</span>
+            <span class="descr">переопределяет текущее направление текста</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">blockquote</span>
+            <span class="descr">определяет раздел, который цитируется из другого источника</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">ins</span>
+            <span class="descr">определяет текст, вставленный в документ</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">cite</span>
+            <span class="descr">определяет название работы</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">code</span>
+            <span class="descr">определяет название работы</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">del</span>
+            <span class="descr">определяет текст, который был удален из документа</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">dfn</span>
+            <span class="descr">представляет определяющий экземпляр термина</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">em</span>
+            <span class="descr">определяет подчеркнутый текст</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">i</span>
+            <span class="descr">определяет часть текста в альтернативный голос или настроение</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">kbd</span>
+            <span class="descr">определяет ввод с клавиатуры</span>
+        </li> 
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">mark</span>
+            <span class="descr">определяет выделенный/выделенный текст</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">meter</span>
+            <span class="descr">определяет скалярное измерение в пределах известного диапазона (датчика)</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">pre</span>
+            <span class="descr">определяет предварительно отформатированный текст</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">progress</span>
+            <span class="descr">представляет ход выполнения задачи</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">q</span>
+            <span class="descr">определяет краткое предложение</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">sup</span>
+            <span class="descr">определяет текст с надписью</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">sub</span>
+            <span class="descr">oпределяет текст с подстрочным текстом</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">strong</span>
+            <span class="descr">Определяет важный текст</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">template</span>
+            <span class="descr">определяет шаблон</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">time</span>
+            <span class="descr">определяет дату и время</span>
+        </li>
+        <li>
+            <span class="category">форматирование</span>
+            <span class="name_tag">wbr</span>
+            <span class="descr">определяет возможный разрыв строки</span>
+        </li>
+
+
+        <!-- формы и ввод -->
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">form</span>
+            <span class="descr">определяет HTML-форму для ввода данных пользователем</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">input</span>
+            <span class="descr">определяет элемент управления вводом</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">textarea</span>
+            <span class="descr">определяет многострочный элемент управления вводом (область текста)</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">button</span>
+            <span class="descr">определяет нажатую кнопку</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">select</span>
+            <span class="descr">определяет раскрывающийся список</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">optgroup</span>
+            <span class="descr">определяет группу связанных параметров в раскрывающемся списке</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">option</span>
+            <span class="descr">определяет параметр в раскрывающемся списке</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">label</span>
+            <span class="descr">определяет метку для тега 'input' Элемента</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">fieldset</span>
+            <span class="descr">группирует связанные элементы в форме</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">legend</span>
+            <span class="descr">определяет заголовок для тега 'fieldset' Элемента</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">datalist</span>
+            <span class="descr">задает список предварительно заданных параметров для элементов управления вводом</span>
+        </li>
+        <li>
+            <span class="category">формы и ввод</span>
+            <span class="name_tag">output</span>
+            <span class="descr">определяет результат вычисления</span>
+        </li>
+
+
+        <!-- Рамки -->
+        <li>
+            <span class="category">рамки</span>
+            <span class="name_tag">iframe</span>
+            <span class="descr">определяет встроенный фрейм</span>
+        </li>
+        
+
+        <!-- Изображения -->
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">img</span>
+            <span class="descr">определяет изображение</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">map</span>
+            <span class="descr">определяет изображение на стороне клиента-карты</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">area</span>
+            <span class="descr">определяет область внутри изображения-карты</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">canvas</span>
+            <span class="descr">используется для рисования графики, на лету, с помощью сценариев (обычно JavaScript)</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">figcaption</span>
+            <span class="descr">определяет заголовок для тега 'figure 'Элемента</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">figure</span>
+            <span class="descr">указывает автономное содержимое</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">picture</span>
+            <span class="descr">определяет контейнер для нескольких ресурсов изображения</span>
+        </li>
+        <li>
+            <span class="category">изображения</span>
+            <span class="name_tag">svg</span>
+            <span class="descr">определяет контейнер для графики SVG</span>
+        </li>
+
+        <!-- Аудио/видео -->
+
+        <!-- Ссылки -->
+
+        <!-- Списки -->
+
+        <!-- Таблицы -->
+
+        <!-- Стили и семантика -->
+
+        <!-- Мета Инфо -->
+
+        <!-- Программирование -->
+
     </ul>
 </div>
 

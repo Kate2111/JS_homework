@@ -178,10 +178,64 @@ h3 {
     text-align: center;
 }
 
-.task15 li {
+.task15 .wrapper_search {
     display: flex;
+    width: 420px;
+    align-items:center;
+    background-color:rgb(145, 176, 235);
     
-    flex: 1;
+}
+
+.task15 .menu {
+    display: flex;
+    width: 105px;
+    padding: 10px 10px;
+    flex-direction: column;
+    
+}
+
+.task15 .menu div{
+    display: inline;
+    padding-left: 4px;
+}
+
+.task15 .menu select {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.task15 ul {
+    margin-top: 20px;
+    width: 770px;
+    min-height: 100px;
+}
+
+.task15 li {
+    display: none;
+}
+
+.task15 .header {
+    padding: 5px 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border: 1px solid yellow;
+}
+
+.task15 .activ {
+    display: grid;
+    grid-template-columns: 21% 17% 50% 12%;
+    padding-left: 5px;
+}
+
+
+.task15 input {
+    width: 300px;
+    height: 40px;
+    padding: 5px 15px;
+    border: none;
+    outline: none;
+    background-color:rgb(145, 176, 235);
 }
 
 
