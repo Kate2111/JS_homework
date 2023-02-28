@@ -749,7 +749,7 @@ function task15() {
 
     function searchTag(arr, text) {
         const header = document.querySelector('.task15 .header');
-        
+        console.log(arr);
         arr.forEach(elem => {
             if(elem.textContent.search(text) == 0) {
                 header.classList.add('activ');
@@ -762,4 +762,21 @@ function task15() {
 }   
 task15();
 
+//второй вариант решения
+function task16() {
+
+    const dataBase = {
+        'базовый HTML-код': {
+            nameTag: ['doctype', 'html', 'head', 'title', 'body'],
+            descr: ['определяет тип документа', 'определяет HTML-документ', 'определяет сведения о документе', 'определяет заголовок документа', 'определяет тело документа']
+        }, 
+        'форматирование': {
+            nameTag: ['abbr', 'address', 'b', 'bdi', 'bdo'],
+            descr: ['определяет аббревиатуру или акроним', 'определяет контактные данные автора/владельца документа/статьи', 'определяет полужирный текст', 'изолирует часть текста, которая может быть отформатирована в другом направлении от другого текста за его пределами', 'переопределяет текущее направление текста']
+        }
+    };
+
+
+}
+task16();
 

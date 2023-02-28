@@ -1,0 +1,28 @@
+body {
+    background-color:rgba(146, 148, 145, 0.471);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+code {
+    color: red;
+}
+
+.border {
+    border:rgba(16, 16, 2, 0.997) dotted 2px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+h3 {
+    color:rgb(247, 38, 6);
+    margin-bottom: 15px;
+}
+
+
+
+
