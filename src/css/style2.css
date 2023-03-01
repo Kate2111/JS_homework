@@ -178,7 +178,7 @@ h3 {
     text-align: center;
 }
 
-.task15 .wrapper_search, .task16 .wrapper_search {
+.task15 .wrapper_search {
     display: flex;
     width: 420px;
     align-items:center;
@@ -186,7 +186,7 @@ h3 {
     
 }
 
-.task15 .menu, .task16 .menu {
+.task15 .menu {
     display: flex;
     width: 105px;
     padding: 10px 10px;
@@ -194,42 +194,42 @@ h3 {
     
 }
 
-.task15 .menu div, .task16 .menu div{
+.task15 .menu div {
     display: inline;
     padding-left: 4px;
 }
 
-.task15 .menu select, .task16 .menu select {
+.task15 .menu select {
     border: none;
     outline: none;
     background: none;
 }
 
-.task15 ul, .task16 ul {
+.task15 ul {
     margin-top: 20px;
     width: 770px;
     min-height: 100px;
 }
 
-.task15 li, .task16 li {
+.task15 li {
     display: none;
 }
 
-.task15 .header, .task16 .header {
+.task15 .header {
     padding: 5px 0;
     margin-bottom: 10px;
     font-weight: 700;
     border: 1px solid yellow;
 }
 
-.task15 .activ, .task16 .activ {
+.task15 .activ {
     display: grid;
     grid-template-columns: 21% 17% 50% 12%;
     padding-left: 5px;
 }
 
 
-.task15 input, .task16 input {
+.task15 input, .task16 input, .task17 input {
     width: 300px;
     height: 40px;
     padding: 5px 15px;
@@ -238,5 +238,18 @@ h3 {
     background-color:rgb(145, 176, 235);
 }
 
+.task16 .wrapper_search {
+    width: 600px;
+}
+
+.task16 table {
+    margin-top: 10px;
+}
+
+.task16 td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid black;
+}
 
 

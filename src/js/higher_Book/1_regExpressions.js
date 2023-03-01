@@ -158,3 +158,164 @@ function task23() {
     document.querySelector('.task23 div').textContent += str.replace(/\s/g, '!'); 
 }
 task23();
+
+//24. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - буква 'b', 'e' или 'x'.
+function task24() {
+    let str = 'aba aea aca aza axa';
+    document.querySelector('.task24 div').textContent += str.match(/a[bex]a/g); 
+}
+task24();
+
+//25. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - цифра от 3-х до 6-ти..
+function task25() {
+    let str = 'a1a a3a a7a a9a aba';
+    document.querySelector('.task25 div').textContent += str.match(/a[3-6]a/g); 
+}
+task25();
+
+//26. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - буква от a до g.
+function task26() {
+    let str = 'aba aea afa aha aga';
+    document.querySelector('.task26 div').textContent += str.match(/a[a-g]a/g); 
+}
+task26();
+
+//27. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - буква от a до f и от j до z.
+function task27() {
+    let str = 'aba aea afa aha aga aka';
+    document.querySelector('.task27 div').textContent += str.match(/a[a-f,j-z]a/g); 
+}
+task27();
+
+//28. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - буква от a до f и от A до D.
+function task28() {
+    let str = 'aAa aea aEa aJa a3a';
+    document.querySelector('.task28 div').textContent += str.match(/a[a-f,A-D]a/g); 
+}
+task28();
+
+//29. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - маленькие латинские буквы, не затронув остальных..
+function task29() {
+    let str = 'aAXa aeffa aGha aza ax23a a3sSa';
+    document.querySelector('.task29 div').textContent += str.match(/a[a-z]a/g); 
+}
+task29();
+
+//30. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - маленькие и большие латинские буквы, не затронув остальных.
+function task30() {
+    let str = 'aAXa aeffa aGha aza ax23a a3sSa';
+    document.querySelector('.task30 div').textContent += str.match(/a[a-z,A-Z]+a/g); 
+}
+task30();
+
+//31. Напишите регулярку, которая найдет по следующему шаблону: по краям стоят буквы 'a', а между ними - маленькие латинские буквы и цифры, не затронув остальных.
+function task31() {
+    let str = 'aAXa aeffa aGha aza ax23a a3sSa';
+    document.querySelector('.task31 div').textContent += str.match(/a[a-z,0-9]+a/g); 
+}
+task31();
+
+//32. Напишите регулярку, которая найдет строки по шаблону: цифра '1', затем символ не 'e' и не 'x', цифра '2'.
+function task32() {
+    let str = 'aAXa 1eff2 aGha 1z2 ax23a 13sS2';
+    document.querySelector('.task32 div').textContent += str.match(/1[^ex]2/g); 
+}
+task32();
+
+//33. Напишите регулярку, которая найдет строки по шаблону: буква 'x', затем НЕ цифра от 2 до 7, буква 'z'.
+function task33() {
+    let str = 'x189z 1eff2 x9az x1z 1z2 x23z x09z';
+    document.querySelector('.task33 div').textContent += str.match(/x[^2-7]z/g); 
+}
+task33();
+
+//34. Напишите регулярку, которая найдет строки по шаблону: буква 'x', затем НЕ цифра от 2 до 7, буква 'z'.
+function task34() {
+    let str = 'x1F89z xef3fz x9az xGbz 1z2 x2S3z xuez';
+    document.querySelector('.task34 div').textContent += str.match(/x[^A-Z]+z/g); 
+}
+task34();
+
+//35. Напишите регулярку, которая найдет строки по шаблону: буква 'x', затем НЕ большая маленькая латинская буква и не цифра от 1 до 5 от 1 и более раз, буква 'z'.
+function task35() {
+    let str = 'xF89z xef3fz x9az xG6z 1z2 x7S3z xuez';
+    document.querySelector('.task35 div').textContent += str.match(/x[^a-z,^1-5]+z/g); 
+}
+task35();
+
+//36. Напишите регулярку, которая найдет строки по шаблону: по краям стоят буквы 'w', а между ними - буква кириллицы.
+function task36() {
+    let str = 'wйw wяw wёw wqw';
+    document.querySelector('.task36 div').textContent += str.match(/w[а-яё]w/g); 
+}
+task36();
+
+//37. Напишите регулярку, которая найдет все слова по шаблону: любая кириллическая буква любое количество раз.
+function task37() {
+    let str = 'ааа ббб ёёё ззз ййй ААА БББ ЁЁЁ ЗЗЗ ЙЙЙ';
+    document.querySelector('.task37 div').textContent += str.match(/[а-яё]+/g); 
+}
+task37();
+
+//38. Напишите регулярку, которая найдет строки 'a.a', 'a+a', 'a*a', не затронув остальных.
+function task38() {
+    let str = 'aba aea aca aza axa a.a a+a a*a';
+    document.querySelector('.task38 div').textContent += str.match(/a[.+*]a/g); 
+}
+task38();
+
+//39. Напишите регулярку, которая найдет строки по шаблону: буква 'x', затем НЕ точка, НЕ собака, и НЕ доллар, а потом буква 'z'.
+function task39() {
+    let str = 'xaz x.z x3z x@@z x$z xrz';
+    document.querySelector('.task39 div').textContent += str.match(/x[^.@$]z/g); 
+}
+task39();
+
+//40. Напишите регулярку, которая найдет строки по шаблону: цифра или точка от 1 и более раз.
+function task40() {
+    let str = 'xaz x.z x3z x@z x45z x..9z';
+    document.querySelector('.task40 div').textContent += str.match(/x[\d.]+z/g); 
+}
+task40();
+
+//41. Напишите регулярку, которая найдет строки по шаблону: не цифра и не буква от 'a' до 'g' от 3 до 7 раз.
+function task41() {
+    let str = 'xklz x.z x3z xvfz x$z xr45zzz';
+    document.querySelector('.task41 div').textContent += str.match(/x[^\da-g]{3,7}z/g); 
+}
+task41();
+
+//42. Напишите регулярку, которая найдет все слова по шаблону: буква 'x', затем любое количество любых скобок, затем буква 'z'.
+function task42() {
+    let str = 'x[]z x{}z x.z x()z';
+    document.querySelector('.task42 div').textContent += str.match(/x[(){}\[\]]+z/g); 
+}
+task42();
+
+//43. Напишите регулярку, которая найдет строки в любых скобках и заменят их на '!'.
+function task43() {
+    let str = '!abc! !abc! abc !abc! !abc!';
+    document.querySelector('.task43 div').textContent += str.replace(/[(){}\[\]]+/g,'!').replace(/![abc]+!/g, '!'); 
+}
+task43();
+
+//44. Напишите регулярку, которая найдет строки по шаблону: шляпка или собака, а затем две латинских буквы.
+function task44() {
+    let str = '^xx axx ^zz bkk @ss';
+    document.querySelector('.task44 div').textContent += str.match(/[\^@][a-z]{2}/g); 
+}
+task44();
+
+//45. Напишите регулярку, которая найдет строки по шаблону: НЕ шляпка и не собака, а затем две латинских буквы.
+function task45() {
+    let str = '^xx axx ^zz bkk @ss';
+    document.querySelector('.task45 div').textContent += str.match(/[\^][a-z]{2}/g); 
+}
+task45();
+
+//46. Напишите регулярку, которая найдет строки по шаблону: НЕ шляпка, а затем две латинских буквы.
+function task46() {
+    let str = '^xx axx ^zz bkk';
+    document.querySelector('.task46 div').textContent += str.match(); 
+}
+task46();
