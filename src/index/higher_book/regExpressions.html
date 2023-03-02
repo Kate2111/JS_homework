@@ -413,7 +413,105 @@
         <div>Результат: </div>    
         <p>Решение: <code></code></p> 
     </div>
+
+    <!-- 1.47-->
+
+    <div class="task47 border">
+        <h3>47 Дано: let str = 'xaz xBz xcz x-z x@z';
+            Найдите все строки по следующему шаблону: буква 'x', большая или маленькая буква или дефис, буква 'z'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/x[a-zA-Z-]z/g)</code></p> 
+    </div>
+
+    <!-- 1.48-->
+
+    <div class="task48 border">
+        <h3>48 Дано: let str = 'xaz x$z x-z xcz x+z x%z x*z';
+            Найдите все строки по следующему шаблону: буква 'x', затем или доллар, или дефис или плюс, потом буква 'z'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/x[$\-+]z/g</code></p> 
+    </div>
     
+    <!-- 1.49-->
+
+    <div class="task49 border">
+        <h3>49 Дано: let str = 'abc def xyz';
+            Напишите регулярку, которая найдет первую подстроку из букв.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/^[a-z]+/g)</code></p> 
+    </div>
+
+    <!-- 1.50-->
+
+    <div class="task50 border">
+        <h3>50 Дано: let str = 'abc def xyz';
+            Напишите регулярку, которая найдет последнюю подстроку из букв.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/[a-z]+$/g)</code></p> 
+    </div>
+
+    <!-- 1.51-->
+
+    <div class="task51 border">
+        <h3>51 Дано: let str = 'aeeea aeea aea axa axxa axxxa';
+            Напишите регулярку, которая найдет строки по шаблону: по краям стоят буквы 'a', а между ними - или буква 'e' любое количество раз или буква 'x' любое количество раз.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/a(e+|x+)a/g)</code></p> 
+    </div>
+
+    <!-- 1.52-->
+
+    <div class="task52 border">
+        <h3>52 Дано: let str = 'aeeea aeea aea axa axxa axxxa';
+            Напишите регулярку, которая найдет строки по шаблону: по краям стоят буквы 'a', а между ними - или буква 'e' два раза или буква 'x' любое количество раз.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/a(e{2}|x+)a/g)</code></p> 
+    </div>
+
+    <!-- 1.53-->
+
+    <div class="task53 border">
+        <h3>53 Дано: let str = 'https://www.code.mu/';
+            Определите, начинается ли переданная строка с 'http://'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>/^http:\/\//.test(str)</code></p> 
+    </div>
+
+    <!-- 1.54-->
+
+    <div class="task54 border">
+        <h3>54 Дано: let str = 'https://www.code.mu/';
+            Определите, начинается ли переданная строка с 'http://' или с 'https://'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>/^http:\/\/|^https:\/\//.test(str);</code></p> 
+    </div>
+
+    <!-- 1.55-->
+
+    <div class="task55 border">
+        <h3>55 Дано: let str = 'index.html';
+            Определите, что ли заканчивается переданная строка расширением 'txt', 'html' или 'php'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>/txt$|html$|php$/.test(str)</code></p> 
+    </div>
+
+    <!-- 1.56-->
+
+    <div class="task56 border">
+        <h3>56 Дано: let str = 'cat.jpg';
+            Определите, что ли заканчивается переданная строка расширением 'jpg' или 'jpeg'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>/jpg$|jpeg$/.test(str)</code></p> 
+    </div>
+
+    <!-- 1.57-->
+
+    <div class="task57 border">
+        <h3>57 Дано: let str1 = '2568'; let str2 = '12345678912345';
+            Определите, является ли строка 'числом, длиной от 1 до 12 цифр'.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code></code></p> 
+    </div>
 
     <script src="./../../js/higher_Book/1_regExpressions.js"></script>
 </body>

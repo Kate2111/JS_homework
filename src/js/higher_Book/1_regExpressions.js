@@ -319,3 +319,95 @@ function task46() {
     document.querySelector('.task46 div').textContent += str.match(); 
 }
 task46();
+
+//47. Найдите все строки по следующему шаблону: буква 'x', большая или маленькая буква или дефис, буква 'z'.
+function task47() {
+    let str = 'xaz xBz xcz x-z x@z';
+    document.querySelector('.task47 div').textContent += str.match(/x[a-zA-Z-]z/g); 
+}
+task47();
+
+//48. Найдите все строки по следующему шаблону: буква 'x', затем или доллар, или дефис или плюс, потом буква 'z'.
+function task48() {
+    let str = 'xaz x$z x-z xcz x+z x%z x*z';
+    document.querySelector('.task48 div').textContent += str.match(/x[$\-+]z/g); 
+}
+task48();
+
+//49. Напишите регулярку, которая найдет первую подстроку из букв.
+function task49() {
+    let str = 'abc def xyz';
+    document.querySelector('.task49 div').textContent += str.match(/^[a-z]+/g); 
+}
+task49();
+
+//50. Напишите регулярку, которая найдет последнюю подстроку из букв.
+function task50() {
+    let str = 'abc def xyz';
+    document.querySelector('.task50 div').textContent += str.match(/[a-z]+$/g); 
+}
+task50();
+
+//51. Напишите регулярку, которая найдет строки по шаблону: по краям стоят буквы 'a', а между ними - или буква 'e' любое количество раз или буква 'x' любое количество раз.
+function task51() {
+    let str = 'aeeea aeea aea axa axxa axxxa';
+    document.querySelector('.task51 div').textContent += str.match(/a(e+|x+)a/g); 
+}
+task51();
+
+//52. Напишите регулярку, которая найдет строки по шаблону: по краям стоят буквы 'a', а между ними - или буква 'e' два раза или буква 'x' любое количество раз.
+function task52() {
+    let str = 'aeeea aeea aea axa axxa axxxa';
+    document.querySelector('.task52 div').textContent += str.match(/a(e{2}|x+)a/g); 
+}
+task52();
+
+//53. Определите, начинается ли переданная строка с 'http://'.
+function task53() {
+    let str = 'https://www.code.mu/';
+    const text = document.querySelector('.task53 div');
+    const flag = /^http:\/\//.test(str);
+
+    (flag) ? text.textContent += 'true': text.textContent += 'false';
+}
+task53();
+
+//54. Определите, начинается ли переданная строка с 'http://' или с 'https://'.
+function task54() {
+    let str = 'https://www.code.mu/';
+    const text = document.querySelector('.task54 div');
+    const flag = /^http:\/\/|^https:\/\//.test(str);
+
+    (flag) ? text.textContent += 'true': text.textContent += 'false';
+}
+task54();
+
+//55. Определите, что ли заканчивается переданная строка расширением 'txt', 'html' или 'php'.
+function task55() {
+    let str = 'index.html';
+    const text = document.querySelector('.task55 div');
+    const flag = /txt$|html$|php$/.test(str);
+
+    (flag) ? text.textContent += 'true': text.textContent += 'false';
+}
+task55();
+
+//56. Определите, что ли заканчивается переданная строка расширением 'jpg' или 'jpeg'.
+function task56() {
+    let str = 'cat.jpg';
+    const text = document.querySelector('.task56 div');
+    const flag = /jpg$|jpeg$/.test(str);
+
+    (flag) ? text.textContent += 'true': text.textContent += 'false';
+}
+task56();
+
+//57. Определите, является ли строка 'числом, длиной от 1 до 12 цифр'.
+function task57() {
+    let str = '123456789123455654556';
+    const text = document.querySelector('.task57 div');
+    const flag = /[\d]{1,12}/.test(str);
+    console.log(flag);
+    (flag) ? text.textContent += 'число, длиной от 1 до 12 цифр': text.textContent += 'число, длиной более 12 цифр';
+}
+task57();

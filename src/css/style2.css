@@ -229,7 +229,7 @@ h3 {
 }
 
 
-.task15 input, .task16 input, .task17 input {
+.task15 input, .task16 input, .task17 .birthday {
     width: 300px;
     height: 40px;
     padding: 5px 15px;
@@ -251,5 +251,63 @@ h3 {
 	text-align: center;
 	border: 1px solid black;
 }
+
+.task17 .click {
+    width: 380px;
+    display: flex;
+}
+
+.task17 button {
+    width: 80px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color:rgb(145, 176, 235);
+}
+
+.task17 .wrapper_radio {
+    margin: 10px 0;
+    width: 380px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.task17 .wrapper {
+    width: 380px;
+    display: grid;
+    grid-template-columns: 22% 22% 54%;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.task17 .text_zodiac {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task17 p {
+    display: inline;
+}
+
+.task17 .radio {
+    margin-right: 5px;
+}
+
+.task17 span {
+    margin: 3px 0;
+    font-weight: 700;
+}
+
+.task17 img {
+    width: 80px;
+    height: 80px;
+}
+
+.task17 .text_horoscope {
+    width: 200px;
+    text-align: center;
+}
+
 
 

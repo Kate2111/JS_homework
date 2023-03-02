@@ -833,6 +833,7 @@ function task17() {
         'Cегодня опасайтесь вампиров! Выходите из дома с осиновым колом.', 
         'Сегодня следует воздержаться от покупки верблюдов, лысых кошек, футбольных клубов.'
     ];
+    const picture = ['../../../img/calc/0cat_aquarius.png', '../../../img/calc/1cat_pisces.png', '../../../img/calc/2cat_aries (1).png', '../../../img/calc/3cat_taurus (1).png', '../../../img/calc/4cat_gemini.png', '../../../img/calc/5cat_cancer.png', '../../../img/calc/6cat_leo.png', '../../../img/calc/7cat_virgo.png', '../../../img/calc/8cat_libra.png', '../../../img/calc/9cat_scorpio.png', '../../../img/calc/10cat_sagittarius.png', '../../../img/calc/11cat_capricorn.png'];
     const zodiac = ['Водолей', 'Рыбы', 'Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец', 'Козерог'];
     const dataZodiac =[ 
         ['01/21', '02/19'],
@@ -848,52 +849,62 @@ function task17() {
         ['11/23', '12/21'],
         ['12/22', '01/20'], 
     ]; 
-
-
-
-
+    const wrapper = document.querySelector('.task17 .wrapper');
     const inputDay = document.querySelector('.task17 input');
+    const button = document.querySelector('.task17 button');
+    const radio = document.querySelectorAll('.task17 [name="dayOfWeek"]');
 
-    inputDay.addEventListener('blur', showHoroscope);
+    button.addEventListener('click', showHoroscope);
+    choiceRadioButton(radio);
 
     function showHoroscope(){
-        const day = this.value.split('-').slice(1, 3).join('/');
-        console.log(day);
-        findOutYouZodiac(day, dataZodiac);
+        wrapper.textContent = '';
+        createElemTextAndPicture(wrapper, dataZodiac, zodiac);
+        findOutPrediction(horoscope);
     }   
 
-    function findOutYouZodiac(data, arr) {
-        let found = false;
-        for (let i = 0; i < arr.length; i++) {
-            if (data >= arr[i][0] && data <= arr[i][1]) {
-                console.log(`num попадает в диапазон знака зодиака с ${dataZodiac[i][0]} по ${dataZodiac[i][1]}`);
-                found = true;
+    function createElemTextAndPicture(parent, arrMonth, arrZodiac) {
+        const textZodiac = document.createElement('div');
+        textZodiac.classList.add('text_zodiac');
+        parent.appendChild(textZodiac);
+
+        const catPicture = document.createElement('img');
+        parent.appendChild(catPicture);
+
+        findOutYouZodiac(arrMonth, arrZodiac, textZodiac, catPicture);
+    }
+
+    function findOutYouZodiac(arrMonth, arrZodiac, text, img) {
+        const data = inputDay.value.split('-').slice(1, 3).join('/');
+        for (let i = 0; i < arrMonth.length; i++) {
+            const isWhichMonth = data >= arrMonth[i][0] && data <= arrMonth[i][1];
+            if (isWhichMonth) {
+                text.innerHTML = `
+                    <span>${arrZodiac[i]}</span>
+                `; 
+                img.src = `${picture[i]}`;
                 break;
             }
-        }
-
-        if (!found) {
-            console.log(`num не попадает ни в один диапазон знака зодиака`);
-        }
-
-
-        /* for(let i = 0; i < 12; i++ ) {
-            let arr = dataZodiac[i];
-            arr.push(data);
-            let sortArr = arr.sort();
-            console.log(sortArr);
-            if(data >= arr[0] && data <= arr[1]) {
-                console.log(arr[i]);
-            } else {
-                console.log(arr[0], arr[1], 'ошибка');
-            } 
-            
-            
-            
-        }  */
-        
+        }   
     }
-   
+
+    function findOutPrediction(arr) {
+        const textHoroscope = document.createElement('div');
+        const num = Math.round(Math.random() * arr.length);
+
+        textHoroscope.classList.add('text_horoscope');
+        textHoroscope.textContent = arr[num];
+
+        wrapper.appendChild(textHoroscope);
+    }
+
+    function choiceRadioButton(items) {
+        items.forEach(elem => {
+            elem.addEventListener('change', function() {
+                showHoroscope();
+            });
+        });
+    }
     
 }
 task17();
