@@ -309,5 +309,82 @@ h3 {
     text-align: center;
 }
 
+.task18 #parent {
+    width: 300px;
+	text-align: center;
+}
+.task18 #parent > * {
+	margin-bottom: 10px;
+}
 
+.task18 #timer {
+	font-size: 18px;
+}
+.task18 #text {
+	font-size: 17px;
+	font-style: italic;
+}
 
+.task18 button {
+	padding: 5px 10px;
+	font-size: 15px;
+	cursor: pointer;
+}
+.task18 button:not(.active) {
+	display: none;
+}
+
+.task18 .good, .task19 .good {
+    color: rgb(47, 68, 255);
+}
+
+.task18 .bad, .task19 .bad {
+    color: rgb(255, 47, 47);
+}
+
+.task19 .basic {
+    color: black;
+}
+
+.task19 #parent {
+	position: relative;
+}
+.task19 #elem {
+	padding: 5px;
+    background: transparent;
+    width: 300px;
+    border: solid 1px black;
+}
+
+.task19 #parent ul {
+	position: absolute;
+	margin-left: 0;
+    margin-top: -1px;
+	padding: 0;
+	list-style-type: none;
+    background-color:aliceblue;
+}
+.task19 #parent li {
+	border: 1px solid gray;
+	padding: 5px;
+    width: 300px;
+    font-size: 15px;
+}
+.task19 #parent li:hover {
+	border: 1px solid rgb(47, 68, 255);
+    font-size: 17px;
+	cursor: pointer;
+}
+
+.task20 .spoiler_question {
+ text-indent: 16px;
+}
+
+.task20 a {
+    text-decoration: none;
+    color:blue
+}
+
+.task20 .spoiler_answer {
+    margin: 5px 0;
+}

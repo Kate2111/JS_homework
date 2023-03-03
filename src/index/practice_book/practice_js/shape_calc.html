@@ -713,8 +713,77 @@
     </div>
 </div>
 
+    <!-- 1.18-->
+
+    <div class="task18 border">
+        <h3>18 Сайт предсказаний </h3>
+
+        <div id="parent">
+            <div id="timer">?</div>
+            <div id="text"></div>
+            <button id="start" class="active">узнать свою судьбу</button>
+            <button id="stop">получить предсказание</button>
+        </div>
+    </div>
+
+    <!-- 1.19-->
+
+    <div class="task19 border">
+        <h3>19 Автодополнение</h3>
+
+        <div id="parent">
+            <input id="elem" type="text" placeholder="Начните вводить название страны" autocomplete="off">
+            <ul></ul>
+        </div>
+    </div>
+
+    
+    <!-- 1.20-->
+
+    <div class="task20 border">
+        <h3>20 Спойлер</h3>
+        <details>
+            <summary>Ответы на частые вопросы в Java Script</summary> 
+            <div class="spoiler">
+                <div class="spoiler_question">
+                    Вопрос №1. Что такое прототипное наследование?
+                    <a href="#">&#9660;</a>
+                </div>
+            </div>
+            <div class="spoiler">
+                <div class="spoiler_question">
+                    Вопрос №2. Что такое всплытие событий и чем оно отличается от перехвата событий?
+                    <a href="#">&#9660;</a>
+                </div>
+            </div>
+            <div class="spoiler">
+                <div class="spoiler_question">
+                    Вопрос №3. Как делегирование событий улучшает код на сайтах с множеством интерактивных элементов?
+                    <a href="#">&#9660;</a>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+
+
+    
+
+
+
 
 
     <script src="../../../js/practice_Book/calc.js"></script>
 </body>
 </html>
+
+
+<script>
+    fetch('../../../js/practice_Book/json/data19.json').then(data => {
+      data.json().then(json => {
+        let countries = json.countries
+        task19('.task19 #elem', '.task19 ul', countries)
+      })
+    })
+</script>

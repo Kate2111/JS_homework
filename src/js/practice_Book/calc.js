@@ -378,7 +378,7 @@ function task11() {
     const inputName = document.querySelector('.task11 .name');
     const massage = document.querySelector('.task11 .massage');
     const parent = document.querySelector('.task11 .game');
-    const number = Math.round(Math.random() * 100)
+    const number = Math.round(Math.random() * 100);
     let counter = 7;
     let showCounter = document.createElement('div');
     parent.appendChild(showCounter);
@@ -749,7 +749,6 @@ function task15() {
 
     function searchTag(arr, text) {
         const header = document.querySelector('.task15 .header');
-        console.log(arr);
         arr.forEach(elem => {
             if(elem.textContent.search(text) == 0) {
                 header.classList.add('activ');
@@ -909,3 +908,128 @@ function task17() {
 }
 task17();
 
+//18. Сайт предсказаний. 
+//Сейчас мы сделаем сайт, который будет выдавать предсказания. Пусть на этом сайте будет кнопка, по нажатию на которую будет запускаться таймер, который будет каждые 0.1 секунд выводить в в какой-нибудь див случайное число от 1 до некоторого максимального.
+//Под дивом пусть будет другая кнопка, по нажатию на которую пользователь нашего сайта может остановить таймер и зафиксировать некоторое число в диве. Это число будет номером предсказания. После этого покажите пользователю предсказание с этим номером, а все лишние кнопки уберите с экрана, чтобы пользователь не мог получить еще одно предсказание. То есть на один заход на сайт - одно предсказание.
+
+function task18() {
+    const prediction = [
+        'Ждет тебя вскоре поездка на море',
+        'Тебя в конце недели ждут праздник и веселье.',
+        'Будет у тебя всегда в доме вкусная еда',
+        'Благоприятный день, чтобы сойти с ума. Но лучше не надо.', 
+        'Появится вдруг у тебя новый друг',
+        'сегодня лучше полежите весь день на диване',
+        'Не лучший день для покупки лошади. Да и крокодила сегодня лучше не покупать.', 
+        'Неблагоприятный день для борьбы с тараканами, особенно с теми, что в голове.', 
+        'Сегодня не крутите хвосты незнакомым собакам.', 
+        'Cегодня опасайтесь вампиров! Выходите из дома с осиновым колом.', 
+        'Сегодня следует воздержаться от покупки верблюдов, лысых кошек, футбольных клубов.'
+    ];
+
+    const timer = document.querySelector('.task18 #timer');
+    const text = document.querySelector('.task18 #text');
+    const start = document.querySelector('.task18 #start');
+    const stop = document.querySelector('.task18 #stop');
+    let timerId;
+
+    start.addEventListener('click', startTimer);
+    stop.addEventListener('click', showPrediction);
+
+    function startTimer() {
+        start.classList.remove('active');
+        stop.classList.add('active');
+        timerId = setInterval(()=>{
+            for(let i = 0; i <= 10; i++) {
+                const num = Math.round(Math.random() * 10);
+                timer.textContent = num;      
+            }     
+        },100);
+        
+    }
+
+    function showPrediction() {
+        clearInterval(timerId);
+        for(let i = 0; i < prediction.length; i++) {
+            timer.style.display = 'none';
+
+            const numPred = parseInt(timer.textContent);
+            text.textContent = prediction[numPred];
+
+            if(numPred >= 0 && numPred <= 5) {
+                text.classList.add('good');
+            } else {
+                text.classList.add('bad');
+            }
+        } 
+        stop.classList.remove('active');
+    }
+}
+task18();
+
+//19 Автодополнение
+function task19 (enter, showList, mainList) {
+    const input = document.querySelector(enter);
+    const list = document.querySelector(showList);
+
+    input.addEventListener('input', searchNameCountries.bind(input, list, mainList));
+
+    function searchNameCountries(parent, arr) {
+        const valInput = this;
+        const valUpper = valInput.value.trim().slice(0, 1).toUpperCase() + valInput.value.trim().slice(1);
+
+        if(valUpper != '') {
+            createList(filterNames(valUpper, arr), parent, valInput);
+        } else {
+            parent.innerHTML = '';
+            valInput.classList.add('basic');
+        }
+    }
+
+    function filterNames(str, arr) {
+        let newList = arr.filter(elem => {
+            return elem.search(str) == 0;
+        });
+
+        return newList;        
+    }
+
+    function createList(arr, parent, val) {
+        parent.innerHTML = '';
+        if(arr.length == 0) {
+            val.value = 'Попробуйте еще раз';
+            val.classList.remove('basic');
+            val.classList.add('bad');
+        } else {
+            createLi(arr, parent, val);
+        }
+    }
+
+    function createLi(arr, parent, val) {
+        for(let elem of arr){
+            const li = document.createElement('li');
+            li.textContent = elem;
+            li.addEventListener('click', valueWriteDownClick.bind(li, val,parent));
+
+            parent.appendChild(li);
+        }
+    }
+
+    function valueWriteDownClick(val, parent) {
+        val.value = this.textContent; 
+        val.classList.remove('basic');
+        val.classList.remove('bad');
+        val.classList.add('good');
+        parent.innerHTML = '';
+    }
+
+}
+
+//20. Спойлеры
+function task20() {
+    const answers = [
+        "Практически всё в JavaScript — это объекты. У каждого объекта есть прототип, от которого он наследует свойства и методы. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по цепочке прототипов до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка.",
+        "Всплытие событий используется при реализации делегирования событий. Если подписаться на события родительского элемента, можно получить сведения о событиях и для его потомков и перехват, и всплытие событий являются частью процесса, который называется «распространение событий», в ходе которого браузер реагирует на события, происходящие на странице. Более старые браузеры выполняли либо одно, либо другое, но в наши дни все браузеры поддерживают и перехват, и всплытие событий.",
+        "Веб-сайты нередко полны динамических элементов, которые постоянно меняются. Если подобные элементы должны быть ещё и интерактивными, понадобится некий способ наблюдения за событиями, которые возникают, когда пользователь с ними взаимодействует. Если каждому элементу понадобится собственный прослушиватель событий, это замусорит код и увеличит нагрузку на браузер."
+    ];
+}
