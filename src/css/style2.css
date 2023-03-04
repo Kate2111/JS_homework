@@ -376,15 +376,81 @@ h3 {
 	cursor: pointer;
 }
 
+.task20 .spoiler_question:hover {
+    color:blue;
+}
+
 .task20 .spoiler_question {
  text-indent: 16px;
 }
 
-.task20 a {
-    text-decoration: none;
-    color:blue
+.task20 button {
+    background: transparent;
+    border: none;
 }
 
-.task20 .spoiler_answer {
+.task20 p {
     margin: 5px 0;
+}
+
+.task20 .spoiler_answer{
+    border-top: solid 1px blue;;
+    border-bottom: solid 1px blue;
+}
+
+.task20 .spoiler_answer:not(.active) {
+	display: none;
+}
+
+.task21 .road{
+    width: 700px;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(25, 97, 231);
+    font-weight: 600;
+}
+
+.task21 .menu{
+    width: 700px;
+    display: flex;
+}
+
+.task21 a{
+    text-decoration: none;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding-top: 8px;
+}
+
+.task21 .menu a:hover {
+	border: rgb(72, 129, 233) solid 3px;
+    transform: 1;
+}
+.task21 .menu a.active {
+	border-color: transparent;
+	background: rgba(145, 177, 235);
+}
+
+.task21 img{
+    width: 93%;
+}
+
+.task21 .descr {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.task21 .tabs{
+    display: flex;
+    width: 700px;
+}
+
+.task21 .tabs .tab:not(.active) {
+	display: none;
+}
+.task21 .tabs .tab {
+	padding: 10px;
+	background: rgb(145, 176, 235);
 }
