@@ -1025,7 +1025,7 @@ function task19 (enter, showList, mainList) {
 
 }
 
-//20. Спойлеры(аккардион)
+//20. Спойлеры
 function task20() {
     const button = document.querySelectorAll('.task20 button');
     const answer = document.querySelectorAll('.task20 .spoiler_answer');
@@ -1040,15 +1040,49 @@ function task20() {
 }
 task20();
 
-//Вкладки
+//21. Вкладки
 function task21() {
     const listMenu = document.querySelectorAll('.task21 a');
     const tabs = document.querySelectorAll('.task21 .tab');
 
-    for(let i = 0; i < listMenu.length; i++) {
-        listMenu[i].addEventListener('click', () => {
-            
+    listMenu.forEach((elem, i) => {
+        elem.addEventListener('click', function toggleClass(e) {
+            e.preventDefault();
+            removeClassActive(listMenu);
+            removeClassActive(tabs);
+
+            addClassAcrive(elem);
+            addClassAcrive(tabs[i]);
         });
+    });
+
+    function removeClassActive(arr) {
+        arr.forEach(item => {
+            item.classList.remove('active');
+        });
+    }
+
+    function addClassAcrive(item) {
+        item.classList.add('active');
     }
 }
 task21();
+
+//22. 
+function task22() {
+    const list = document.querySelectorAll('.task22 .link');
+
+    list.forEach(elem => {
+        elem.addEventListener('click', () => {
+            if(elem.parentElement.classList.contains('active')) {
+                elem.parentElement.classList.remove('active');
+            } else {
+                list.forEach(item => {
+                    item.parentElement.classList.remove('active');
+                });
+                elem.parentElement.classList.add('active');
+            }
+        });
+    });
+}
+task22();

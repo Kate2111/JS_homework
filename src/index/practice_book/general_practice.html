@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shape calculator</title>
-    <link rel="stylesheet" href="../../../css/style2.css">
+    <title>General</title>
+    <link rel="stylesheet" href="../../css/style2.css">
 </head>
 <body>
     <!-- 1.1-->
@@ -874,15 +874,56 @@
 
     </div>  
 
+     <!-- 1.22-->
 
+     <div class="task22 border">
+        <h3>22 Аккордион </h3>
+        
+        <div id="parent">
+            <div class="tab active">
+                <div class="link">
+                    В пассажирском салоне
+                </div>
+                <div class="text">
+                    <p>
+                        В салоне можно перевезти не более одного контейнера. Вес контейнера не должен превышать 8 кг.
+                        <br>
+                        В контейнере может находится не более 3 животных или птиц.
+                    </p>
+                </div>
+            </div>
+            <div class="tab">
+                <div class="link">
+                    В багажном отсеке
+                </div>
+                <div class="text">
+                    <p>
+                        При перевозке в багажном отсеке вес контейнера не должен превышать 50 кг.
+                        <br>
+                        В контейнере может находится 1 животное или не более 6 птиц.
+                    </p>
+                </div>
+            </div>
+            <div class="tab">
+                <div class="link">
+                    Грузовая перевозка
+                </div>
+                <div class="text">
+                    <p>
+                        В качестве груза, без ограничений по количеству и весу.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>  
 
-    <script src="../../../js/practice_Book/calc.js"></script>
+    <script src="../../js/practice_Book/general_practice.js"></script>
 </body>
 </html>
 
 
 <script>
-    fetch('../../../js/practice_Book/json/data19.json').then(data => {
+    fetch('../../js/practice_Book/json/data19.json').then(data => {
       data.json().then(json => {
         let countries = json.countries
         task19('.task19 #elem', '.task19 ul', countries)

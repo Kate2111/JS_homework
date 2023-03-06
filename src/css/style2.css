@@ -453,4 +453,76 @@ h3 {
 .task21 .tabs .tab {
 	padding: 10px;
 	background: rgb(145, 176, 235);
+    width: 700px;
+}
+
+.task22 #parent {
+	margin: 0 auto;
+	width: 400px;
+}
+.task22 .tab {
+	margin-bottom: 10px;
+}
+
+.task22 .tab .link{
+	display: block;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	background: #e4e3e3;
+	border: 1px solid gray;
+}
+.task22 .tab .link:hover {
+	background: #f2f2f2;
+}
+
+.task22 .tab:not(.active) .text {
+	display: none;
+}
+.task22 .tab .text {
+	border: 1px dashed gray;
+	border-top: none;
+	padding: 10px;
+	height: 100px;
+}
+
+.game_of_cities {
+    padding: 20px;
+    width: 700px;
+}
+
+.game_of_cities input {
+    width: 250px;
+    height: 40px;
+    padding: 5px 15px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background-color:rgb(145, 176, 235);
+}
+
+.game_of_cities p {
+    width: 250px;
+    height: 40px;
+    padding: 5px 15px;
+    background-color:rgba(242, 244, 247, 0.627);
+    text-align: center;
+    line-height: 27px;
+}
+
+.game_of_cities .active {
+    background-color:rgba(242, 244, 247, 0.812);
+}
+
+.game_of_cities .tablo {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.game_of_cities .players {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
