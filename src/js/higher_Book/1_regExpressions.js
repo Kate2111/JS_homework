@@ -402,12 +402,53 @@ function task56() {
 }
 task56();
 
-//57. Определите, является ли строка 'числом, длиной от 1 до 12 цифр'.
+//57. Определите, является ли строка 'числом, длиной от 5 до 12 цифр'.
 function task57() {
-    let str = '123456789123455654556';
+    let str = '123';
     const text = document.querySelector('.task57 div');
-    const flag = /[\d]{1,12}/.test(str);
+    const flag = /\d{5,12}/.test(str);
     console.log(flag);
-    (flag) ? text.textContent += 'число, длиной от 1 до 12 цифр': text.textContent += 'число, длиной более 12 цифр';
+    (flag) ? text.textContent += 'число, длиной от 5 до 12 цифр': text.textContent += 'число, длиной менее 5 цифр';
 }
 task57();
+
+
+//58. Определите, является ли переданная строка датой в формате год-месяц-день.
+function task58() {
+    let str = '2023-03-07';
+    const text = document.querySelector('.task58 div');
+    const flag = /\d{4}-\d{2}-\d{2}/.test(str);
+    console.log(flag);
+    (flag) ? text.textContent += 'является': text.textContent += 'не является';
+}
+task58();
+
+//59. Определите, является ли переданная строка датой в формате день.месяц.год.
+function task59() {
+    let str = '2023-03-07';
+    const text = document.querySelector('.task59 div');
+    const flag = /\d{4}\.\d{2}\.\d{2}/.test(str);
+    console.log(flag);
+    (flag) ? text.textContent += 'является': text.textContent += 'не является';
+}
+task59();
+
+//60. Определите, является ли переданная строка датой в формате день.месяц.год.
+function task60() {
+    let str = '18:48:25';
+    const text = document.querySelector('.task60 div');
+    const flag = /\d{2}:\d{2}:\d{2}/.test(str);
+    console.log(flag);
+    (flag) ? text.textContent += 'является': text.textContent += 'не является';
+}
+task60();
+
+//61. Определите, является ли переданная строка корректным емэйлом.
+function task61() {
+    let str = 'address@gmail.com';
+    const text = document.querySelector('.task61 div');
+    const flag = /\w+@(gmail|mail)\.(ru|com)/.test(str);
+    console.log(flag);
+    (flag) ? text.textContent += 'является': text.textContent += 'не является';
+}
+task61();

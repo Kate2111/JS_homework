@@ -506,13 +506,14 @@ h3 {
     width: 250px;
     height: 40px;
     padding: 5px 15px;
+    margin-top: 10px;
     background-color:rgba(242, 244, 247, 0.627);
     text-align: center;
     line-height: 27px;
 }
 
 .game_of_cities .active {
-    background-color:rgba(242, 244, 247, 0.812);
+    background-color:rgba(207, 208, 210, 0.858);
 }
 
 .game_of_cities .tablo {
@@ -525,4 +526,16 @@ h3 {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.game_of_cities ul {
+    margin-top: 5px;
+    width: 210px;
+
+}
+
+.game_of_cities li {
+    width: 30px;
+    list-style-type: none;
+    text-align: center;
 }
