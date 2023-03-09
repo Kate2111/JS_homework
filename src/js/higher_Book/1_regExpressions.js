@@ -407,7 +407,6 @@ function task57() {
     let str = '123';
     const text = document.querySelector('.task57 div');
     const flag = /\d{5,12}/.test(str);
-    console.log(flag);
     (flag) ? text.textContent += 'число, длиной от 5 до 12 цифр': text.textContent += 'число, длиной менее 5 цифр';
 }
 task57();
@@ -418,7 +417,6 @@ function task58() {
     let str = '2023-03-07';
     const text = document.querySelector('.task58 div');
     const flag = /\d{4}-\d{2}-\d{2}/.test(str);
-    console.log(flag);
     (flag) ? text.textContent += 'является': text.textContent += 'не является';
 }
 task58();
@@ -428,7 +426,6 @@ function task59() {
     let str = '2023-03-07';
     const text = document.querySelector('.task59 div');
     const flag = /\d{4}\.\d{2}\.\d{2}/.test(str);
-    console.log(flag);
     (flag) ? text.textContent += 'является': text.textContent += 'не является';
 }
 task59();
@@ -438,7 +435,6 @@ function task60() {
     let str = '18:48:25';
     const text = document.querySelector('.task60 div');
     const flag = /\d{2}:\d{2}:\d{2}/.test(str);
-    console.log(flag);
     (flag) ? text.textContent += 'является': text.textContent += 'не является';
 }
 task60();
@@ -448,7 +444,102 @@ function task61() {
     let str = 'address@gmail.com';
     const text = document.querySelector('.task61 div');
     const flag = /\w+@(gmail|mail)\.(ru|com)/.test(str);
-    console.log(flag);
     (flag) ? text.textContent += 'является': text.textContent += 'не является';
 }
 task61();
+
+//62. Получите массив доменных имен из этой строки.
+function task62() {
+    let str = 'site.ru sss site.com zzz site.net';
+    const text = document.querySelector('.task62 div');
+    text.textContent += str.match(/[a-z]+\.[a-z]+/g);
+}
+task62();
+
+//63. Найдите сумму всех чисел этой строки.
+function task63() {
+    let str = 'a1b c34d x567z';
+    const text = document.querySelector('.task63 div');
+    const arr = str.match(/\d/g);
+    const res = arr.reduce((sum, item) => {return sum + parseInt(item);}, 0);
+    text.textContent += `сумма чисел [${arr}]  равна ${res}`;
+}
+task63();
+
+//64. Найдите этот домен и положите его имя в первый карман, а зону - во второй.
+function task64() {
+    let str = 'sss domain.ru zzz';
+    const text = document.querySelector('.task64 div');
+    const arr = str.match(/(\w+)\.([a-z]+)/);
+    text.textContent += `${arr[0]}, 1й карман - (${arr[1]}), 2й карман - (${arr[2]})`;
+}
+task64();
+
+//65. Положите день в первый карман, месяц - во второй, а год - в третий.
+function task65() {
+    let str = '31.12.2025';
+    const text = document.querySelector('.task65 div');
+    const arr = str.match(/(\d+)\.(\d+)\.(\d+)/);
+    text.textContent += `['${arr[0]}', '${arr[1]}', '${arr[2]}', '${arr[3]}', index: ${arr.index}, input: ${arr.input}]`;
+}
+task65();
+
+//66. Поменяйте местами цифры во всех двухзначных числах.
+function task66() {
+    let str = '12 34 56 78';
+    const text = document.querySelector('.task66 div');
+    text.textContent += str.replace(/(\d)(\d)/g, '$2$1');
+}
+task66();
+
+//67. Преобразуйте эту дату в '2025.12.31'
+function task67() {
+    let str = '31.12.2025';
+    const text = document.querySelector('.task67 div');
+    text.textContent += str.replace(/(\d+)\.(\d+)\.(\d+)/g, '$3.$2.$1');
+}
+task67();
+
+//68. Напишите регулярку, которая рядом с каждой цифрой напишет такую же
+function task68() {
+    let str = 'a1b2c3';
+    const text = document.querySelector('.task68 div');
+    text.textContent += str.replace(/(\d)/g, '$&$&');
+}
+task68();
+
+//69. Напишите регулярку, которая рядом с каждой цифрой напишет такую же
+function task69() {
+    let str = '123@456';
+    const text = document.querySelector('.task69 div');
+    text.textContent += str.replace(/@/g, "($`@$')");
+}
+task69();
+
+//70. Найдите все подстроки, в которых есть три одинаковые буквы подряд
+function task70() {
+    let str = 'aaa bbb ccc xyz';
+    const text = document.querySelector('.task70 div');
+    text.textContent += str.replace(/([a-z])\1\1/g, "!");
+}
+task70();
+
+//71. Найдите все подстроки, в которых есть две и более одинаковые буквы подряд.
+function task71() {
+    let str = 'a aa aaa aaaa aaaaa';
+    const text = document.querySelector('.task71 div');
+    text.textContent += str.replace(/[a-z]{2,}/g, "!");
+}
+task71();
+
+//72. Найдите все подстроки, в которых есть два одинаковых слова подряд.
+function task72() {
+    let str = 'aaa aaa bbb bbb ccc ddd';
+    const text = document.querySelector('.task72 div');
+    text.textContent += str.match(/([a-z]+\s)\1/g);
+}
+task72();
+
+const arr = [2, 5, 6, 0, 9, 8, 7];
+
+console.log(arr.sort(function() { return Math.random() - 0.5}));

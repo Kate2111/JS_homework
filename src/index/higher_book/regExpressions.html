@@ -549,6 +549,113 @@
         <p>Решение: <code>/\w+@(gmail|mail)\.(ru|com)/.test(str)</code></p> 
     </div>
 
+    <!-- 1.62-->
+
+    <div class="task62 border">
+        <h3>62 Дано: let str = 'site.ru sss site.com zzz site.net';
+            Получите массив доменных имен из этой строки.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/[a-z]+\.[a-z]+/g)</code></p> 
+    </div>
+
+    <!-- 1.63-->
+
+    <div class="task63 border">
+        <h3>63 Дано: let str = 'a1b c34d x567z';
+            Найдите сумму всех чисел этой строки.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>
+            const arr = str.match(/\d/g);
+            <br>
+            const res = arr.reduce(function(sum, item) {return sum + parseInt(item);}, 0);</code></p> 
+    </div>
+
+     <!-- 1.64-->
+
+     <div class="task64 border">
+        <h3>64 Дано: let str = 'sss domain.ru zzz';
+            Найдите этот домен и положите его имя в первый карман, а зону - во второй.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/(\w+)\.([a-z]+)/)</code></p> 
+    </div>
+
+     <!-- 1.65-->
+
+     <div class="task65 border">
+        <h3>65 Дано: let str = '31.12.2025';
+            Положите день в первый карман, месяц - во второй, а год - в третий.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/(\d+)\.(\d+)\.(\d+)/)</code></p> 
+    </div>
+
+     <!-- 1.66-->
+
+     <div class="task66 border">
+        <h3>66 Дано: let str = '12 34 56 78';
+            Поменяйте местами цифры во всех двухзначных числах.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/(\d)(\d)/g, '$2$1')</code></p> 
+    </div>
+
+     <!-- 1.67-->
+
+     <div class="task67 border">
+        <h3>67 Дано: let str = '31.12.2025';
+            Преобразуйте эту дату в '2025.12.31'..</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/(\d+)\.(\d+)\.(\d+)/g, '$3.$2.$1')</code></p> 
+    </div>
+
+     <!-- 1.68-->
+
+     <div class="task68 border">
+        <h3>68 Дано: let str = 'a1b2c3';
+            Напишите регулярку, которая рядом с каждой цифрой напишет такую же.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/(\d)/g, '$&$&')</code></p> 
+    </div>
+
+    <!-- 1.69-->
+
+    <div class="task69 border">
+        <h3>69 Дано:  '123@456'
+            найдем символ @ и заменим его на то, что стоит перед ним, собаку, и то, что стоит после него.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/@/g, "($`@$')")</code></p> 
+    </div>
+
+    
+    <!-- 1.70-->
+
+    <div class="task70 border">
+        <h3>70 Дано:  'aaa bbb ccc xyz';
+            Найдите все подстроки, в которых есть три одинаковые буквы подряд.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/([a-z])\1\1/g, "!")</code></p> 
+    </div>
+
+     <!-- 1.71-->
+
+     <div class="task71 border">
+        <h3>71 Дано:  'a aa aaa aaaa aaaaa';
+            Найдите все подстроки, в которых есть две и более одинаковые буквы подряд.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.replace(/[a-z]{2,}/g, "!")</code></p> 
+    </div>
+
+     <!-- 1.72-->
+
+     <div class="task72 border">
+        <h3>72 Дано:  'aaa aaa bbb bbb ccc ddd';
+            Найдите все подстроки, в которых есть два одинаковых слова подряд.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code>str.match(/([a-z]+\s)\1/g)</code></p> 
+    </div>
+
+
+
+
+
     <script src="./../../js/higher_Book/1_regExpressions.js"></script>
 </body>
 </html>
