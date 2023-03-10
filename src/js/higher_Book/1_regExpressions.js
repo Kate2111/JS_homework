@@ -540,6 +540,87 @@ function task72() {
 }
 task72();
 
-const arr = [2, 5, 6, 0, 9, 8, 7];
+//73. Получите массив имен функций из строки.
+function task73() {
+    let str = 'func1() func2() func3()';
+    const text = document.querySelector('.task73 div');
+    text.textContent += str.match(/[a-z]+[0-9]\(\)/g);
+}
+task73();
 
-console.log(arr.sort(function() { return Math.random() - 0.5}));
+//74. Получите массив имен атрибутов этого тега.
+function task74() {
+    let str = '<a href="" class="eee" id="zzz">';
+    const text = document.querySelector('.task74 div');
+    text.textContent += str.match(/("[a-z]+")/g);
+}
+task74();
+
+//75. Найдите числа, стоящие в скобках и увеличьте их в два раза. То есть из нашей строки должна получится следующая:'aaa [4] bbb [6] ccc [24] ddd'
+function task75() {
+    let str = 'aaa [2] bbb [3] ccc [12] ddd';
+    const text = document.querySelector('.task75 div');
+    text.textContent += str.replace(/(\d+)/g, function (num) {
+        return num*2;
+    });
+}
+task75();
+
+//76. Найдите все числа и переверните их цифры в обратном порядке. То есть из нашей строки должна получится следующая:'321 654 987'
+function task76() {
+    let str = '123 456 789';
+    const text = document.querySelector('.task76 div');
+    text.textContent += str.replace(/(\d{1,3})/g, function (num) {
+        return num.split('').reverse().join('');
+    });
+}
+task76();
+
+//77. Найдите все даты и преобразуйте их в другой формат так, чтобы получилась следующая строка:'2025-12-31 2024-11-30 2023-10-29'
+function task77() {
+    let str = '31.12.2025 30.11.2024 29.10.2023';
+    const text = document.querySelector('.task77 div');
+    text.textContent += str.replace(/(\d+)\.(\d+)\.(\d+)/g, '$3-$2-$1');
+}
+task77();
+
+//78. Найдите позицию первого числа, состоящего из трех цифр.
+function task78() {
+    let str = '1 23 456 789';
+    const text = document.querySelector('.task78 div');
+    text.textContent += `Позиция ${str.search(/\d{3}/g)}`;
+}
+task78();
+
+//79. Разбейте эту строку так, чтобы все части даты и времени были в одном массиве. То есть у вас должен получится следующий массив:['2025', '12', '31', '12', '59', '59']; 
+function task79() {
+    let str = '2025-12-31 12:59:59';
+    const text = document.querySelector('.task79 div');
+    text.textContent += str.split(/[-:]/g);
+}
+task79();
+
+//80. Определите, что год находится в интервале от 1900 до 2100 с помощью одного только регулярного выражения. 
+function task80() {
+    let str = '2023';
+    const text = document.querySelector('.task80 div');
+    text.textContent += /(19|20)\d{2}/.test(str);
+}
+task80();
+
+//81. Определите, что переданная строка является корректным временем вида часы:минуты. Часы и минуты не должны выходить за диапазон времени. 
+function task81() {
+    let str = '23:56';
+    const text = document.querySelector('.task81 div');
+    text.textContent += /([01]\d|2[0-3]):([0-5]\d|00)/.test(str);
+}
+task81();
+
+//82. Удалите одной регуляркой все повторяющиеся слова из строки.
+function task82() {
+    let str = 'волк заяц заяц слон волк';
+    const text = document.querySelector('.task82 div');
+    text.textContent += str.replace(/(^[а-я]+&)+/g, '');
+}
+task82();
+
