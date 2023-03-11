@@ -487,9 +487,26 @@ h3 {
 	height: 100px;
 }
 
+
+
 .game_of_cities {
     padding: 20px;
     width: 700px;
+}
+
+.game_of_cities .menu {
+    margin-bottom: 20px;
+}
+
+.game_of_cities button{
+    border: none;
+    padding: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+.game_of_cities button:hover{
+    background-color:rgba(207, 208, 210, 0.858);
 }
 
 .game_of_cities input {

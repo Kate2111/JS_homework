@@ -12,6 +12,10 @@
     <div class="task1 border">
         <h3>Игра в города</h3>
         <div class="game_of_cities">
+            <div class="menu">
+                <button class="friend">Игра с другом</button>
+                <button class="comp">Игра с компьютером</button>
+            </div>
             <div class="tablo">
                 <input id="field" placeholder="Введите название города">
                 <div id="message"></div>
@@ -38,3 +42,12 @@
     <script src="../../js/practice_Book/game_of_cities.js"></script>
 </body>
 </html>
+
+<script>
+    fetch('../../js/practice_Book/json/data23.json').then(data => {
+      data.json().then(json => {
+        let allCities = json.cities
+        task23(allCities, '.game_of_cities #name', '.game_of_cities #field')
+      })
+    })
+</script>
