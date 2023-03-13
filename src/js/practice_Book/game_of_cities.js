@@ -4,7 +4,7 @@
 
 //в сообщении выводим: следующий город на букву "", кроме букв  ь(например), если город повторяется, то выводим сообщение: Такой город называли. Попробуйте еще. Город на букву "".
 
-function task23 (allCities, name, input) {
+/* function task23 (allCities, name, input) {
     const nameInput = document.querySelectorAll(name);
     const city = document.querySelector(input);
     const message = document.querySelector('.game_of_cities #message');
@@ -15,68 +15,74 @@ function task23 (allCities, name, input) {
     const cities = [];
     const names = [];
 
-    showNamePlayer(nameInput, names, city);
-
+    
+    //Кнопка 'Игра с другом'
     playFriends.addEventListener('click', function startPlay() {
         this.classList.add('active');
         playComputer.classList.remove('active');
 
+        showNamePlayer(nameInput, names, city);
         createArrCities(cities, city, message, names);
         clearListCities(listFirstPlayer, listSecondPlayer);
     });
 
+    //Кнопка 'Игра с компьютером'
     playComputer.addEventListener('click', function startPlay() {
         this.classList.add('active');
         playFriends.classList.remove('active');
 
-        checkArrCities(allCities, city);
+        checkArrCities(allCities, cities, city, message, names);
         clearListCities(listFirstPlayer, listSecondPlayer);
     });
     
 
 
     //Игра с компьютером
-    function  checkArrCities(arrCities, nameCity) {
-        const currentPlayer = 1;
+    function  checkArrCities(accCities, arrCities, nameCity, text, arrNames) {
+        const playerOne = document.querySelector('.player1 input');
+        const playerTwo = document.querySelector('.player2 input');
+        addComputerPlayer (playerOne, playerTwo, arrNames);
 
-        nameCity.addEventListener('click', function func() {
-            if(currentPlayer == 1 ) {
-                return currentPlayer == 2; 
+        nameCity.addEventListener('keypress', function getCityOfArr (event) {
+            if(event.code === 'Enter') {
+                let val = this.value.trim().toLowerCase();
+
+                accCities.forEach(elem => {
+                    if(val == elem) {
+                        checkWord (arrCities, val, text, arrNames);
+                        showListCitiesOfPlayer (listFirstPlayer, listSecondPlayer, arrCities);
+                    }
+                });
+                
+                this.value = '';
             } 
-            if (currentPlayer == 2) {
-                return currentPlayer == 1; 
-            }
-
-            
         });
 
-        console.log(currentPlayer);
-/* 
-        if(currentPlayer == 1) {
-            nameCity.addEventListener('keypress', function func(event) {
-                if(event.code === 'Enter') {
-                    let val = this.value.trim().toLowerCase();
-   
-                    const position = arrCities.indexOf(val);
-                    arrCities.splice(position, 1);
-                    console.log(arrCities);
-                } 
-                
-            });
-        }
-        if(currentPlayer == 2) {
-            
-            const position = Math.round(Math.random() * 100);
-            nameCity.value = arrCities[position];
-            arrCities.splice(position, 1);
-        }
-         */
-  
-
-        //createList(parent, city);
-
+        nameCity.addEventListener('input', () => {text.textContent = '';});
     }
 
+    function addComputerPlayer (elem1, elem2, arrNames) {
+        elem1.addEventListener('keypress', function func(e) {
+            if (e.code === 'Enter') {
+                const namePlayer = document.createElement('p');
+                namePlayer.classList.add('notactive');
+                namePlayer.textContent = elem1.value;
+                elem1.parentElement.prepend(namePlayer);
+                elem1.remove();
+
+                arrNames.splice(0, 1, namePlayer);
+                arrNames[0].classList.add('active');
+            }
+        });
+
+        elem2.value = 'Игрок 2';
+        elem2.classList.add('notactive');
+        elem2.disabled = true;
+
+        arrNames[1] = elem2;
+        
+        return arrNames;         
+    }
 
 
     //Игра с другом
@@ -149,21 +155,23 @@ function task23 (allCities, name, input) {
             name.addEventListener('keypress', function(event){
                 if (event.code === 'Enter') {
                     const namePlayer = document.createElement('p');
+                    namePlayer.classList.add('notactive');
                     namePlayer.textContent = name.value;
                     name.parentElement.prepend(namePlayer);
                     name.remove();
 
                     arrNames.push(namePlayer);
                     arrNames[0].classList.add('active');
-                    return arrNames;
+            
+                    return arrNames;                   
                 }
             });
         });
     }
 
     //Выделяем цветом игрока, который делает ход
-    function showCurrentPlayer(arrCities) {
-        arrCities.forEach((elem) => {
+    function showCurrentPlayer(arrNames) {
+        arrNames.forEach((elem) => {
             if(elem.classList.contains('active')){
                 elem.classList.remove('active');
             } else {
@@ -171,4 +179,50 @@ function task23 (allCities, name, input) {
             }
         });
     }
+} */
+
+function task24 (allCities, name, input) {
+    const nameInput = document.querySelectorAll(name);
+    const city = document.querySelector(input);
+    const message = document.querySelector('.game_of_cities #message');
+    const usedCities = [];
+    let currentPlayer = 'player';
+
+    nextTurn(currentPlayer, usedCities, message, allCities, function(nextPlayer) {
+        currentPlayer = nextPlayer;
+    });
+
+    function nextTurn(player, arrUsedCities, text, arrRobotCities, callback) {
+        if(player === 'player') {
+
+            city.addEventListener('keypress', function (e) {
+                if(e.code === 'Enter') {
+                    const val = city.value.trim().toLowerCase();
+                   if(checkWord (arrUsedCities, val, text, arrRobotCities));
+                    checkWord (arrUsedCities, val, text, arrRobotCities);
+                }
+            });
+
+        }
+
+    }
+
+    function checkWord (arrUsedCities, city, text, arrRobotCities) {
+       
+        if(city[0] === arrUsedCities[arrUsedCities.length - 1].slice(-1)) {
+            text.textContent = `Попробуйте еще. Город начинается на букву ${arrUsedCities[arrUsedCities.length - 1].slice(-1)}`;
+            return;
+        }
+
+        if(arrUsedCities.includes(city)) {
+            text.textContent = 'Такой город уже называли';
+            return;
+        }
+
+        return arrUsedCities.push(city);
+    }
+
+    
+
+
 }

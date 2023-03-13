@@ -618,9 +618,18 @@ task81();
 
 //82. Удалите одной регуляркой все повторяющиеся слова из строки.
 function task82() {
-    let str = 'волк заяц заяц слон волк';
+    let str = 'work job work bbb ccc job';
     const text = document.querySelector('.task82 div');
-    text.textContent += str.replace(/(^[а-я]+&)+/g, '');
+    text.textContent += str.replace(/\b(\w+)\b(?=.*?\1)/g, '');
 }
 task82();
+
+//83. 
+function task83() {
+    let str = 'worrk job work bbb ccc job';
+    const text = document.querySelector('.task83 div');
+    text.textContent += str.replace(/\b\w*([a-z])\1\w*\b/g, '');
+}
+task83();
+
 

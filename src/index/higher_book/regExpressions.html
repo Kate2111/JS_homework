@@ -740,10 +740,19 @@
     <!-- 1.82-->
 
     <div class="task82 border">
-        <h3>82 Дано:  let str = 'волк заяц заяц слон волк';
+        <h3>82 Дано:  let str = 'work job work bbb ccc job';
             Удалите одной регуляркой все повторяющиеся слова из строки.</h3>
         <div>Результат: </div>    
-        <p>Решение: <code> </code>
+        <p>Решение: <code>str.replace(/\b(\w+)\b(?=.*?\1)/g, '')</code>
+    </div>
+
+    <!-- 1.83-->
+
+    <div class="task83 border">
+        <h3>83 Дано:  let str = 'work job work bbb ccc job';
+            Удалите одной регуляркой все повторяющиеся слова из строки.</h3>
+        <div>Результат: </div>    
+        <p>Решение: <code></code>
     </div>
 
     <script src="./../../js/higher_Book/1_regExpressions.js"></script>

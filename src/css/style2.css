@@ -519,7 +519,7 @@ h3 {
     background-color:rgb(145, 176, 235);
 }
 
-.game_of_cities p {
+.game_of_cities .notactive {
     width: 250px;
     height: 40px;
     padding: 5px 15px;
