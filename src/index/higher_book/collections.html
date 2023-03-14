@@ -48,6 +48,122 @@
         <div class="div"></div>
     </div>
 
+    <!-- 1.87-->
+
+    <div class="task87 border">
+        <h3>4 Проверьте, какой тип коллекции будет в свойстве childNodes и в свойстве children.</h3>
+        <div class="div">
+            <p>text1</p>
+            <p>text2</p>
+            <p>text3</p>
+        </div>
+
+        <p>
+            <code>document.querySelector('.div').childNodes; //NodeList</code>
+        </p>
+
+        <p>
+            <code>document.querySelector('.div').children; //HTMLCollection</code>
+        </p>
+    </div>
+
+    <!-- 1.88-->
+
+    <div class="task88 border">
+        <h3>5 Пусть даны 3 массива. Создайте коллекцию Map, сделайте ключами коллекции эти массивы, а значениями - какие-нибудь строки.</h3>
+        <p>
+            <code>
+                Map(3) {Array(3) => 'Alex', Array(3) => 'Mugli', Array(3) => 'Piter'} <br>
+                    [[Entries]] <br><br>
+                    0: {Array(3) => "Alex"} <br>
+                    key: (3) [27, 'info@mail.ru', 'Russia'] <br>
+                    value: "Alex"
+                    <br><br>
+                    1: {Array(3) => "Mugli"} 
+                    key: (3) [54, 'pochta@gmail.com', 'Georgia'] <br>
+                    value: "Mugli"
+                    <br><br>
+                    2: {Array(3) => "Piter"} <br>
+                    key: (3) [42, 'hello@hi.com', 'USA'] <br>
+                    value: "Piter"
+            </code>
+        </p>
+    </div>
+    
+    <!-- 1.89-->
+
+    <div class="task89 border">
+        <h3>6 Пусть даны 3 объекта и 3 массива. Создайте коллекцию Map, сделайте ключами коллекции объекты, а значениями - соответствующие массивы.</h3>
+        <p>
+            <code>
+                Map(3) {{…} => Array(3), {…} => Array(3), {…} => Array(3)} <br>
+                    [[Entries]] <br><br>
+                    0: {Object => Array(3)} <br>
+                    key: {1: 'Alex'} <br>
+                    value: (3) [27, 'info@mail.ru', 'Russia']
+                    <br><br>
+                    1: {Object => Array(3)}  <br>
+                    key: {2: 'Mugli'} <br>
+                    value: (3) [54, 'pochta@gmail.com', 'Georgia']
+                    <br><br>
+                    2: {Object => Array(3)} <br>
+                    key: {3: 'Piter'} <br>
+                    value: (3) [42, 'hello@hi.com', 'USA']
+            </code>
+        </p>
+    </div>
+
+     <!-- 1.90-->
+
+    <div class="task90 border">
+        <h3>7 Пусть дана коллекция Map. Получите массив ее ключей и массив значений и переберите их циклом for-of.</h3>
+        <p>
+            <code>
+                {'Alex' => 27, 'Mugli' => 54, 'Piter' => 42}
+            </code>
+        </p>
+    </div>
+
+     <!-- 1.91-->
+
+     <div class="task91 border">
+        <h3>8 Даны инпуты. Переберите эти инпуты циклом и создайте коллекцию Map, ключами в которой будут инпуты, а значением - их порядковый номер на странице. Сделайте так, чтобы по клику на любой инпут ему в value записывался его порядковый номер.</h3>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+
+    
+     <!-- 1.92-->
+
+     <div class="task92 border">
+        <h3>9 Даны инпуты. В каждый инпут можно ввести число. Пусть по нажатию на Enter инпут запоминает введенное число. Сделайте так, чтобы по потери фокуса в инпуте в консоль выводился массив всех введенных ранее в инпут чисел.</h3>
+        <input data-text="oneInput" type="text">
+        <input data-text="twoInput" type="text">
+        <input data-text="threeInput" type="text">
+    </div>
+
+    <!-- 1.93-->
+
+    <div class="task93 border">
+        <h3>10 Дан массив с числами:let arr = [1, 2, 3, 1, 3, 4]; С помощью этого массива создаейте коллекцию Set.</h3>
+        <p>Результат: <code>{1, 2, 3, 4}</code></p>
+    </div>
+
+     <!-- 1.94-->
+
+     <div class="task94 border">
+        <h3>11 Создайте пустую коллекцию Set. С помощью метода add добавьте в нее элементы со значениями 1, 2 и 3.</h3>
+        <p>Результат: <code>{1, 2, 3}</code></p>
+    </div>
+
+    <!-- 1.95-->
+
+    <div class="task95 border">
+        <h3>12 Создайте коллекцию Set с начальными значениями 1, 2 и 3. С помощью метода add добавьте в коллекцию еще одно число 2. Выведите содержимое коллекции в консоль, убедитесь, что число 2 не добавилось второй раз.</h3>
+        <p>Результат: <code>{1, 2, 3}</code></p>
+    </div>
+    
 
     <script src="./../../js/higher_Book/2_collection.js"></script>
 </body>
