@@ -379,8 +379,8 @@ let data1 = [
 		3: 'data33',
 	},
 ];
-for(elem of data1) {
-    for(key in elem) {
+for(let elem of data1) {
+    for(let key in elem) {
         console.log(elem[key]);
     } 
 }
