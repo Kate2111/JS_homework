@@ -491,3 +491,262 @@ function task109() {
     }
 }
 task109();
+
+//27. Дан код, который записывает некоторую строку в локальное хранилище.Оберните этот код в конструкцию try-catch. В блоке catch выведите сообщение о переполнении хранилища. Проверьте работу вашего кода для строки размером менее 5 мб и для строки большего размера.
+function task110() {
+    try{
+        let str = 'некая строка';
+       /*  let str = '';
+        for (let i = 1; i <= 6 * 10 ** 6; i++) { // формируем строку более 5 мб
+            str += '+';
+        } */
+        localStorage.setItem('key', str);
+    } catch (error) {
+        alert('Хранилище переполнено!');
+    }
+}
+task110();
+
+//28. Дан JSON, внутри которого хранится массив. Если этот JSON корректный, то выведите элементы массива в виде списка ul. Если же JSON не корректный, выведите на экран сообщение о том, что на странице случилась ошибка.
+function task111() {
+    const ul = document.querySelector('.task111 ul');
+
+    try{
+        let arr = JSON.parse('[1, 2, 3, 4]');
+        arr.forEach(elem => {
+            const li = document.createElement('li');
+            li.textContent = elem;
+            ul.appendChild(li);
+        });
+    } catch (error) {
+        alert('формат данных не корректен');
+    }
+}
+task111();
+
+//29. Специально создайте исключительную ситуацию, связанную с попыткой разбора некорректного JSON. Выведите в консоль имя и текст этой ошибки.
+function task112() {
+    const p = document.querySelector('.task112 p');
+
+    try{
+        let arr = JSON.parse('{1, 2, 3, 4}');
+        console.log(arr);
+    } catch (error) {
+        p.textContent = error.name;
+    }
+}
+task112();
+
+//30. Специально создайте исключительную ситуацию, связанную с переполнением локального хранилища. Выведите в консоль имя и текст этой ошибки.
+function task113() {
+    const p = document.querySelector('.task113 p');
+    try{
+        let str = '';
+        for (let i = 1; i <= 6 * 10 ** 6; i++) { // формируем строку более 5 мб
+            str += '+';
+        } 
+        localStorage.setItem('key', str);
+    } catch (error) {
+        p.textContent = error.name;
+    }
+}
+task113();
+
+//31.
+function task114() {
+    const p = document.querySelector('.task114 p');
+    function saveData(json) {
+        let arr = JSON.parse(json);
+
+        for(let i = 0; i < arr.length; i++) {
+            localStorage.setItem(i, arr[i]);
+        }
+    }
+
+    try {
+        saveData('[1, 2, 3,]');
+    } catch (error) {
+        if(error.name == 'SyntaxError') {
+            p.textContent = 'некорректный JSON';
+        }
+        if(error.name == 'QuotaExceededError') {
+            p.textContent = 'закончилось место в хранилище';
+        }
+    }
+}
+task114();
+
+//32. Напишите свою функцию, которая будет извлекать корень из числа и при этом выбрасывать исключение, если корень извлекается из отрицательного числа.
+function task115() {
+    const input = document.querySelector('.task115 input');
+    const text = document.querySelector('.task115 p');
+
+    input.addEventListener('keypress', function (e) {
+        if(e.code == 'Enter') {
+            let number = Number(this.value);
+            try {findSqrtNumber(number);} 
+            catch (error) {
+                text.textContent = 'Квадратный корень из отрицательных чисел не существует.';
+            }
+            console.log(number);
+        }
+    });
+
+    function findSqrtNumber(num) {
+        if(num >= 0) {
+            input.value = '';
+            text.textContent =  `Корень числа ${num} равен ${Math.sqrt(num)}`;
+        } else {
+            throw new Error('число должно быть больше или равно нулю');
+        }
+    }
+}
+task115();
+
+//33 Переделайте мой код так, чтобы функция getCost выбрасывала два типа исключений: если отсутствует цена и если отсутствует количество. Хорошо подумайте над названиями этих исключений. В блоке catch выведите разные сообщения об ошибке для исключений разных типов.
+
+function task116() {
+    const product = document.querySelector('.task116 #product');
+    const text = document.querySelector('.task116 .cost');
+    const priceInput = document.querySelector('.task116 #price');
+    const amountInput = document.querySelector('.task116 #amount');
+    const result = document.querySelector('.task116 .culc');
+
+    priceInput.addEventListener('blur', getData);
+    amountInput.addEventListener('blur', getData);
+    result.addEventListener('click', showResult);
+
+    function getData (event) {
+        let input = this.value;
+        if(event.target.id == 'price') {
+            product.dataset.price = Number(input);
+            deleteDataAttribute (input, 'data-price');
+        }
+        if(event.target.id == 'amount') {
+            product.dataset.amount = Number(input);
+            deleteDataAttribute (input, 'data-amount');
+        }
+    }
+
+    function deleteDataAttribute (value, data) {
+        if(value == '') {
+            product.removeAttribute(data);
+        }
+    }
+
+    function showResult () {
+        try {
+            const cost = getCost(product);
+            text.textContent = `Общая стоимость за яблоки: ${cost} p.`;
+        } catch (error) {
+            if(error.name == 'PriceError') {
+                text.textContent = error.message;
+            }
+            if(error.name == 'AmountError') {
+                text.textContent = error.message;
+            }
+            if(error.name == 'ProductCostError') {
+                text.textContent = error.message;
+            }
+        }
+    }
+   
+    function getCost(elem) {
+        let price = elem.dataset.price;
+        let amount = elem.dataset.amount;
+        if(price !== undefined && amount !== undefined) {
+            return price * amount;
+        } else {
+            if(!price && !amount) {
+                throw {
+                    name: 'ProductCostError',
+                    message: 'отсутствует цена или количество у продукта' 
+                };
+            }
+            if(!price) {
+                throw {
+                    name: 'PriceError',
+                    message: 'Отсутствует цена продукта'
+                };
+            }
+            if(!amount) {
+                throw {
+                    name: 'AmountError',
+                    message: 'Не указано количество продукта'
+                };
+            }
+           
+        }
+    }
+}
+task116();
+
+//34.  Пусть к вам приходит JSON. Проверьте этот JSON на общую корректность при разборе, а после разбора проверьте, что в результате получается массив, а не что-то другое. Если в результате получается не массив - выбросите исключение.
+function task117() {
+    const ul = document.querySelector('.task117 ul');
+
+    let json = `[
+        {
+            "name": "user1",
+            "age": 25,
+            "salary": 1000
+        },
+        {
+            "name": "user2",
+            "age": 27,
+            "salary": 2000
+        },
+        {
+            "name": "user3",
+            "age": 30,
+            "salary": 3000
+        }
+    ]`;
+
+    try{
+        isCheckArr(json);
+    } catch(error) {
+        showUser(error.name);
+        showUser(error.message);
+    }
+
+    function isCheckArr(data) {
+        const arr = JSON.parse(data);
+
+        for(let obj of arr) {
+            let condition = obj.name !== undefined && obj.age !== undefined && obj.salary !== undefined;
+            try{
+                if(condition) {
+                    isCorrectObj(obj);
+                } else {
+                    throw {
+                        name: 'Ошибка данных',
+                        message: 'Не хнавает данных в имени, возрасте или запрлате'
+                    };
+                }
+            } catch (error) {
+                showUser(error.message);
+                    
+                if(condition) {
+                    isCorrectObj(obj);
+                } 
+            }
+        } 
+    }
+
+    function isCorrectObj(obj) {
+        const text = `Имя: ${obj.name}, возраст: ${obj.age}, зарплата: ${obj.salary}`;
+        showUser(text);
+    }
+
+    function showUser(text) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        ul.appendChild(li);
+    }
+
+   
+   
+
+}
+task117();
