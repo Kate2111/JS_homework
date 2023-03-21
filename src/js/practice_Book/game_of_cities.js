@@ -4,7 +4,7 @@
 
 //в сообщении выводим: следующий город на букву "", кроме букв  ь(например), если город повторяется, то выводим сообщение: Такой город называли. Попробуйте еще. Город на букву "".
 
-/* function task23 (allCities, name, input) {
+function task23 (allCities, name, input) {
     const nameInput = document.querySelectorAll(name);
     const city = document.querySelector(input);
     const message = document.querySelector('.game_of_cities #message');
@@ -25,65 +25,6 @@
         createArrCities(cities, city, message, names);
         clearListCities(listFirstPlayer, listSecondPlayer);
     });
-
-    //Кнопка 'Игра с компьютером'
-    playComputer.addEventListener('click', function startPlay() {
-        this.classList.add('active');
-        playFriends.classList.remove('active');
-
-        checkArrCities(allCities, cities, city, message, names);
-        clearListCities(listFirstPlayer, listSecondPlayer);
-    });
-    
-
-
-    //Игра с компьютером
-    function  checkArrCities(accCities, arrCities, nameCity, text, arrNames) {
-        const playerOne = document.querySelector('.player1 input');
-        const playerTwo = document.querySelector('.player2 input');
-        addComputerPlayer (playerOne, playerTwo, arrNames);
-
-        nameCity.addEventListener('keypress', function getCityOfArr (event) {
-            if(event.code === 'Enter') {
-                let val = this.value.trim().toLowerCase();
-
-                accCities.forEach(elem => {
-                    if(val == elem) {
-                        checkWord (arrCities, val, text, arrNames);
-                        showListCitiesOfPlayer (listFirstPlayer, listSecondPlayer, arrCities);
-                    }
-                });
-                
-                this.value = '';
-            } 
-        });
-
-        nameCity.addEventListener('input', () => {text.textContent = '';});
-    }
-
-    function addComputerPlayer (elem1, elem2, arrNames) {
-        elem1.addEventListener('keypress', function func(e) {
-            if (e.code === 'Enter') {
-                const namePlayer = document.createElement('p');
-                namePlayer.classList.add('notactive');
-                namePlayer.textContent = elem1.value;
-                elem1.parentElement.prepend(namePlayer);
-                elem1.remove();
-
-                arrNames.splice(0, 1, namePlayer);
-                arrNames[0].classList.add('active');
-            }
-        });
-
-        elem2.value = 'Игрок 2';
-        elem2.classList.add('notactive');
-        elem2.disabled = true;
-
-        arrNames[1] = elem2;
-        
-        return arrNames;         
-    }
-
 
     //Игра с другом
     //Создаем массив городов введеных в поле
@@ -179,50 +120,6 @@
             }
         });
     }
-} */
+} 
 
-function task24 (allCities, name, input) {
-    const nameInput = document.querySelectorAll(name);
-    const city = document.querySelector(input);
-    const message = document.querySelector('.game_of_cities #message');
-    const usedCities = [];
-    let currentPlayer = 'player';
-
-    nextTurn(currentPlayer, usedCities, message, allCities, function(nextPlayer) {
-        currentPlayer = nextPlayer;
-    });
-
-    function nextTurn(player, arrUsedCities, text, arrRobotCities, callback) {
-        if(player === 'player') {
-
-            city.addEventListener('keypress', function (e) {
-                if(e.code === 'Enter') {
-                    const val = city.value.trim().toLowerCase();
-                   if(checkWord (arrUsedCities, val, text, arrRobotCities));
-                    checkWord (arrUsedCities, val, text, arrRobotCities);
-                }
-            });
-
-        }
-
-    }
-
-    function checkWord (arrUsedCities, city, text, arrRobotCities) {
-       
-        if(city[0] === arrUsedCities[arrUsedCities.length - 1].slice(-1)) {
-            text.textContent = `Попробуйте еще. Город начинается на букву ${arrUsedCities[arrUsedCities.length - 1].slice(-1)}`;
-            return;
-        }
-
-        if(arrUsedCities.includes(city)) {
-            text.textContent = 'Такой город уже называли';
-            return;
-        }
-
-        return arrUsedCities.push(city);
-    }
-
-    
-
-
-}
+//Игра в города против робота на JavaScript
