@@ -487,7 +487,11 @@ h3 {
 	height: 100px;
 }
 
-
+.task24, .task25, .task26, .task27, .task28 {
+    margin: 0 auto;
+	width: 500px;
+    padding-top: 20px;
+}
 
 .game_of_cities {
     padding: 20px;
@@ -558,12 +562,15 @@ h3 {
 }
 
 .checklist {
-	
     align-items:center;
     flex-direction: column;
     display: flex;
 }
-.checklist #ask, #list_tasks {
+
+.checklist #task{
+    width: 250px;
+}
+.checklist #task, #list_tasks {
 	display: inline-block;
 }
 #list_tasks  {
@@ -589,6 +596,11 @@ h3 {
 
 .checklist #list_tasks .done {
 	text-decoration: line-through;
+}
+
+.task26 {
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .task26 #wrapper {
@@ -638,4 +650,42 @@ h3 {
 
 .task26 .active {
     background: #f1f1f1;
+}
+
+.task27 #form {
+	display: flex;
+	margin-bottom: 15px;
+}
+.task27 #form input {
+	padding: 8px;
+	width: 24%;
+	margin: 0 0.5% 10px 0.5%;
+}
+
+.task27 h2 {
+	margin-top: 0;
+	margin-bottom: 7px;
+}
+
+#table {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.task27 #table td, #table th {
+	padding: 8px;
+	text-align: center;
+	border: 1px solid black;
+}
+.task27 #table td.remove {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.task27 #table td.remove:hover {
+	text-decoration: none;
+}
+
+.task27 #result {
+	text-align: right;
+	margin-right: 10px;
 }

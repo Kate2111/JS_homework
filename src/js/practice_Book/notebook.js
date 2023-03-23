@@ -1,44 +1,44 @@
-/*  newEntry.addEventListener('click', function() {
-        const btnSave = this;
-        const mode = this.dataset.mode;
-       
-        
-    }); */
-
 function task26() {
     const save  = document.querySelector('.save');
-    const newEntry = document.querySelector('.new_entry');
     const ul    = document.querySelector('#notes');
     const note  = document.querySelector('textarea');
     const texts = [];
 
-    save.addEventListener('click', function () {
-        const btnSave = this;
-        const mode = this.dataset.mode;
+    start (save, ul, texts, note);
 
-        hasDataCreate (mode, ul, texts, note, btnSave);
-        hasDataUpdate(mode, texts, note, btnSave, ul);
-        
-        note.value = '';
-    });
+    function start (mainBtn, parent, arr, entry) {
+        mainBtn.addEventListener('click', function () {
+            const btnSave = this;
+            const mode = this.dataset.mode;
+    
+            //Проверяем data-mode у кнопки сохранить, create или update
+            hasDataCreate (mode, parent, arr, entry, btnSave);
+            hasDataUpdate(mode, arr, entry, btnSave, parent);
+            
+            entry.value = '';
+        });
+    }
 
+    //Создаем новую запись в блокноте
     function hasDataCreate (data, parent, arr, entry, btnSave) {
         if(data == 'create') {
             addLinkMenu(parent, arr, entry, showNoteOfLink);
             addClassActive(parent, btnSave);
         } 
-        console.log(arr);
+        
     }
 
+    //Редактируем и сохраняем открытую запись
     function hasDataUpdate(data, arr, entry, btnSave, parent) {
         if(data == 'update') {
             editAndSaveTextarea(arr, entry, btnSave, parent);
         }
     }
 
+    //Создаем новую ссылку в меню с номером записи и корзиной
     function addLinkMenu(parent, arr, entry, callback) {
         if(entry.value != '') {
-            texts.push(entry.value);
+            arr.push(entry.value);
 
             const li = document.createElement('li');
            
@@ -53,6 +53,7 @@ function task26() {
         }
     }
 
+    //Создает элемент span(для отображения номера записи/корзины)
     function createSpanElem(parent, name, callback, arr) {
         const elem = document.createElement('span');
         elem.classList.add(`${name}`);
@@ -60,6 +61,7 @@ function task26() {
         callback(elem, parent, arr);        
     }
 
+    //Отображаем номер записи в блокноте
     function showTextSpanOpen (span, parent, arr) {
         for(let i = 0; i < arr.length; i++) {
             span.textContent = `Запись ${i + 1}`;
@@ -67,10 +69,12 @@ function task26() {
         } 
     }
 
+    //Удаление записи
     function showTextSpanRemove(span) {
         span.innerHTML = `&#128465;`;
     }
 
+    //Просмотр текта в окне по клику на кнопку номера записи
     function showNoteOfLink(entry, arr, link, event) {
         const index = Number(link.dataset.key);
         if(event.target.className == 'open') {
@@ -81,16 +85,17 @@ function task26() {
             event.target.parentElement.remove();
 
             // изменяем нумерацию и data-key для последующих элементов с классом open
-       /*      const openSpans = document.querySelectorAll('.open');
+            const openSpans = document.querySelectorAll('.open');
             for (let i = index; i < openSpans.length; i++) {
                 openSpans[i].textContent = `Запись ${i+1}`;
                 openSpans[i].parentElement.dataset.key = i;
-            } */
+            } 
         }
     }
     
+    //Редактирование и созранение записи
     function editAndSaveTextarea (arr, entry, button, parent) {
-        const index = Number(save.dataset.key);
+        const index = Number(button.dataset.key);
         arr.splice(index, 1, entry.value);
 
         button.dataset.mode = 'create';
@@ -98,6 +103,7 @@ function task26() {
         removeClassActive(parent.querySelectorAll('li'));
     }
 
+    //Выделение ссылки записи, которая просматривается в данный момент 
     function addClassActive(parent, button) {
         const list = parent.querySelectorAll('li');
         list.forEach((li, i) => {
@@ -112,6 +118,7 @@ function task26() {
         });
     }
 
+    //Отмена отображения неактивных ссылок
     function removeClassActive(arr) {
         arr.forEach(elem => {
             elem.classList.remove('active');
