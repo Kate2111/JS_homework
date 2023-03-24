@@ -487,7 +487,7 @@ h3 {
 	height: 100px;
 }
 
-.task24, .task25, .task26, .task27, .task28 {
+.task24, .task25, .task26, .task27, .task28, .task29 {
     margin: 0 auto;
 	width: 500px;
     padding-top: 20px;
@@ -688,4 +688,35 @@ h3 {
 .task27 #result {
 	text-align: right;
 	margin-right: 10px;
+}
+
+.task28 .right, .task29 .right {
+	border: 2px solid green;
+}
+.task28 .wrong, .task29 .wrong{
+	border: 2px solid red;
+}
+
+.task28 .wrapper, .task29 .wrapper  {
+    padding: 10px 0;
+}
+
+.task28 input {
+    margin-top: 5px;
+}
+
+.task28, .task29 {
+    margin-top: 20px;
+    border: solid 1px black;
+    padding: 20px;
+}
+
+.task28 button, .task29 button {
+    width: 100px;
+    height: 25px;
+    background-color: rgba(1, 140, 1, 0.547);
+    border: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
