@@ -487,7 +487,7 @@ h3 {
 	height: 100px;
 }
 
-.task24, .task25, .task26, .task27, .task28, .task29 {
+.task24, .task25, .task26, .task27, .task28, .task29,.task31 {
     margin: 0 auto;
 	width: 500px;
     padding-top: 20px;
@@ -690,14 +690,14 @@ h3 {
 	margin-right: 10px;
 }
 
-.task28 .right, .task29 .right {
+.task28 .right, .task29 .right, .task31 .right {
 	border: 2px solid green;
 }
-.task28 .wrong, .task29 .wrong{
+.task28 .wrong, .task29 .wrong, .task31 .wrong{
 	border: 2px solid red;
 }
 
-.task28 .wrapper, .task29 .wrapper  {
+.task28 .wrapper, .task29 .wrapper, .task31 .wrapper  {
     padding: 10px 0;
 }
 
@@ -705,13 +705,13 @@ h3 {
     margin-top: 5px;
 }
 
-.task28, .task29 {
+.task28, .task29, .task31, .task32, .task33 {
     margin-top: 20px;
     border: solid 1px black;
     padding: 20px;
 }
 
-.task28 button, .task29 button {
+.task28 button, .task29 button, .task31 button {
     width: 100px;
     height: 25px;
     background-color: rgba(1, 140, 1, 0.547);
@@ -719,4 +719,14 @@ h3 {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.task31 .text {
+    display: inline;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.task33 a{
+    text-decoration: none;
 }

@@ -1,3 +1,5 @@
+
+
 function task28() {
     const test      = document.querySelector('.task28 .test');
     const check     = document.querySelector('.task28 .check');
@@ -101,37 +103,149 @@ task28();
         }
     }
 }
-task29(); */
+task29();  */
 
 
 //Модифицируйте ваш код так, чтобы проверка ответов выполнялась по нажатию на кнопку.
-function task30() {
+/* function task30() {
     const check     = document.querySelector('.task29 .check');
-    const parent = document.querySelectorAll('.task29  .wrapper');
+    const question = document.querySelectorAll('.task29  .wrapper');
     let answers = [0, 1, 2];
    
-    parent.forEach( question => {
-        const inputs = question.querySelectorAll('input');
-        start(inputs, question);
-    });
-     
-    function start (inputs) {
-        inputs.forEach(input => {
-            input.addEventListener('change', function() {
-                if(input.checked) {
-                    isRight(check, input);
-                }
-            });
-        
-       });
-    }
+    start(check, question, answers);
 
-    function isRight(btnCheck, input) {
+    function start(btnCheck, parent, arrAnswer) {
         btnCheck.addEventListener('click', function() {
-            for(let i = 0; i < answers.length; i++) {
-                answers[i] == 
-            }
+            parent.forEach( (question, i) => {
+                const inputs = question.querySelectorAll('input');
+    
+                let indexChecked = getIndex(inputs);
+               
+                isRight(indexChecked == arrAnswer[i], inputs, indexChecked, 'right');
+                isRight(indexChecked != arrAnswer[i], inputs, indexChecked, 'wrong');
+            });
         });
     }
+
+    function getIndex(arr) {
+        let index;
+        arr.forEach((input, i) => {
+            if(input.checked == true){index = i;}
+            return index;
+        });
+        return index;
+    }
+
+    function isRight(condition, arr, index, name) {
+        if(condition)  {
+            arr[index].parentElement.classList.add(name);
+        }
+    }
+
 }
-task30();
+task30(); */
+
+function task31() {
+    const test = document.querySelector('.task31 .test');
+    const check = document.querySelector('.task31 .check');
+    let questions = [
+        {
+            text: 'вопрос 1?',
+            right: 0,
+            variants: [
+                'вариант 1',
+                'вариант 2',
+                'вариант 3'
+            ]
+        },
+        {
+            text: 'вопрос 2?',
+            right: 1,
+            variants: [
+                'вариант 1',
+                'вариант 2',
+                'вариант 3'
+            ]
+        },
+        {
+            text: 'вопрос 3?',
+            right: 2,
+            variants: [
+                'вариант 1',
+                'вариант 2',
+                'вариант 3'
+            ]
+        },
+    ];
+
+    createTest(questions, test, check);
+
+    function createTest(arr, parent, btnCheck) {
+        createWrapper(arr, parent);
+        checkResults(arr, btnCheck);
+    }
+    
+    function createWrapper(arr, parent) {
+        for(let obj of arr) {
+            let wrapper = createElem(parent, 'div');
+            wrapper.classList.add('wrapper');
+
+            let question = createElem(wrapper, 'p');
+            question.textContent = obj.text;
+            createRows(obj, wrapper);
+        }
+    }
+
+    function createRows(obj, wrapper) {
+        for(let elem of obj.variants) {
+            let answer = createElem(wrapper, 'label');
+            
+            let input = createElem(answer, 'input');
+            input.type = 'radio';
+            input.name = `${obj.right}`;
+
+            let text = createElem(answer, 'p');
+            text.textContent = elem;
+            text.classList.add('text');
+        }
+    }
+    
+    function createElem(parent, tag) {
+        const elem = document.createElement(tag);
+        parent.appendChild(elem);
+        return elem;
+    }
+
+    function checkResults(arr, btnCheck) {
+        const answers = arr.map(obj => obj.right);
+        btnCheck.addEventListener('click', showResultHandler.bind(btnCheck, answers));
+    }
+
+    function showResultHandler(answers) {
+        const wrapper = document.querySelectorAll('.task31 .wrapper');
+        wrapper.forEach( (question, i) => {
+            const inputs = question.querySelectorAll('input');
+            
+            let indexChecked = getIndex(inputs);
+
+            isRight(indexChecked == answers[i], inputs, indexChecked, 'right');
+            isRight(indexChecked != answers[i], inputs, indexChecked, 'wrong');
+        });
+    }
+
+    function getIndex(arr) {
+        let index;
+        arr.forEach((input, i) => {
+            if(input.checked == true){index = i;}
+            return index;
+        });
+        return index;
+    }
+
+    function isRight(condition, arr, index, name) {
+        if(condition)  {
+            arr[index].parentElement.classList.add(name);
+        }
+    }
+}
+task31();
