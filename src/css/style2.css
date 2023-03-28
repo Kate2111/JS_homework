@@ -705,7 +705,7 @@ h3 {
     margin-top: 5px;
 }
 
-.task28, .task29, .task31, .task32, .task33 {
+.task28, .task29, .task31, .task32, .task33, .task34, .task35 {
     margin-top: 20px;
     border: solid 1px black;
     padding: 20px;
@@ -727,6 +727,21 @@ h3 {
     margin-left: 5px;
 }
 
-.task33 a{
+.task33 a, .task34 a{
     text-decoration: none;
+    padding-left: 40px;
+}
+
+.task34 .disabled {
+    pointer-events: none; /* блокировка кликов и событий мыши */
+    opacity: 0; /* уменьшение прозрачности элемента */
+    cursor: default; /* замена курсора на стандартный */
+  }
+
+.task35 #field td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	text-align: center;
+    font-size: 30px;
 }
