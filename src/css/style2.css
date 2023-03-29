@@ -705,7 +705,7 @@ h3 {
     margin-top: 5px;
 }
 
-.task28, .task29, .task31, .task32, .task33, .task34, .task35 {
+.task28, .task29, .task31, .task32, .task33, .task34, .task35, .task36 {
     margin-top: 20px;
     border: solid 1px black;
     padding: 20px;
@@ -744,4 +744,22 @@ h3 {
 	border: 1px solid black;
 	text-align: center;
     font-size: 30px;
+}
+
+.task36 #field td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: bold;
+}
+
+.task36 .red {
+	background: red;
+}
+.task36 .green {
+	background: green;
+}
+.task36 .blue {
+	background: blue;
 }
