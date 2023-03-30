@@ -30,7 +30,8 @@ function task36() {
 
     function addColorCell(arrColor) {
         let index = Math.round(Math.random() * arrColor.length - 1);
-        if(index < 0) { return colors[0];}
+        if(index < 0) { return arrColor[0];}
+
         return arrColor[index];
     }
 
@@ -67,3 +68,15 @@ function task36() {
     }
 }
 task36();
+
+/* const arr = [
+    1,0,1, 
+    0,2,0,
+    1,1,1
+]; */
+
+//функ, кот считает количество повторяющихся элементов
+//0 - 3, 1 - 5, 2 - 1
+
+//Всего 9 цифр, 
+//i === arrColor.length - 1 ? i = 0 : i += 1;
