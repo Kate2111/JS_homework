@@ -70,7 +70,7 @@ h3 {
 
 .task10 .words, .task10 .simbol, .task10 .simbolSpaces, .task10 .percent {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .task10 input {

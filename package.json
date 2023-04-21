@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,20 @@
   },
   "homepage": "https://github.com/Kate2111/JS_homework#readme",
   "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-csso": "^4.0.1",
     "jquery": "^3.6.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1"
   }
