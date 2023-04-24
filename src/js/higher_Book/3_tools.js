@@ -14,3 +14,4 @@ console.log(_.chunk(arr, 2));
  
 console.log(_.chunk(arr, 3));
 // => [['a', 'b', 'c'], ['d']]
+
