@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepages": "https://kate2111.github.io/JS_homework/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "devDependencies": {
     "browser-sync": "^2.29.1",
     "del": "^6.0.0",
+    "gh-pages": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
