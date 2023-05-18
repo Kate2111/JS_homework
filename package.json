@@ -2,7 +2,7 @@
   "name": "js_homework",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "homepages": "https://kate2111.github.io/JS_homework/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,7 +36,7 @@
     "gulp-less": "^5.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2",
-    "webpack": "^5.76.2",
+    "webpack": "^5.83.1",
     "webpack-cli": "^5.0.1"
   }
 }

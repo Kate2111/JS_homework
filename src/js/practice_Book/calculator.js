@@ -113,3 +113,9 @@ function task27() {
     }
 }
 task27();
+
+function calculator() {
+    const countTask = document.querySelectorAll('.border');
+    console.log(countTask.length);
+}
+

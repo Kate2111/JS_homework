@@ -90,3 +90,55 @@ function task5() {
     }
 }
 task5();
+
+//Дан элемент и кнопка. По нажатию на кнопку прокрутите элемент в самый верх.
+function task6() {
+    const btnUP = document.querySelector('.task6 .up');
+    const btnDOWN = document.querySelector('.task6 .down');
+    const btnOPEN = document.querySelector('.task6 .open');
+    const text = document.querySelector('.task6 .wrapper');
+
+    btnUP.addEventListener('click', function() {
+        text.scrollTop = 0;
+    })
+
+    btnDOWN.addEventListener('click', function() {
+        text.scrollTop = text.scrollHeight - text.clientHeight;
+    })
+
+    btnOPEN.addEventListener('click', function() {
+        text.style.height = text.scrollHeight + 'px';
+    })
+
+    //Следующие свойства содержат размеры окна браузера, не включающие в себя полосу прокрутки:
+    let wc = document.documentElement.clientWidth;  // ширина
+    let hc = document.documentElement.clientHeight; // высота
+    //console.log(wc, hc);
+
+    //Следующие свойства содержат размеры окна браузера, не включающие в себя полосу прокрутки:
+    let w = window.innerWidth;  // ширина
+    let h = window.innerHeight; // высота
+    //console.log(w, h);
+}
+task6();
+
+function task7() {
+    let sym1 = Symbol('описание');
+   
+    const obj = {0: 5, 1: 7};
+    obj[sym1] = function() {
+        let sum = 0;
+
+        for(let key in this) {
+            sum += this[key];
+        }
+
+        return sum;
+    };
+    console.log(obj[sym1]())
+    console.log(obj);
+
+}
+
+task7();
+

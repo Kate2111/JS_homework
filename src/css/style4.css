@@ -24,6 +24,7 @@ body {
     box-shadow: rgba(23, 107, 21, 0.81) 3px 1px 4px 1px;
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 #elem{
@@ -85,3 +86,35 @@ body {
     border: solid 2px red;
     box-shadow: rgba(239, 65, 49, 0.81) 0px 0px 9px 1px;
 }
+
+.wrapper{
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.wrapper::-webkit-scrollbar{
+    width: 7px;
+    border-radius: 10px;
+    background-color: rgba(0, 128, 0, 0.266);
+}
+
+.wrapper::-webkit-scrollbar-button{
+    background-color: rgb(2, 98, 2);
+    height: 7px;
+}
+
+.wrapper::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 128, 0, 0.489);
+}
+
+.wrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    background-color: rgba(0, 128, 0, 0);
+  }
+
+  .task6 .open{
+    width: 300px;
+  }
