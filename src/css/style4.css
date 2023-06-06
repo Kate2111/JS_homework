@@ -115,6 +115,17 @@ body {
     background-color: rgba(0, 128, 0, 0);
   }
 
-  .task6 .open{
-    width: 300px;
-  }
+.task6 .open{
+width: 300px;
+}
+
+.canvas-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+canvas{
+    width: 200px;
+    height: 100px;
+}
+

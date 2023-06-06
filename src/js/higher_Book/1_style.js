@@ -142,3 +142,8 @@ function task7() {
 
 task7();
 
+let str = '123';
+let arr = [...str].reduce((sum, elem) => sum + Number(elem), 0);
+
+
+console.log(arr)

@@ -286,3 +286,7 @@ function task5() {
         })
 }
 task5();
+
+let paramsString = 'a=1&b=2&c=3';
+let searchParams = new URLSearchParams(paramsString);
+console.log(searchParams);
