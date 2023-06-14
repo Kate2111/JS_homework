@@ -197,8 +197,5 @@ for(let i = 1; i <=6; i++){
 
 image23.stroke();
 
-(function() {
-    
-}())
 
 
