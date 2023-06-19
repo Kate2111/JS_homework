@@ -184,53 +184,118 @@ for(let elem of users) {
   console.log(elem.name)
 }
 
-
-
-
-
-
-function tribonacci(signature,n){
-  const arr = [...signature];
-  if(n === 0) {
-    return [];
+//Класс как набор методов в ООП в JavaScript
+//8. Сделайте класс Validator, который будет выполнять проверку строк на корректность.
+class Validator {
+  //метод isEmail, проверяющий строку на то, что она корректный email.
+  isEmail(str) {
+    return /^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/.test(str)
   }
-  if(n === 1) {
-    return arr.splice(0, 1);
+
+  //isDomain, проверяющий строку на то, что она корректное имя домена.
+  isDomain(str) {
+    return /^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(str)
   }
-  if(n === 2) {
-    return arr.splice(0, 2);
+
+  //метод isNumber, проверяющий строку на то, что она содержит только числа.
+  isNumber(str) {
+    return /^\d+$/.test(str);
   }
-  if(n === 3) {
-    return arr;
-  } 
-  
-    for(let i=3; i<n; i++) {
-        arr[i] = arr[i - 1] + arr[i - 2] + arr[i - 3];
-    }  
-  return arr;
-                           
 }
 
-console.log(tribonacci([1, 2, 1], 1));
+const newStr = new Validator(); 
+console.log(newStr.isNumber('56dsa56.>98'));
 
-function tribonacci(signature, n) {
-    const arr = [...signature];
-    if (n === 0) {
-      return [];
-    }
-    if (n === 1) {
-      return [arr[0]];
-    }
-    if (n === 2) {
-      return [arr[0], arr[1]];
-    }
-    if (n === 3) {
-      return arr;
-    }
-    for (let i = 3; i < n; i++) {
-      arr[i] = arr[i - 1] + arr[i - 2] + arr[i - 3];
-    }
-    return arr;
+//Объекты внутри классов в ООП в JavaScript
+//9. Сделайте так, чтобы во второй и третий параметры передавались объекты отдельных классов.
+class Employee2 {
+	constructor(name, position, department) {
+		this.name = name;
+		this.position = position;
+		this.department = department;
+	}
+}
+
+class Position {
+  constructor(position) {
+    this.name = position;
   }
-  
-  console.log(tribonacci([1, 2, 1], 6));
+}
+
+class Department{
+  constructor(department) {
+    this.name = department
+  }
+}
+
+const newPosition = new Position('left');
+const newDepartament = new Department('game');
+const newEmployee3 = new Employee2('Ivan', newPosition, newDepartament);
+
+console.log(newEmployee3.name, newEmployee3.position.name, newEmployee3.department.name);
+
+
+//Массивы объектов в ООП в JavaScript
+//10. Сделайте массив объектов класса класса Employee.
+class Employee3 {
+	constructor(name, salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+}
+
+const users2 = [
+  new Employee3('Ivan', 500),
+  new Employee3('Petr', 450),
+  new Employee3('Dima', 300),
+  new Employee3('Katy', 550),
+]
+
+users2.forEach(user => console.log(user.salary));
+
+//Манипуляция объектами в классах в ООП в JavaScript
+//11. Сделайте класс EmployeesCollection, который будет содержать массив работников.
+
+class User8{
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary
+  }
+}
+class  EmployeesCollection{
+  _users;
+
+  constructor(){
+    this._users = [];
+  }
+
+  add(user) {
+    return this._users.push(user)
+  }
+
+  show() {
+    this._users.forEach(user => console.log(user.salary));
+  }
+
+  sumSalary() {
+    return this._users.reduce((acc, user) => {
+      return acc + user.salary
+    }, 0)
+  }
+
+  getAvg(){
+    return this.sumSalary() / this._users.length;
+  }
+}
+
+const arrUser = new EmployeesCollection();
+arrUser.add(new User8('Ivan', 500));
+arrUser.add(new User8('Petr', 450));
+console.log(arrUser);
+arrUser.show();
+console.log(arrUser.sumSalary());
+console.log(arrUser.getAvg());
+
+
+
+
