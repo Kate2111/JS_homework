@@ -1,3 +1,4 @@
+
 //1. Сделайте класс Employee.
 class Employee {
     name;
@@ -291,11 +292,135 @@ class  EmployeesCollection{
 const arrUser = new EmployeesCollection();
 arrUser.add(new User8('Ivan', 500));
 arrUser.add(new User8('Petr', 450));
-console.log(arrUser);
+//console.log(arrUser);
 arrUser.show();
-console.log(arrUser.sumSalary());
-console.log(arrUser.getAvg());
+//console.log(arrUser.sumSalary());
+//console.log(arrUser.getAvg());
 
 
 
 
+//Наследование классов в ООП в JavaScript
+//12. Сделайте класс Employee, наследующий от класса User.
+class User9{
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary
+  }
+  setName(name) {
+		this.name = name;
+	}
+	getName() {
+		return this.name;
+	}
+  #capeFirst(str) {
+		return str[0].toUpperCase() + str.slice(1);
+	}
+}
+
+class Student2 extends User9{
+  setYear(year) {
+		this.year = year;
+	}
+	getYear() {
+		return this.year //+ this.#capeFirst(this.name); //Приватные методы не наследуются. Это сделано специально, чтобы не нарушать инкапсуляцию.
+	}
+}
+//Приватные свойства не наследуются. Но потомок может манипулировать ими через публичные методы родителя.
+
+const student = new Student2
+student.setName('Mikel');
+student.setYear(1);
+const nameStudent = student.getName();
+const yearStudent = student.getYear();
+console.log(nameStudent, yearStudent);
+
+
+
+//Переопределение методов родителя в ООП в JavaScript
+class User10{
+  constructor(name, salary, age) {
+    this.name = name;
+    this.salary = salary;
+    this.age = age;
+  }
+  setAge(age) {
+		this.age = age;
+	}
+	getAge() {
+		return this.age;
+	}
+  
+}
+
+class Student3 extends User10{
+  setAge(age) {
+		if (age > 18 && age < 65) {
+			super.setAge(age); //Вызов переопределенного метода в ООП в JavaScript
+		} else {
+			throw new Error('Вы не подходите по возрасту');
+		}
+	}
+}
+
+const student2 = new Student3();
+const student3 = new Student3();
+const age2 = student2.setAge(25);
+//const age3 = student3.setAge(17); //Ошибка
+//console.log(age2);
+//console.log(age3);
+
+
+//Конструктор при наследовании в ООП в JavaScript
+class User11{
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+}
+
+class Student4 extends User11{
+  constructor(name, age, year) {
+    super(name, age); //переопределение конструктора родителя
+    this.year = year;
+  }
+  setYear(year) {
+    this.year = year;
+  }
+  getYear() {
+    return this.year;
+  }
+}
+
+//Проблема приватных свойств при наследовании в ООП в JavaScript
+class User12 {
+	#age;
+	
+	setAge(age) {
+		this.#age = age;
+	}
+	getAge() {
+		return this.#age;
+	}
+}
+
+class Employee4 extends User12 {
+	incAge() {
+		let age = this.getAge();
+		age++;
+		this.setAge(age);
+	}
+}
+
+const newEmployee4 = new Employee4();
+newEmployee4.setAge(10);
+newEmployee4.incAge();
+//console.log(newEmployee4.getAge());
