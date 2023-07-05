@@ -424,3 +424,135 @@ const newEmployee4 = new Employee4();
 newEmployee4.setAge(10);
 newEmployee4.incAge();
 //console.log(newEmployee4.getAge());
+
+//Защищенные методы в ООП в JavaScript
+//Защищенные методы, которые наследуются, но не видны снаружи класса
+class User13 {
+	setName(name) {
+		if (this._notEmpty(name)) {
+			this.name = name;
+		}
+	}
+	getName() {
+		return this.name;
+	}
+	
+	_notEmpty(str) {
+		return str.length > 0;
+	}
+}
+class Employee5 extends User13 {
+	setSurn(surn) {
+		if (this._notEmpty(surn)) {
+			this.surn = surn;
+		}
+	}
+	getSurn() {
+		return this.surn;
+	}
+}
+const newEmployee5 = new Employee5();
+newEmployee5.setName('Ivan');
+newEmployee5.setSurn('Ivanov');
+const nameEmployee = newEmployee5.getName();
+const surnEmployee = newEmployee5.getSurn();
+//console.log(nameEmployee, surnEmployee);
+
+
+
+//Защищенные свойства в ООП в JavaScript
+class User14 {
+	_name;
+	
+	setName(name) {
+		this._name = name;
+	}
+	getName() {
+		//return this.#name;
+	}
+}
+
+class Employee6 extends User14 {
+	setName(name) {
+		if (name.length > 0) {
+			this._name = name;
+		}
+	}
+}
+
+
+//Иерархия наследования классов в ООП в JavaScript
+class User15{
+  setNameSurn(name, surn) {
+    this.name = name;
+    this.surn = surn;
+  }
+  getNameSurn() {
+    return `Имя: ${this.name}, Фамилия:${this.surn}`;
+  }
+}
+
+class Employee7 extends User15{
+  setAge(age) {
+    this.age = age;
+  }
+  getAge(){
+    return `Возраст: ${this.age}`;
+  }
+}
+
+class Programmer extends Employee7{
+  setJobTitle(title){
+    this.title = title;
+  }
+  getProgrammer(){
+    return `${this.getNameSurn()}, ${this.getAge()}, должность: ${this.title}`;
+  }
+}
+
+class Designer extends Employee7{
+  setJobTitle(title){
+    this.title = title;
+  }
+  getDesigner(){
+    return `${this.getNameSurn()}, ${this.getAge()}, должность: ${this.title}`;
+  }
+}
+
+const newProgrammer = new Programmer();
+newProgrammer.setNameSurn('Ivan', 'Ivanov');
+newProgrammer.setAge(25);
+newProgrammer.setJobTitle('programmer');
+const ivan = newProgrammer.getProgrammer();
+
+const newDesigner = new Designer();
+newDesigner.setNameSurn('Petr', 'Petrov');
+newDesigner.setAge(30);
+newDesigner.setJobTitle('designer');
+const petr = newDesigner.getDesigner();
+//console.log(ivan, petr);
+//console.log(newProgrammer.getAge); //Исходный код метода в ООП в JavaScript
+let method = newProgrammer.getAge; //Потеря контекста в коде метода в ООП в JavaScript
+method = method.bind(25);
+//console.log(method());
+
+
+//Потеря контекста в ООП в JavaScript
+//Стрелочная функция сохраняет контекст, в котором она была создана, и не создает своего собственного значения this
+class Employee8 {
+	constructor(name, salary, coeffs) {
+		this.name = name;
+		this.salary = salary;
+		this.coeffs = coeffs;
+	}
+	
+	getTotal() {
+		return this.coeffs.reduce((res, coeff) => {
+			return res + this.salary * coeff;
+		}, 0);
+	}
+}
+
+let employee = new Employee8('john', 1000, [1.1, 1.2, 1.3]);
+let total = employee.getTotal();
+console.log(total);
