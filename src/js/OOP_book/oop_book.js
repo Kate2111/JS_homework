@@ -556,3 +556,68 @@ class Employee8 {
 let employee = new Employee8('john', 1000, [1.1, 1.2, 1.3]);
 let total = employee.getTotal();
 console.log(total);
+
+//Анонимные классы в ООП в JavaScript
+let arrHelper = new class {
+	getSum(arr) {
+		
+	}
+	getAvg(arr) {
+		
+	}
+}
+
+//Классы и модули в ООП в JavaScript
+
+/* import Card from './index';
+const newCard = new Card('Яблоко', '25р/кг', '2кг');
+console.log(newCard.getInfo());
+
+export default class Descr extends Card {
+	
+} */
+
+//Свойства-аксессоры в ООП в JavaScript
+class Employee9 {
+  #name;
+
+  set name(name) {
+    if(name.length > 0) {
+      this.#name = name;
+    } else {
+      throw new Error('Введите имя')
+    }
+  }
+
+  get name() {
+    return this.#name;
+  }
+}
+
+const employee9 = new Employee9();
+employee9.name = 'Mike'
+let name = employee9.name;
+console.log(name);
+
+
+
+//Геттеры мнимых свойств в ООП в JavaScript
+class User16 {
+	constructor(name, surn) {
+		this.name = name;
+		this.surn = surn;
+	}
+	
+	get full() {
+		return this.name + ' ' + this.surn;
+	}
+
+  set full(full){
+    [this.name, this.surn] = full.split(' ');
+  }
+}
+
+let user = new User16('john', 'smit');
+console.log(user.full);
+user.full = 'eric jons';
+console.log(user.full);

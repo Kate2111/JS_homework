@@ -1,6 +1,7 @@
 {
   "name": "js_homework",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "script.js",
   "homepages": "https://kate2111.github.io/JS_homework/",
@@ -23,7 +24,8 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-csso": "^4.0.1",
     "jquery": "^3.6.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "webpack-stream": "^7.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.29.1",
